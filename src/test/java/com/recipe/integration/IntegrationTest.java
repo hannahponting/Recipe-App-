@@ -13,7 +13,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -49,6 +49,28 @@ public class IntegrationTest {
         Assertions.assertEquals("bake the potato",actualRecipe.getInstructions().get(0));
         Assertions.assertEquals("1 potato",actualRecipe.getIngredientsList().get(0));
 
+
+    }
+
+
+    @Test
+    public void testDeletingRecipe() throws Exception {
+        String id = "1";
+
+        MvcResult result =
+                this.mockMvc.perform(get("/recipes/"+id))
+                .andExpect(status().isOk())
+                        .andReturn();
+
+        MvcResult updatedResult =
+                mockMvc.perform(MockMvcRequestBuilders.delete("/recipes/"+id))
+                        .andExpect(status().isOk())
+                        .andReturn();
+
+        result =
+                this.mockMvc.perform(get("/recipes/"+id))
+                        .andExpect(status().isNotFound())
+                        .andReturn();
 
     }
 }
