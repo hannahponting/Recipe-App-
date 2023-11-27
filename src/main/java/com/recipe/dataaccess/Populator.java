@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 @Component
 public class Populator {
+
     RecipeRepository recipeRepository;
 
     ObjectMapper objectMapper = new ObjectMapper();
