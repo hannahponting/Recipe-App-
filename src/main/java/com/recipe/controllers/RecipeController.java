@@ -3,6 +3,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.recipe.entities.Recipe;
 import com.recipe.services.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,12 @@ public class RecipeController {
         this.recipeService = recipeService;
     }
 
+    @DeleteMapping("/{id}")
+    @Operation(summary = "delete recipe")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteById(@PathVariable("id") long id) {
+        recipeService.deleteById(id);
+    }
 
     @PostMapping("")
     @Operation(summary = "create a new user")
