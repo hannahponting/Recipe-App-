@@ -17,10 +17,19 @@ public class RecipeService {
     }
 
     public Recipe addRecipe(Recipe recipe) {
+        return null;
     }
 
   
     public void deleteById(long id){
         recipeRepository.deleteById(id);
+    }
+
+    public Iterable<Recipe> findAll() {
+        return null;
+    }
+
+    public Recipe getrecipeById(Long recipeId) {
+        return null;
     }
 }
