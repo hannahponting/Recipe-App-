@@ -45,13 +45,15 @@ public class RecipeController {
     }
 
     @GetMapping("")
+    @Operation(summary = "get all recipes")
     public Iterable<Recipe> getRecipe(){
         return recipeService.findAll();
     }
 
     @GetMapping("/{recipeId}")
+    @Operation(summary = "get recipes by id ")
     public Recipe getRecipeById(@PathVariable Long recipeId){
-        Recipe recipe = recipeService.getrecipeById(recipeId);
+        Recipe recipe = recipeService.getRecipeById(recipeId);
         if (recipe == null)
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipe not found");
 
