@@ -38,11 +38,13 @@ public class RecipeController {
     }
 
     @GetMapping("")
+    @Operation(summary = "get all recipes")
     public Iterable<Recipe> getRecipe(){
         return recipeService.findAll();
     }
 
     @GetMapping("/{recipeId}")
+    @Operation(summary = "get recipes by id ")
     public Recipe getRecipeById(@PathVariable Long recipeId){
         Recipe recipe = recipeService.getrecipeById(recipeId);
         if (recipe == null)
