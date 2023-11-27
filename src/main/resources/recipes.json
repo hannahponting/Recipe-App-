@@ -1,25 +1,159 @@
 [
   {
-      "name": "Grilled Lemon Herb Chicken",
-      "ingredients": [
-        "4 boneless, skinless chicken breasts",
-        "2 lemons (juiced)",
-        "3 tablespoons olive oil",
-        "2 cloves garlic (minced)",
-        "1 teaspoon dried oregano",
-        "Salt and pepper to taste"
-      ],
-      "instructions": [
-        "In a bowl, mix lemon juice, olive oil, minced garlic, oregano, salt, and pepper.",
-        "Marinate chicken breasts in the mixture for at least 30 minutes.",
-        "Preheat grill to medium-high heat.",
-        "Grill chicken for 6-8 minutes per side or until fully cooked.",
-        "Serve with your favorite side dishes."
-      ]
+    "name": "Vegetarian Fajita Bowl",
+    "mealType": "Lunch",
+    "cuisine": "Mexican",
+    "serving": 4,
+    "time_to_cook": "25 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Low",
+    "spice_level": "Medium",
+    "ingredients": [
+      "2 bell peppers (sliced)",
+      "1 red onion (sliced)",
+      "1 zucchini (sliced)",
+      "1 cup cherry tomatoes (halved)",
+      "2 tablespoons olive oil",
+      "1 tablespoon fajita seasoning",
+      "1 can black beans (drained and rinsed)",
+      "Cooked rice for serving",
+      "Optional toppings: avocado, salsa, sour cream"
+    ],
+    "instructions": [
+      "In a large skillet, sauté bell peppers, red onion, zucchini, and cherry tomatoes in olive oil.",
+      "Sprinkle fajita seasoning over the vegetables and stir to coat evenly.",
+      "Add black beans and cook until heated through.",
+      "Serve over cooked rice with optional toppings.",
+      "Enjoy your vegetarian fajita bowl!"
+    ]
   },
-
+  {
+    "name": "Lemon Garlic Shrimp Pasta",
+    "mealType": "Dinner",
+    "cuisine": "Italian",
+    "serving": 4,
+    "time_to_cook": "20 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "300g linguine or spaghetti",
+      "1 lb large shrimp (peeled and deveined)",
+      "3 tablespoons olive oil",
+      "4 cloves garlic (minced)",
+      "Zest of 1 lemon",
+      "Juice of 1 lemon",
+      "1/2 cup cherry tomatoes (halved)",
+      "1/4 cup fresh parsley (chopped)",
+      "Salt and black pepper to taste",
+      "Grated Parmesan cheese for serving"
+    ],
+    "instructions": [
+      "Cook pasta according to package instructions.",
+      "In a large pan, heat olive oil and sauté minced garlic until fragrant.",
+      "Add shrimp and cook until pink and opaque.",
+      "Stir in lemon zest, lemon juice, cherry tomatoes, and parsley.",
+      "Season with salt and black pepper.",
+      "Toss cooked pasta with the shrimp mixture.",
+      "Serve with grated Parmesan cheese on top."
+    ]
+  },
+  {
+    "name": "Teriyaki Tofu Stir-Fry",
+    "mealType": "Dinner",
+    "cuisine": "Asian",
+    "serving": 4,
+    "time_to_cook": "30 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "1 block extra-firm tofu (pressed and cubed)",
+      "3 tablespoons soy sauce",
+      "2 tablespoons teriyaki sauce",
+      "1 tablespoon rice vinegar",
+      "1 tablespoon sesame oil",
+      "1 tablespoon cornstarch",
+      "2 tablespoons vegetable oil",
+      "3 cups mixed stir-fry vegetables (broccoli, bell peppers, carrots, snap peas)",
+      "3 green onions (sliced)",
+      "Cooked rice for serving"
+    ],
+    "instructions": [
+      "In a bowl, mix soy sauce, teriyaki sauce, rice vinegar, sesame oil, and cornstarch to make the sauce.",
+      "Heat vegetable oil in a wok or skillet over medium-high heat.",
+      "Add cubed tofu and cook until golden brown on all sides.",
+      "Stir in mixed vegetables and green onions.",
+      "Pour the sauce over the tofu and vegetables, stirring to coat evenly.",
+      "Cook until the vegetables are tender-crisp and the sauce has thickened.",
+      "Serve over cooked rice."
+    ]
+  },
+  {
+    "name": "Mango Avocado Salsa Chicken",
+    "mealType": "Dinner",
+    "cuisine": "Mexican",
+    "serving": 4,
+    "time_to_cook": "25 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "4 boneless, skinless chicken breasts",
+      "1 teaspoon cumin",
+      "1 teaspoon chili powder",
+      "Salt and black pepper to taste",
+      "2 tablespoons olive oil",
+      "1 mango (diced)",
+      "1 avocado (diced)",
+      "1/2 red onion (finely chopped)",
+      "1 jalapeño (seeded and minced)",
+      "Juice of 2 limes",
+      "Fresh cilantro (chopped)"
+    ],
+    "instructions": [
+      "Season chicken breasts with cumin, chili powder, salt, and black pepper.",
+      "In a skillet, heat olive oil over medium-high heat.",
+      "Cook chicken breasts until browned on both sides and cooked through.",
+      "While the chicken is cooking, prepare the salsa by combining mango, avocado, red onion, jalapeño, lime juice, and cilantro in a bowl.",
+      "Serve the chicken topped with mango avocado salsa.",
+      "Enjoy your flavorful mango avocado salsa chicken!"
+    ]
+  },
+  {
+    "name": "Grilled Lemon Herb Chicken",
+    "mealType": "Dinner",
+    "cuisine": "American",
+    "serving": 4,
+    "time_to_cook": "30 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "4 boneless, skinless chicken breasts",
+      "2 lemons (juiced)",
+      "3 tablespoons olive oil",
+      "2 cloves garlic (minced)",
+      "1 teaspoon dried oregano",
+      "Salt and pepper to taste"
+    ],
+    "instructions": [
+      "In a bowl, mix lemon juice, olive oil, minced garlic, oregano, salt, and pepper.",
+      "Marinate chicken breasts in the mixture for at least 30 minutes.",
+      "Preheat grill to medium-high heat.",
+      "Grill chicken for 6-8 minutes per side or until fully cooked.",
+      "Serve with your favorite side dishes."
+    ]
+  },
   {
     "name": "Vegetarian Quinoa Bowl",
+    "mealType": "Lunch",
+    "cuisine": "Mediterranean",
+    "serving": 4,
+    "time_to_cook": "25 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Low",
+    "spice_level": "Mild",
     "ingredients": [
       "1 cup quinoa",
       "2 cups vegetable broth",
@@ -37,9 +171,15 @@
       "Serve chilled."
     ]
   },
-
   {
     "name": "Spaghetti Aglio e Olio",
+    "mealType": "Dinner",
+    "cuisine": "Italian",
+    "serving": 4,
+    "time_to_cook": "20 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Low",
+    "spice_level": "Mild",
     "ingredients": [
       "400g spaghetti",
       "1/2 cup olive oil",
@@ -56,10 +196,15 @@
       "Garnish with fresh parsley and Parmesan cheese before serving."
     ]
   },
-
-
   {
     "name": "Coconut Curry Chickpeas",
+    "mealType": "Dinner",
+    "cuisine": "Indian",
+    "serving": 4,
+    "time_to_cook": "25 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Moderate",
+    "spice_level": "Medium",
     "ingredients": [
       "2 cans chickpeas (drained)",
       "1 can coconut milk",
@@ -78,6 +223,13 @@
   },
   {
     "name": "Caprese Salad",
+    "mealType": "Lunch",
+    "cuisine": "Italian",
+    "serving": 4,
+    "time_to_cook": "15 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Low",
+    "spice_level": "Mild",
     "ingredients": [
       "4 large tomatoes (sliced)",
       "200g fresh mozzarella (sliced)",
@@ -96,6 +248,13 @@
   },
   {
     "name": "Honey Mustard Glazed Salmon",
+    "mealType": "Dinner",
+    "cuisine": "American",
+    "serving": 4,
+    "time_to_cook": "20 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Moderate",
+    "spice_level": "Mild",
     "ingredients": [
       "4 salmon fillets",
       "1/4 cup Dijon mustard",
@@ -109,89 +268,136 @@
       "Mix Dijon mustard, honey, soy sauce, minced garlic, salt, and pepper.",
       "Brush the mixture over salmon fillets.",
       "Bake for 15-20 minutes or until salmon flakes easily.",
+      "Optional: Broil for an additional 1-2 minutes for a caramelized finish.",
       "Serve with steamed vegetables or rice."
     ]
   },
   {
-    "name": "Mushroom Risotto",
+    "name": "Avocado Toast with Poached Egg",
+    "mealType": "Breakfast",
+    "cuisine": "International",
+    "serving": 2,
+    "time_to_cook": "15 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Low",
+    "spice_level": "Mild",
     "ingredients": [
-      "1 cup Arborio rice",
-      "4 cups vegetable broth",
-      "1 cup mushrooms (sliced)",
-      "1/2 cup dry white wine",
-      "1 onion (finely chopped)",
-      "2 tablespoons butter",
-      "1/2 cup Parmesan cheese (grated)"
+      "2 slices whole grain bread",
+      "1 ripe avocado",
+      "2 eggs",
+      "Salt and pepper to taste",
+      "Red pepper flakes (optional)",
+      "Chopped chives for garnish"
     ],
     "instructions": [
-      "Sauté chopped onion in butter until softened.",
-      "Add sliced mushrooms and cook until browned.",
-      "Stir in Arborio rice and cook for 2 minutes.",
-      "Pour in white wine and cook until mostly evaporated.",
-      "Gradually add vegetable broth, stirring until rice is creamy.",
-      "Stir in Parmesan cheese and serve hot."
+      "Toast the bread slices to your liking.",
+      "Mash the ripe avocado and spread it evenly on the toasted bread.",
+      "Poach the eggs and place one on each avocado-covered toast.",
+      "Season with salt, pepper, and red pepper flakes if desired.",
+      "Garnish with chopped chives and enjoy!"
     ]
   },
   {
-    "name": "Chicken and Vegetable Stir-Fry",
+    "name": "Greek Yogurt Parfait",
+    "mealType": "Breakfast",
+    "cuisine": "Mediterranean",
+    "serving": 2,
+    "time_to_cook": "10 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Low",
+    "spice_level": "Mild",
     "ingredients": [
-      "1 lb boneless chicken breast (sliced)",
-      "2 cups broccoli florets",
-      "1 red bell pepper (sliced)",
-      "1 carrot (julienned)",
-      "3 tablespoons soy sauce",
-      "1 tablespoon hoisin sauce",
-      "2 tablespoons vegetable oil"
+      "2 cups Greek yogurt",
+      "1 cup granola",
+      "1 cup mixed berries (strawberries, blueberries, raspberries)",
+      "Honey for drizzling",
+      "Chopped nuts (optional)"
     ],
     "instructions": [
-      "Heat oil in a wok or skillet over high heat.",
-      "Add sliced chicken and stir-fry until cooked.",
-      "Add broccoli, bell pepper, and carrot; stir-fry for 3-5 minutes.",
-      "Mix in soy sauce and hoisin sauce.",
-      "Serve over rice or noodles."
+      "In serving glasses or bowls, layer Greek yogurt, granola, and mixed berries.",
+      "Repeat the layers until the glasses are filled.",
+      "Drizzle honey over the top and sprinkle with chopped nuts if desired.",
+      "Serve immediately and enjoy your delicious parfait!"
     ]
   },
   {
-    "name": "Pesto Pasta with Cherry Tomatoes",
+    "name": "Spinach and Feta Omelette",
+    "mealType": "Breakfast",
+    "cuisine": "International",
+    "serving": 1,
+    "time_to_cook": "10 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Low",
+    "spice_level": "Mild",
     "ingredients": [
-      "300g pasta",
-      "1 cup cherry tomatoes (halved)",
-      "1/2 cup pine nuts",
-      "2 cups fresh basil leaves",
-      "1/2 cup Parmesan cheese (grated)",
-      "1/2 cup olive oil",
-      "2 cloves garlic"
+      "3 eggs",
+      "Handful of fresh spinach",
+      "1/4 cup crumbled feta cheese",
+      "Salt and pepper to taste",
+      "1 tablespoon olive oil",
+      "Cherry tomatoes for garnish"
     ],
     "instructions": [
-      "Cook pasta according to package instructions.",
-      "In a blender, combine basil, pine nuts, Parmesan, garlic, and olive oil. Blend into a pesto sauce.",
-      "Toss cooked pasta with pesto sauce and cherry tomatoes.",
-      "Serve with additional Parmesan if desired."
+      "Whisk the eggs in a bowl and season with salt and pepper.",
+      "In a skillet, heat olive oil over medium heat.",
+      "Add fresh spinach to the skillet and sauté until wilted.",
+      "Pour the whisked eggs over the spinach and sprinkle with feta cheese.",
+      "Cook until the eggs are set, then fold the omelette in half.",
+      "Garnish with cherry tomatoes and serve hot."
     ]
   },
   {
-    "name": "Black Bean and Corn Salad",
+    "name": "Banana Nut Pancakes",
+    "mealType": "Breakfast",
+    "cuisine": "American",
+    "serving": 4,
+    "time_to_cook": "20 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Low",
+    "spice_level": "Mild",
     "ingredients": [
-      "1 can black beans (drained and rinsed)",
-      "1 cup corn kernels (fresh or frozen)",
-      "1 red bell pepper (diced)",
-      "1/2 red onion (chopped)",
-      "1/4 cup cilantro (chopped)",
-      "Juice of 2 limes",
-      "Salt and cumin to taste"
+      "1 cup all-purpose flour",
+      "1 tablespoon sugar",
+      "1 teaspoon baking powder",
+      "1/2 teaspoon baking soda",
+      "1/4 teaspoon salt",
+      "1 cup buttermilk",
+      "1 egg",
+      "2 ripe bananas (mashed)",
+      "1/2 cup chopped nuts (walnuts or pecans)",
+      "Butter and maple syrup for serving"
     ],
     "instructions": [
-      "In a bowl, combine black beans, corn, bell pepper, red onion, and cilantro.",
-      "Mix in lime juice, salt, and cumin.",
-      "Refrigerate for at least 30 minutes before serving.",
-      "Enjoy as a refreshing salad or as a side dish."
+      "In a bowl, whisk together flour, sugar, baking powder, baking soda, and salt.",
+      "In another bowl, mix buttermilk, egg, mashed bananas, and chopped nuts.",
+      "Combine wet and dry ingredients until just mixed.",
+      "Heat a griddle or non-stick pan over medium heat and ladle the batter onto it.",
+      "Cook until bubbles form on the surface, then flip and cook the other side.",
+      "Serve with butter and maple syrup."
+    ]
+  },
+  {
+    "name": "Fruit Smoothie Bowl",
+    "mealType": "Breakfast",
+    "cuisine": "International",
+    "serving": 2,
+    "time_to_cook": "10 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "2 frozen bananas",
+      "1 cup frozen mixed berries",
+      "1 cup spinach leaves",
+      "1/2 cup Greek yogurt",
+      "1/2 cup almond milk",
+      "Toppings: sliced fruits, granola, chia seeds"
+    ],
+    "instructions": [
+      "In a blender, combine frozen bananas, mixed berries, spinach, Greek yogurt, and almond milk.",
+      "Blend until smooth and creamy.",
+      "Pour the smoothie into bowls and top with sliced fruits, granola, and chia seeds.",
+      "Enjoy your nutritious and delicious smoothie bowl!"
     ]
   }
 ]
-
-
-
-
-
-
-

@@ -1,0 +1,11 @@
+package com.recipe.utilities;
+
+public enum RecipeFilters {
+    FRENCH, CHINESE, JAPANESE, ITALIAN, GREEK, SPANISH, INDIAN, EASY, MEDIUM, HARD,
+    BREAKFAST, LUNCH, DINNER,
+
+    BUDGET_FRIENDLY, MEDIUM_BUDGET, PRICEY,
+
+    NONE, MILD, MEDIUM_SPICE, HOT
+
+}
