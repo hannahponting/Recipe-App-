@@ -15,10 +15,12 @@ public class RecipeService {
     public RecipeService(RecipeRepository recipeRepository){
         this.recipeRepository = recipeRepository;
     }
-    public Recipe addRecipe(Recipe recipe) {
 
+    public Recipe addRecipe(Recipe recipe) {
     }
+
   
-    public void deleteById(long id) {
+    public void deleteById(long id){
         recipeRepository.deleteById(id);
+    }
 }
