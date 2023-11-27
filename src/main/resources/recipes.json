@@ -1,0 +1,197 @@
+[
+  {
+      "name": "Grilled Lemon Herb Chicken",
+      "ingredients": [
+        "4 boneless, skinless chicken breasts",
+        "2 lemons (juiced)",
+        "3 tablespoons olive oil",
+        "2 cloves garlic (minced)",
+        "1 teaspoon dried oregano",
+        "Salt and pepper to taste"
+      ],
+      "instructions": [
+        "In a bowl, mix lemon juice, olive oil, minced garlic, oregano, salt, and pepper.",
+        "Marinate chicken breasts in the mixture for at least 30 minutes.",
+        "Preheat grill to medium-high heat.",
+        "Grill chicken for 6-8 minutes per side or until fully cooked.",
+        "Serve with your favorite side dishes."
+      ]
+  },
+
+  {
+    "name": "Vegetarian Quinoa Bowl",
+    "ingredients": [
+      "1 cup quinoa",
+      "2 cups vegetable broth",
+      "1 cup cherry tomatoes (halved)",
+      "1 cucumber (diced)",
+      "1/2 red onion (finely chopped)",
+      "Feta cheese (crumbled)",
+      "Balsamic vinaigrette dressing"
+    ],
+    "instructions": [
+      "Cook quinoa in vegetable broth according to package instructions.",
+      "Let quinoa cool, then fluff with a fork.",
+      "In a bowl, combine quinoa, cherry tomatoes, cucumber, red onion, and feta cheese.",
+      "Drizzle with balsamic vinaigrette dressing and toss gently.",
+      "Serve chilled."
+    ]
+  },
+
+  {
+    "name": "Spaghetti Aglio e Olio",
+    "ingredients": [
+      "400g spaghetti",
+      "1/2 cup olive oil",
+      "4 cloves garlic (sliced)",
+      "Red pepper flakes (to taste)",
+      "Fresh parsley (chopped)",
+      "Grated Parmesan cheese"
+    ],
+    "instructions": [
+      "Cook spaghetti according to package instructions.",
+      "Heat olive oil in a pan, add sliced garlic and red pepper flakes.",
+      "Cook until garlic is golden, then remove from heat.",
+      "Toss cooked spaghetti in the garlic-infused oil.",
+      "Garnish with fresh parsley and Parmesan cheese before serving."
+    ]
+  },
+
+
+  {
+    "name": "Coconut Curry Chickpeas",
+    "ingredients": [
+      "2 cans chickpeas (drained)",
+      "1 can coconut milk",
+      "1 onion (chopped)",
+      "2 tomatoes (diced)",
+      "2 tablespoons curry powder",
+      "1 teaspoon turmeric",
+      "Salt and pepper to taste"
+    ],
+    "instructions": [
+      "Sauté chopped onion until translucent.",
+      "Add diced tomatoes, curry powder, turmeric, salt, and pepper.",
+      "Stir in chickpeas and coconut milk, simmer for 15-20 minutes.",
+      "Serve over rice or with naan bread."
+    ]
+  },
+  {
+    "name": "Caprese Salad",
+    "ingredients": [
+      "4 large tomatoes (sliced)",
+      "200g fresh mozzarella (sliced)",
+      "Fresh basil leaves",
+      "Balsamic glaze",
+      "Olive oil",
+      "Salt and pepper to taste"
+    ],
+    "instructions": [
+      "Arrange tomato and mozzarella slices on a plate.",
+      "Tuck fresh basil leaves between the slices.",
+      "Drizzle with olive oil and balsamic glaze.",
+      "Sprinkle with salt and pepper.",
+      "Serve immediately."
+    ]
+  },
+  {
+    "name": "Honey Mustard Glazed Salmon",
+    "ingredients": [
+      "4 salmon fillets",
+      "1/4 cup Dijon mustard",
+      "2 tablespoons honey",
+      "1 tablespoon soy sauce",
+      "1 clove garlic (minced)",
+      "Salt and pepper to taste"
+    ],
+    "instructions": [
+      "Preheat oven to 375°F (190°C).",
+      "Mix Dijon mustard, honey, soy sauce, minced garlic, salt, and pepper.",
+      "Brush the mixture over salmon fillets.",
+      "Bake for 15-20 minutes or until salmon flakes easily.",
+      "Serve with steamed vegetables or rice."
+    ]
+  },
+  {
+    "name": "Mushroom Risotto",
+    "ingredients": [
+      "1 cup Arborio rice",
+      "4 cups vegetable broth",
+      "1 cup mushrooms (sliced)",
+      "1/2 cup dry white wine",
+      "1 onion (finely chopped)",
+      "2 tablespoons butter",
+      "1/2 cup Parmesan cheese (grated)"
+    ],
+    "instructions": [
+      "Sauté chopped onion in butter until softened.",
+      "Add sliced mushrooms and cook until browned.",
+      "Stir in Arborio rice and cook for 2 minutes.",
+      "Pour in white wine and cook until mostly evaporated.",
+      "Gradually add vegetable broth, stirring until rice is creamy.",
+      "Stir in Parmesan cheese and serve hot."
+    ]
+  },
+  {
+    "name": "Chicken and Vegetable Stir-Fry",
+    "ingredients": [
+      "1 lb boneless chicken breast (sliced)",
+      "2 cups broccoli florets",
+      "1 red bell pepper (sliced)",
+      "1 carrot (julienned)",
+      "3 tablespoons soy sauce",
+      "1 tablespoon hoisin sauce",
+      "2 tablespoons vegetable oil"
+    ],
+    "instructions": [
+      "Heat oil in a wok or skillet over high heat.",
+      "Add sliced chicken and stir-fry until cooked.",
+      "Add broccoli, bell pepper, and carrot; stir-fry for 3-5 minutes.",
+      "Mix in soy sauce and hoisin sauce.",
+      "Serve over rice or noodles."
+    ]
+  },
+  {
+    "name": "Pesto Pasta with Cherry Tomatoes",
+    "ingredients": [
+      "300g pasta",
+      "1 cup cherry tomatoes (halved)",
+      "1/2 cup pine nuts",
+      "2 cups fresh basil leaves",
+      "1/2 cup Parmesan cheese (grated)",
+      "1/2 cup olive oil",
+      "2 cloves garlic"
+    ],
+    "instructions": [
+      "Cook pasta according to package instructions.",
+      "In a blender, combine basil, pine nuts, Parmesan, garlic, and olive oil. Blend into a pesto sauce.",
+      "Toss cooked pasta with pesto sauce and cherry tomatoes.",
+      "Serve with additional Parmesan if desired."
+    ]
+  },
+  {
+    "name": "Black Bean and Corn Salad",
+    "ingredients": [
+      "1 can black beans (drained and rinsed)",
+      "1 cup corn kernels (fresh or frozen)",
+      "1 red bell pepper (diced)",
+      "1/2 red onion (chopped)",
+      "1/4 cup cilantro (chopped)",
+      "Juice of 2 limes",
+      "Salt and cumin to taste"
+    ],
+    "instructions": [
+      "In a bowl, combine black beans, corn, bell pepper, red onion, and cilantro.",
+      "Mix in lime juice, salt, and cumin.",
+      "Refrigerate for at least 30 minutes before serving.",
+      "Enjoy as a refreshing salad or as a side dish."
+    ]
+  }
+]
+
+
+
+
+
+
+
