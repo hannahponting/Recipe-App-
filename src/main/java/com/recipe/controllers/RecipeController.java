@@ -49,6 +49,11 @@ public class RecipeController {
     public Iterable<Recipe> getRecipe(){
         return recipeService.findAll();
     }
+    @GetMapping("/search/{keyword}")
+    @Operation(summary = "get recipes by keyword in name")
+    public Iterable<Recipe> getRecipeByName(@PathVariable String keyword){
+        return recipeService.findByNameContains(keyword);
+    }
 
     @GetMapping("/{recipeId}")
     @Operation(summary = "get recipes by id ")

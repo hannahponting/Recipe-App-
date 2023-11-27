@@ -4,9 +4,8 @@ import com.recipe.dataaccess.RecipeRepository;
 import com.recipe.entities.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.Iterator;
+import java.util.Collection;
 import java.util.Optional;
 
 @Service
@@ -56,4 +55,8 @@ public class RecipeService {
 
     }
 
+    public Iterable<Recipe> findByNameContains(String keyword) {
+        final Collection<Recipe> result = recipeRepository.findAllByNameContainingIgnoreCase(keyword);
+        return result;
+    }
 }
