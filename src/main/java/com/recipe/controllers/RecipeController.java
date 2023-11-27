@@ -1,11 +1,18 @@
 package com.recipe.controllers;
-
+import com.fasterxml.jackson.annotation.JsonView;
+import com.recipe.entities.Recipe;
 import com.recipe.services.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.http.HttpStatus;
+
+import org.springframework.web.bind.annotation.*;
+import io.swagger.v3.oas.annotations.Operation;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/recipes")
@@ -18,7 +25,38 @@ public class RecipeController {
     }
 
     @DeleteMapping("/{id}")
+    @Operation(summary = "delete recipe")
+    @ResponseStatus(HttpStatus.OK)
     public void deleteById(@PathVariable("id") long id) {
         recipeService.deleteById(id);
     }
+
+    @PostMapping("")
+    @Operation(summary = "create a new user")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Recipe addRecipe(@RequestBody Recipe recipe) {
+        Recipe newRecipe;
+        try {
+            newRecipe = recipeService.addRecipe(recipe);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(e.getMessage());
+        }
+        return newRecipe;
+    }
+
+    @GetMapping("")
+    public Iterable<Recipe> getRecipe(){
+        return recipeService.findAll();
+    }
+
+    @GetMapping("/{recipeId}")
+    public Recipe getRecipeById(@PathVariable Long recipeId){
+        Recipe recipe = recipeService.getrecipeById(recipeId);
+        if (recipe == null)
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipe not found");
+
+        return recipe;
+    }
+
+
 }
