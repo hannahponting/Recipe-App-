@@ -1,16 +1,13 @@
 package com.recipe.services;
 
 import com.recipe.dataaccess.RecipeRepository;
-import com.recipe.entities.Recipe;
+import com.recipe.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Optional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Component
 public class RecipeService {
