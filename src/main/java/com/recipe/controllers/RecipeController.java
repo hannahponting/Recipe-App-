@@ -32,7 +32,7 @@ public class RecipeController {
     }
 
     @PostMapping("")
-    @Operation(summary = "create a new user")
+    @Operation(summary = "create a new recipe")
     @ResponseStatus(HttpStatus.CREATED)
     public Recipe addRecipe(@RequestBody Recipe recipe) {
         Recipe newRecipe;
