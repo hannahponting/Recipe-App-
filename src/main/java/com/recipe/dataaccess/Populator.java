@@ -20,6 +20,9 @@ public class Populator {
 
     File recipeFile = new File ("src/main/resources/recipes.json");
 
+    public Populator() {
+        this.recipeRepository = recipeRepository;
+    }
 
 
     @EventListener(ContextRefreshedEvent.class)
