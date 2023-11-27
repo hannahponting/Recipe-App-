@@ -24,7 +24,6 @@ public class RecipeService {
 
     public Recipe addRecipe(Recipe recipe) {
 
-
         return null;
     }
 
@@ -34,7 +33,20 @@ public class RecipeService {
     }
 
 
-//    public Recipe getrecipeById(Long recipeId) {
+
+
+
+    public List<Recipe> findAll(){
+        return this.recipeRepository.findAll();
+    }
+
+    public Recipe getRecipeById(long recipeId) {
+        Optional<Recipe> recipe = this.recipeRepository.findById(recipeId);
+        return recipe.orElse(null);
+
+    }
+  
+  //    public Recipe getrecipeById(Long recipeId) {
 //        return null;
 //
 //        if (recipe.getId() != null) {
@@ -53,16 +65,6 @@ public class RecipeService {
 //        return recipe;
 //    }
 
-
-    public List<Recipe> findAll(){
-        return this.recipeRepository.findAll();
-    }
-
-    public Recipe getRecipeById(long recipeId) {
-        Optional<Recipe> recipe = this.recipeRepository.findById(recipeId);
-        return recipe.orElse(null);
-
-    }
 
 
 

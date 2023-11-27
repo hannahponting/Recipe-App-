@@ -25,7 +25,10 @@ public class Populator {
     ObjectMapper objectMapper = new ObjectMapper();
 
     File recipeFile = new File ("src/main/resources/recipes.json");
-
+    @Autowired
+    public Populator(RecipeRepository recipeRepository) {
+        this.recipeRepository = recipeRepository;
+    }
 
 
     @EventListener(ContextRefreshedEvent.class)
