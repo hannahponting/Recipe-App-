@@ -15,11 +15,6 @@ import java.util.ArrayList;
 @Component
 public class Populator {
 
-    @Autowired
-    public Populator(RecipeRepository recipeRepository) {
-        this.recipeRepository = recipeRepository;
-    }
-
     RecipeRepository recipeRepository;
 
     ObjectMapper objectMapper = new ObjectMapper();
