@@ -111,14 +111,6 @@ public class RecipeController {
         return handleEmptyResult(recipeService.getRecipeBySpiceType(spiceType), "Spice Level", spiceType);
     }
 
-
-
-
-
-
-
-
-
     private Iterable<Recipe> handleEmptyResult(Iterable<Recipe> result, String parameterName, Object parameterValue) {
         if (!result.iterator().hasNext()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Sorry, We Don't Have Recipes For " + parameterName + " Of " + parameterValue);
