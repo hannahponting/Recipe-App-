@@ -58,7 +58,7 @@ public class getRecipesWithMockHttpsRequestIT {
         @Test
         public void testFindRecipeById() throws Exception {
 
-                Long Id= 1L;
+                Long Id= 101L;
 
                 MvcResult result =
                         (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/"+Id)))

@@ -36,7 +36,7 @@ public class Recipe {
     private ArrayList<String> ingredientsList;
     private ArrayList<String> instructions;
 
-@JsonProperty(value = "serving")
+    @JsonProperty(value = "serving")
     private int servingNo;
     @JsonProperty(value = "time_to_cook")
     private String timeToCook;
