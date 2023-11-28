@@ -2,6 +2,9 @@ package com.recipe.integrations;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.recipe.entities.Recipe;
+import com.recipe.utilities.Cost;
+import com.recipe.utilities.Difficulty;
+import com.recipe.utilities.MealTime;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -57,9 +60,7 @@ class getRecipesWithMockHttpsRequestIT {
 
         @Test
         void testFindRecipeById() throws Exception {
-
                 Long Id= 101L;
-
                 MvcResult result =
                         (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/"+Id)))
                                 .andExpect(status().isOk())
@@ -71,7 +72,6 @@ class getRecipesWithMockHttpsRequestIT {
                 Recipe actualRecipe = mapper.readValue(contentAsJson,Recipe.class);
 
                 assertEquals("Grilled Lemon Herb Chicken",actualRecipe.getName());
-
         }
 
         @Test
@@ -85,6 +85,92 @@ class getRecipesWithMockHttpsRequestIT {
         }
 
 
-    }
+        @Test
+        void testSearchRecipesByDifficulty() throws Exception {
+
+                Difficulty difficultyLevel =Difficulty.EASY;
+                MvcResult result =
+                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/difficulty/"+difficultyLevel)))
+                                .andExpect(status().isOk())
+                                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                                .andReturn();
+
+                String contentAsJson = result.getResponse().getContentAsString();
+                ObjectMapper mapper = new ObjectMapper();
+                Recipe[] actualRecipes = mapper.readValue(contentAsJson,Recipe[].class);
+
+                assertEquals("Grilled Lemon Herb Chicken",actualRecipes[0].getName());
+        }
+
+        @Test
+        void testSearchRecipesByDifficultyNotFound() throws Exception {
+                MvcResult result =
+                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/difficulty/"+"HIGH")))
+                                .andExpect(status().isNotFound())
+                                .andReturn();
+        }
+
+        @Test
+        void testSearchRecipesByMealType() throws Exception {
+
+                MealTime mealType = MealTime.LUNCH;
+                MvcResult result =
+                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/meal_type/"+mealType)))
+                                .andExpect(status().isOk())
+                                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                                .andReturn();
+
+                String contentAsJson = result.getResponse().getContentAsString();
+                ObjectMapper mapper = new ObjectMapper();
+                Recipe[] actualRecipes = mapper.readValue(contentAsJson,Recipe[].class);
+
+                assertEquals("Grilled Lemon Herb Chicken",actualRecipes[0].getName());
+        }
+
+        @Test
+        void testSearchRecipesByMealTypeNotFound() throws Exception {
+                MvcResult result =
+                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/meal_type/"+"BREAKFAST")))
+                                .andExpect(status().isNotFound())
+                                .andReturn();
+        }
+
+        @Test
+        void testSearchRecipesByCostType() throws Exception {
+
+                Cost costType = Cost.MODERATE;
+
+                MvcResult result =
+                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/cost/"+costType)))
+                                .andExpect(status().isOk())
+                                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                                .andReturn();
+
+                String contentAsJson = result.getResponse().getContentAsString();
+                ObjectMapper mapper = new ObjectMapper();
+                Recipe[] actualRecipes = mapper.readValue(contentAsJson,Recipe[].class);
+
+                assertEquals("Vegetarian Quinoa Bowl",actualRecipes[0].getName());
+        }
+
+        @Test
+        void testSearchRecipesByByCostTypNotFound() throws Exception {
+                MvcResult result =
+                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/cost/"+"PRICEY")))
+                                .andExpect(status().isNotFound())
+                                .andReturn();
+        }
+
+
+
+
+
+
+
+
+
+
+
+}
 
 

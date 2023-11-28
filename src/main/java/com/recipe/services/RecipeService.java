@@ -47,8 +47,6 @@ public class RecipeService {
 
 
 
-
-
     public Iterable<Recipe> findAll(){
         return this.recipeRepository.findAll();
     }

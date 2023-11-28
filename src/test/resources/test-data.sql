@@ -6,4 +6,6 @@ VALUES (102,
   'Vegetarian Quinoa Bowl',
   '1 cup quinoa; 2 cups vegetable broth',
   'Cook quinoa in vegetable broth according to package instructions.', 4, '20 minutes','ITALIAN','MODERATE','DINNER','MODERATE','MILD'
+
 );
+
