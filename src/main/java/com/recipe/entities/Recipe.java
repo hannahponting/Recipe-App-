@@ -30,7 +30,7 @@ public class Recipe {
     @CollectionTable(name="INGREDIENTS",joinColumns=@JoinColumn(name="ID"))
     @JsonProperty(value = "ingredients")
     private List<String> ingredientsList;
-    private ArrayList<String> instructions;
+    private List<String> instructions;
 
     @JsonProperty(value = "serving")
     private int servingNo;
