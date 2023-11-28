@@ -30,13 +30,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Sql("classpath:test-data.sql")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 @TestPropertySource(properties = {"spring.sql.init.mode=never"})
-public class getRecipesWithMockHttpsRequestIT {
+class getRecipesWithMockHttpsRequestIT {
         @Autowired
         MockMvc mockMvc;
 
         private final ObjectMapper mapper = new ObjectMapper();
         @Test
-        public void testGettingAllRecipes() throws Exception {
+        void testGettingAllRecipes() throws Exception {
 
                 MvcResult result =
                         (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes")))
@@ -56,7 +56,7 @@ public class getRecipesWithMockHttpsRequestIT {
 
 
         @Test
-        public void testFindRecipeById() throws Exception {
+        void testFindRecipeById() throws Exception {
 
                 Long Id= 101L;
 
@@ -77,13 +77,12 @@ public class getRecipesWithMockHttpsRequestIT {
         @Test
         void testingPRecipeWithNotExistingId() throws Exception {
                 Long recipeId = 0L;
-                MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/recipes/" + Long.toString(recipeId));
+                MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/recipes/" + (recipeId));
                 MvcResult result = mockMvc.perform(requestBuilder)
                         .andExpect(status().isNotFound())
                         .andReturn();
 
         }
-
 
 
     }

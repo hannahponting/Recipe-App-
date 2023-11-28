@@ -1,25 +1,25 @@
 package com.recipe.entities;
 
 
-import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
+
+import java.util.List;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.recipe.utilities.*;
 import jakarta.persistence.*;
-import org.springframework.context.annotation.Primary;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import javax.swing.text.Utilities;
+
 
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Recipe {
-    public Recipe (String name, ArrayList<String> ingredientsList, ArrayList<String> instructions){
+    public Recipe (String name, List<String> ingredientsList, List<String> instructions){
         this.name = name;
         this.ingredientsList = ingredientsList;
         this.instructions = instructions;
@@ -33,8 +33,8 @@ public class Recipe {
     private String name;
 
     @JsonProperty(value = "ingredients")
-    private ArrayList<String> ingredientsList;
-    private ArrayList<String> instructions;
+    private List<String> ingredientsList;
+    private List<String> instructions;
 
 @JsonProperty(value = "serving")
     private int servingNo;
@@ -75,19 +75,19 @@ public class Recipe {
         this.name = name;
     }
 
-    public ArrayList<String> getIngredientsList() {
+    public List<String> getIngredientsList() {
         return ingredientsList;
     }
 
-    public void setIngredientsList(ArrayList<String> ingredientsList) {
+    public void setIngredientsList(List<String> ingredientsList) {
         this.ingredientsList = ingredientsList;
     }
 
-    public ArrayList<String> getInstructions() {
+    public List<String> getInstructions() {
         return instructions;
     }
 
-    public void setInstructions(ArrayList<String> instructions) {
+    public void setInstructions(List<String> instructions) {
         this.instructions = instructions;
     }
 }

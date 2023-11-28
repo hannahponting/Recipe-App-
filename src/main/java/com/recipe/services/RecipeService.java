@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 
-import java.util.Collection;
+
 import java.util.Optional;
 
 
@@ -60,13 +60,12 @@ public class RecipeService {
     }
 
     public Iterable<Recipe> findByNameContains(String keyword) {
-        final Collection<Recipe> result = recipeRepository.findAllByNameContainingIgnoreCase(keyword);
-        return result;
+        return recipeRepository.findAllByNameContainingIgnoreCase(keyword);
     }
 
     public Recipe updateRecipe(Recipe incompleteRecipe){
         if(incompleteRecipe ==null) throw new NullPointerException("No recipe entered");
-        Recipe oldRecipe = null;
+        Recipe oldRecipe;
         if(incompleteRecipe.getId()==null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipe not found");
         }
