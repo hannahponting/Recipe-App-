@@ -1,5 +1,4 @@
 package com.recipe.entities;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -55,6 +54,8 @@ public class Recipe {
     @Enumerated(EnumType.STRING)
     private Cost costType;
 
+
+
     @JsonProperty(value = "spice_level")
     @Enumerated(EnumType.STRING)
     private SpiceLevel spiceType;
@@ -68,24 +69,13 @@ public class Recipe {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public List<String> getIngredientsList() {
         return ingredientsList;
     }
 
-    public void setIngredientsList(List<String> ingredientsList) {
-        this.ingredientsList = ingredientsList;
-    }
-
     public List<String> getInstructions() {
         return instructions;
-    }
-
-    public void setInstructions(List<String> instructions) {
-        this.instructions = instructions;
     }
 
     public int getServingNo() {
@@ -108,9 +98,52 @@ public class Recipe {
         return costType;
     }
 
+    public SpiceLevel getSpiceType() {
+        return spiceType;
+    }
+
     public Difficulty getDifficultyLevel() {
         return difficultyLevel;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setIngredientsList(List<String> ingredientsList) {
+        this.ingredientsList = ingredientsList;
+    }
+
+    public void setInstructions(List<String> instructions) {
+        this.instructions = instructions;
+    }
+
+    public void setServingNo(int servingNo) {
+        this.servingNo = servingNo;
+    }
+
+    public void setTimeToCook(String timeToCook) {
+        this.timeToCook = timeToCook;
+    }
+
+    public void setCuisineType(Cuisine cuisineType) {
+        this.cuisineType = cuisineType;
+    }
+
+    public void setDifficultyLevel(Difficulty difficultyLevel) {
+        this.difficultyLevel = difficultyLevel;
+    }
+
+    public void setMealType(MealTime mealType) {
+        this.mealType = mealType;
+    }
+
+    public void setCostType(Cost costType) {
+        this.costType = costType;
+    }
+
+    public void setSpiceType(SpiceLevel spiceType) {
+        this.spiceType = spiceType;
+    }
 
 }
