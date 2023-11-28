@@ -3,16 +3,11 @@ package com.recipe.services;
 import com.recipe.dataaccess.RecipeRepository;
 import com.recipe.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 
 import java.util.Collection;
 import java.util.Optional;
-
-
-import java.util.List;
-
 
 
 @Service
@@ -65,5 +60,9 @@ public class RecipeService {
     public Iterable<Recipe> findByNameContains(String keyword) {
         final Collection<Recipe> result = recipeRepository.findAllByNameContainingIgnoreCase(keyword);
         return result;
+    }
+
+    public Recipe updateRecipe(Recipe oldRecipe) {
+        return recipeRepository.save(oldRecipe);
     }
 }

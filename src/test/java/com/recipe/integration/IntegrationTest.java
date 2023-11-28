@@ -1,7 +1,7 @@
 package com.recipe.integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.recipe.entities.Recipe;
+import com.recipe.Recipe;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,4 +73,38 @@ public class IntegrationTest {
                         .andReturn();
 
     }
+
+
+    @Test
+    public void testUpdatingRecipe() throws Exception {
+        String jsonToUpdate= """
+                          {
+                          "id": 1,
+                          "name": "Spicy Lemon Herb Chicken"}
+                          """;
+        MvcResult result =
+                this.mockMvc.perform(get("/recipes/1"))
+                        .andReturn();
+
+        String contentAsJson = result.getResponse().getContentAsString();
+        ObjectMapper mapper = new ObjectMapper();
+        Recipe actualRecipe = mapper.readValue(contentAsJson, Recipe.class);
+        Assertions.assertNotSame("Spicy Lemon Herb Chicken", actualRecipe.getName());
+
+        MvcResult updatedResult =
+                this.mockMvc.perform(MockMvcRequestBuilders.patch("/recipes")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(jsonToUpdate))
+                        .andReturn();
+
+        result =
+                this.mockMvc.perform(get("/recipes/1"))
+                        .andReturn();
+
+        contentAsJson = result.getResponse().getContentAsString();
+        actualRecipe = mapper.readValue(contentAsJson, Recipe.class);
+        Assertions.assertEquals("Spicy Lemon Herb Chicken", actualRecipe.getName());
+
+    }
+
 }
