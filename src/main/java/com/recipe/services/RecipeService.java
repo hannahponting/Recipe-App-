@@ -82,7 +82,10 @@ public class RecipeService {
             if (incompleteRecipe.getInstructions() != null)
                 oldRecipe.setInstructions(incompleteRecipe.getInstructions());
         }
-        return recipeRepository.save(oldRecipe);
+        return recipeRepository.save(oldRecipe);}
+    public Iterable<Recipe> findByIngredientsContain(String ingredient) {
+        final Collection<Recipe> result = recipeRepository.findAllByIngredientSearch(ingredient);
+        return result;
     }
 
 

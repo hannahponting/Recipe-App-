@@ -1,19 +1,14 @@
 package com.recipe.entities;
-
-
-
+import java.util.ArrayList;
 import java.util.List;
-
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.recipe.utilities.*;
 import jakarta.persistence.*;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-
 
 
 @Entity
@@ -31,7 +26,8 @@ public class Recipe {
     private Long id;
 
     private String name;
-
+    @ElementCollection
+    @CollectionTable(name="INGREDIENTS",joinColumns=@JoinColumn(name="ID"))
     @JsonProperty(value = "ingredients")
     private List<String> ingredientsList;
     private List<String> instructions;
