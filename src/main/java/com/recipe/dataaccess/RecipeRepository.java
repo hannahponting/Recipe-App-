@@ -13,4 +13,8 @@ public interface RecipeRepository extends ListCrudRepository<Recipe,Long>{
     List<Recipe> findRecipeById(Long recipeId);
 
     Collection<Recipe> findAllByNameContainingIgnoreCase(String ingredient);
+
+    Collection<Recipe> findAllByServingNo(int servingNo);
+
+    Collection<Recipe> findAllByTimeToCook(String timeToCook);
 }

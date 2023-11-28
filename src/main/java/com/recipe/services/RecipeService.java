@@ -67,4 +67,15 @@ public class RecipeService {
     public Recipe updateRecipe(Recipe oldRecipe) {
         return recipeRepository.save(oldRecipe);
     }
+
+    public Iterable<Recipe> getRecipeByServingNumber(int servingNo) {
+        final Collection<Recipe> result = recipeRepository.findAllByServingNo(servingNo);
+        return result;
+
+    }
+
+    public Iterable<Recipe> getRecipeByCookingTime(String timeToCook) {
+        final Collection<Recipe> result = recipeRepository.findAllByTimeToCook(timeToCook);
+        return result;
+    }
 }

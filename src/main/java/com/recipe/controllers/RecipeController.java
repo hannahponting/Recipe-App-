@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Collections;
+
 @RestController
 @RequestMapping("/recipes")
 public class RecipeController {
@@ -63,6 +65,34 @@ public class RecipeController {
 
         return recipe;
     }
+
+    @GetMapping("serving/{servingNo}")
+    @Operation(summary = "get recipes by serving number ")
+    public Iterable<Recipe> getRecipeByServingNumber(@PathVariable int servingNo){
+
+        Iterable<Recipe> result = recipeService.getRecipeByServingNumber(servingNo);
+        if (result.equals(Collections.emptyList()))
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Sorry, We Don't Have Recipes For Serving Number Of "+servingNo);
+        return result;
+    }
+
+    @GetMapping("cooking_time/{timeToCook}")
+    @Operation(summary = "get recipes by cooking time ")
+    public Iterable<Recipe> getRecipeByCookingTime(@PathVariable String timeToCook){
+
+        Iterable<Recipe> result = recipeService.getRecipeByCookingTime(timeToCook);
+        if (result.equals(Collections.emptyList()))
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Sorry, We Don't Have Recipes For Cooking Time Of "+timeToCook);
+        return result;
+    }
+
+
+
+
+
+
+
+
 
     @PatchMapping("")
     @Operation(summary = "update recipe")
