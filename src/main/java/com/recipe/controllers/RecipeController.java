@@ -1,6 +1,5 @@
 package com.recipe.controllers;
-import com.fasterxml.jackson.annotation.JsonView;
-import com.recipe.entities.Recipe;
+import com.recipe.Recipe;
 import com.recipe.services.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
