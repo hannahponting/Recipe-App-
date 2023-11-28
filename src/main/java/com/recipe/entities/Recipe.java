@@ -38,9 +38,10 @@ public class Recipe {
 
     @JsonProperty(value = "serving")
     private int servingNo;
+
+
     @JsonProperty(value = "time_to_cook")
     private String timeToCook;
-
 
     @JsonProperty(value = "cuisine")
     @Enumerated(EnumType.STRING)
@@ -49,6 +50,7 @@ public class Recipe {
     @JsonProperty(value = "difficulty_level")
     @Enumerated(EnumType.STRING)
     private Difficulty difficultyLevel;
+
     @JsonProperty(value = "mealType")
     @Enumerated(EnumType.STRING)
     private MealTime mealType;
@@ -60,7 +62,6 @@ public class Recipe {
     @JsonProperty(value = "spice_level")
     @Enumerated(EnumType.STRING)
     private SpiceLevel spiceType;
-
 
 
     public Long getId() {
@@ -90,4 +91,30 @@ public class Recipe {
     public void setInstructions(List<String> instructions) {
         this.instructions = instructions;
     }
+
+    public int getServingNo() {
+        return servingNo;
+    }
+
+    public String getTimeToCook() {
+        return timeToCook;
+    }
+
+    public Cuisine getCuisineType() {
+        return cuisineType;
+    }
+
+    public MealTime getMealType() {
+        return mealType;
+    }
+
+    public Cost getCostType() {
+        return costType;
+    }
+
+    public Difficulty getDifficultyLevel() {
+        return difficultyLevel;
+    }
+
+
 }
