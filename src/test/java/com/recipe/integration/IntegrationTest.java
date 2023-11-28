@@ -25,11 +25,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 @TestPropertySource(properties = {"spring.sql.init.mode=never"})
 
-public class IntegrationTest {
+class IntegrationTest {
     @Autowired
     MockMvc mockMvc;
     @Test
-    public void testPostingRecipe() throws Exception {
+    void testPostingRecipe() throws Exception {
         String bakedPotato = """
                 {
                    "name": "baked potato",
@@ -60,7 +60,7 @@ public class IntegrationTest {
 
 
     @Test
-    public void testDeletingRecipe() throws Exception {
+    void testDeletingRecipe() throws Exception {
         String id = "101";
 
         MvcResult result =
@@ -82,7 +82,7 @@ public class IntegrationTest {
 
 
     @Test
-    public void testUpdatingRecipe() throws Exception {
+    void testUpdatingRecipe() throws Exception {
         String jsonToUpdate= """
                           {
                           "id": 101,

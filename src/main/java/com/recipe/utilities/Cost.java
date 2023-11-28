@@ -1,20 +1,19 @@
 package com.recipe.utilities;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum Cost {
-    Low,
-    Moderate,
-    Pricey
+    LOW("Low"),
+    MODERATE("Moderate"),
+    PRICEY("Moderate");
 
+    private final String name;
 
+    Cost(String name){
+        this.name = name;
+    }
 
-
-
-
-
-
-
+    public String getName() {
+        return name;
+    }
 
 }
