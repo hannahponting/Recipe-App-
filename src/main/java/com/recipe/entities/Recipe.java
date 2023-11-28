@@ -3,6 +3,7 @@ package com.recipe.entities;
 
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -31,9 +32,10 @@ public class Recipe {
     private Long id;
 
     private String name;
-
+    @ElementCollection
+    @CollectionTable(name="INGREDIENTS",joinColumns=@JoinColumn(name="ID"))
     @JsonProperty(value = "ingredients")
-    private ArrayList<String> ingredientsList;
+    private List<String> ingredientsList;
     private ArrayList<String> instructions;
 
 @JsonProperty(value = "serving")
@@ -68,11 +70,11 @@ public class Recipe {
         this.name = name;
     }
 
-    public ArrayList<String> getIngredientsList() {
+    public List<String> getIngredientsList() {
         return ingredientsList;
     }
 
-    public void setIngredientsList(ArrayList<String> ingredientsList) {
+    public void setIngredientsList(List<String> ingredientsList) {
         this.ingredientsList = ingredientsList;
     }
 

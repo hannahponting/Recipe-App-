@@ -63,8 +63,8 @@ public class RecipeService {
         final Collection<Recipe> result = recipeRepository.findAllByNameContainingIgnoreCase(keyword);
         return result;
     }
-
-    public Recipe updateRecipe(Recipe oldRecipe) {
-        return recipeRepository.save(oldRecipe);
+    public Iterable<Recipe> findByIngredientsContain(String ingredient) {
+        final Collection<Recipe> result = recipeRepository.findAllByIngredientSearch(ingredient);
+        return result;
     }
 }
