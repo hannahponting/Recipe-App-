@@ -29,9 +29,9 @@ public class Populator {
     @EventListener(ContextRefreshedEvent.class)
     public void populate() throws IOException {
         ArrayList <Recipe> recipes = objectMapper.readValue(recipeFile, new TypeReference<ArrayList<Recipe>>() {});
-        for (Recipe recipe: recipes) {
-            recipeRepository.save(recipe);
-        }
+        recipeRepository.saveAll(recipes);
 
     }
+
+
 }
