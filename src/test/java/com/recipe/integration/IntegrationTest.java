@@ -9,6 +9,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -16,8 +19,11 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 @SpringBootTest
+@ContextConfiguration
 @AutoConfigureMockMvc
+@Sql("classpath:test-data.sql")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
+@TestPropertySource(properties = {"spring.sql.init.mode=never"})
 
 public class IntegrationTest {
     @Autowired
@@ -55,7 +61,7 @@ public class IntegrationTest {
 
     @Test
     public void testDeletingRecipe() throws Exception {
-        String id = "1";
+        String id = "101";
 
         MvcResult result =
                 this.mockMvc.perform(get("/recipes/"+id))
@@ -79,11 +85,11 @@ public class IntegrationTest {
     public void testUpdatingRecipe() throws Exception {
         String jsonToUpdate= """
                           {
-                          "id": 1,
+                          "id": 101,
                           "name": "Spicy Lemon Herb Chicken"}
                           """;
         MvcResult result =
-                this.mockMvc.perform(get("/recipes/1"))
+                this.mockMvc.perform(get("/recipes/101"))
                         .andReturn();
 
         String contentAsJson = result.getResponse().getContentAsString();
@@ -98,7 +104,7 @@ public class IntegrationTest {
                         .andReturn();
 
         result =
-                this.mockMvc.perform(get("/recipes/1"))
+                this.mockMvc.perform(get("/recipes/101"))
                         .andReturn();
 
         contentAsJson = result.getResponse().getContentAsString();
