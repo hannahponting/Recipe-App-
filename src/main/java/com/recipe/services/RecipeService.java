@@ -3,9 +3,9 @@ package com.recipe.services;
 import com.recipe.dataaccess.RecipeRepository;
 import com.recipe.entities.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-
-
+import org.springframework.web.server.ResponseStatusException;
 
 
 import java.util.Collection;
@@ -64,9 +64,29 @@ public class RecipeService {
         return result;
     }
 
-    public Recipe updateRecipe(Recipe oldRecipe) {
+    public Recipe updateRecipe(Recipe incompleteRecipe){
+        if(incompleteRecipe ==null) throw new NullPointerException("No recipe entered");
+        Recipe oldRecipe = null;
+        if(incompleteRecipe.getId()==null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipe not found");
+        }
+        else {
+            oldRecipe = getRecipeById(incompleteRecipe.getId());
+        }
+        if (oldRecipe == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipe not found");
+        }
+        else {
+            if (incompleteRecipe.getName() != null)
+                oldRecipe.setName(incompleteRecipe.getName());
+            if (incompleteRecipe.getIngredientsList() != null)
+                oldRecipe.setIngredientsList(incompleteRecipe.getIngredientsList());
+            if (incompleteRecipe.getInstructions() != null)
+                oldRecipe.setInstructions(incompleteRecipe.getInstructions());
+        }
         return recipeRepository.save(oldRecipe);
     }
+
 
     public Iterable<Recipe> getRecipeByServingNumber(int servingNo) {
         final Collection<Recipe> result = recipeRepository.findAllByServingNo(servingNo);
@@ -78,4 +98,5 @@ public class RecipeService {
         final Collection<Recipe> result = recipeRepository.findAllByTimeToCook(timeToCook);
         return result;
     }
+
 }

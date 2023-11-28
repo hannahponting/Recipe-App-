@@ -40,19 +40,26 @@ public class Recipe {
     private int servingNo;
     @JsonProperty(value = "time_to_cook")
     private String timeToCook;
-//    @JsonProperty(value = "cuisine")
-//    private String cuisineType;
-//    @JsonProperty(value = "difficulty_level")
-//    private String difficultyLevel;
+
+
+    @JsonProperty(value = "cuisine")
+    @Enumerated(EnumType.STRING)
+    private Cuisine cuisineType;
+
+    @JsonProperty(value = "difficulty_level")
+    @Enumerated(EnumType.STRING)
+    private Difficulty difficultyLevel;
     @JsonProperty(value = "mealType")
-    private String mealType;
+    @Enumerated(EnumType.STRING)
+    private MealTime mealType;
 
     @JsonProperty(value = "cost")
     @Enumerated(EnumType.STRING)
     private Cost costType;
 
-//    @JsonProperty(value = "spice_level")
-//    private String spiceType;
+    @JsonProperty(value = "spice_level")
+    @Enumerated(EnumType.STRING)
+    private SpiceLevel spiceType;
 
 
 

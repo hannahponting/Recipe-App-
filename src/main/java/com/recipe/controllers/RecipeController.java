@@ -97,26 +97,7 @@ public class RecipeController {
     @PatchMapping("")
     @Operation(summary = "update recipe")
     public Recipe updateRecipe(@RequestBody Recipe incompleteRecipe){
-        Recipe oldRecipe = null;
-        if(incompleteRecipe.getId()==null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipe not found");
-        }
-        else {
-            oldRecipe = recipeService.getRecipeById(incompleteRecipe.getId());
-        }
-        if (oldRecipe == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipe not found");
-        }
-        else {
-            if (incompleteRecipe.getName() != null)
-                oldRecipe.setName(incompleteRecipe.getName());
-            if (incompleteRecipe.getIngredientsList() != null)
-                oldRecipe.setIngredientsList(incompleteRecipe.getIngredientsList());
-            if (incompleteRecipe.getInstructions() != null)
-                oldRecipe.setInstructions(incompleteRecipe.getInstructions());
-            oldRecipe = recipeService.updateRecipe(oldRecipe);
-        }
-        return oldRecipe;
+        return recipeService.updateRecipe(incompleteRecipe);
     }
 
 
