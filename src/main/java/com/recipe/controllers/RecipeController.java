@@ -1,6 +1,7 @@
 package com.recipe.controllers;
 import com.recipe.entities.Recipe;
 import com.recipe.services.RecipeService;
+import com.recipe.utilities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.http.HttpStatus;
@@ -69,25 +70,61 @@ public class RecipeController {
     @GetMapping("serving/{servingNo}")
     @Operation(summary = "get recipes by serving number ")
     public Iterable<Recipe> getRecipeByServingNumber(@PathVariable int servingNo){
-
-        Iterable<Recipe> result = recipeService.getRecipeByServingNumber(servingNo);
-        if (result.equals(Collections.emptyList()))
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Sorry, We Don't Have Recipes For Serving Number Of "+servingNo);
-        return result;
+        return handleEmptyResult(recipeService.getRecipeByServingNumber(servingNo),"Serving Number",servingNo);
     }
 
     @GetMapping("cooking_time/{timeToCook}")
     @Operation(summary = "get recipes by cooking time ")
     public Iterable<Recipe> getRecipeByCookingTime(@PathVariable String timeToCook){
+        return handleEmptyResult(recipeService.getRecipeByCookingTime(timeToCook), "Cooking Time", timeToCook);
+    }
 
-        Iterable<Recipe> result = recipeService.getRecipeByCookingTime(timeToCook);
-        if (result.equals(Collections.emptyList()))
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Sorry, We Don't Have Recipes For Cooking Time Of "+timeToCook);
-        return result;
+    @GetMapping("cuisine/{cuisineType}")
+    @Operation(summary = "get recipes by cuisine type ")
+    public Iterable<Recipe> getRecipeByCuisineType(@PathVariable Cuisine cuisineType){
+
+        return handleEmptyResult(recipeService.getRecipeByCuisineType(cuisineType), "Cuisine Type", cuisineType);
+    }
+
+    @GetMapping("difficulty/{difficultyLevel}")
+    @Operation(summary = "get recipes by difficulty level ")
+    public Iterable<Recipe> getRecipeByDifficultyLevel(@PathVariable Difficulty difficultyLevel){
+
+        return handleEmptyResult(recipeService.getRecipeByDifficultyLevel(difficultyLevel), "Difficulty Level", difficultyLevel);
+    }
+
+    @GetMapping("meal_type/{mealType}")
+    @Operation(summary = "get recipes by meal type")
+    public Iterable<Recipe> getRecipeByMealType(@PathVariable MealTime mealType){
+        return handleEmptyResult(recipeService.getRecipeByMealType(mealType), "Meal Type", mealType);
+    }
+
+    @GetMapping("cost/{costType}")
+    @Operation(summary = "get recipes by cost type")
+    public Iterable<Recipe> getRecipeByCostType(@PathVariable Cost costType){
+        return handleEmptyResult(recipeService.getRecipeByCostType(costType), "Cost Type", costType);
+    }
+
+    @GetMapping("spice_level/{spiceType}")
+    @Operation(summary = "get recipes by spice level")
+    public Iterable<Recipe> getRecipeBySpiceType(@PathVariable SpiceLevel spiceType){
+        return handleEmptyResult(recipeService.getRecipeBySpiceType(spiceType), "Spice Level", spiceType);
     }
 
 
 
+
+
+
+
+
+
+    private Iterable<Recipe> handleEmptyResult(Iterable<Recipe> result, String parameterName, Object parameterValue) {
+        if (!result.iterator().hasNext()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Sorry, We Don't Have Recipes For " + parameterName + " Of " + parameterValue);
+        }
+        return result;
+    }
 
 
 

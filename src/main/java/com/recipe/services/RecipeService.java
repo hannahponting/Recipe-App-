@@ -2,6 +2,7 @@ package com.recipe.services;
 
 import com.recipe.dataaccess.RecipeRepository;
 import com.recipe.entities.Recipe;
+import com.recipe.utilities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -88,14 +89,33 @@ public class RecipeService {
 
 
     public Iterable<Recipe> getRecipeByServingNumber(int servingNo) {
-        final Collection<Recipe> result = recipeRepository.findAllByServingNo(servingNo);
-        return result;
+        return recipeRepository.findAllByServingNo(servingNo);
 
     }
 
     public Iterable<Recipe> getRecipeByCookingTime(String timeToCook) {
-        final Collection<Recipe> result = recipeRepository.findAllByTimeToCook(timeToCook);
-        return result;
+        return recipeRepository.findAllByTimeToCook(timeToCook);
     }
 
+    public Iterable<Recipe> getRecipeByCuisineType(Cuisine CuisineTyp) {
+        return recipeRepository.findAllByCuisineType(CuisineTyp);
+    }
+
+    public Iterable<Recipe> getRecipeByDifficultyLevel(Difficulty difficultyLevel) {
+        return recipeRepository.findAllByDifficultyLevel(difficultyLevel);
+
+    }
+
+    public Iterable<Recipe> getRecipeByMealType(MealTime mealType) {
+        return recipeRepository.findAllByMealType(mealType);
+    }
+
+    public Iterable<Recipe> getRecipeByCostType(Cost costType) {
+        return recipeRepository.findAllByCostType(costType);
+    }
+
+    public Iterable<Recipe> getRecipeBySpiceType(SpiceLevel spiceType) {
+        return recipeRepository.findAllBySpiceType(spiceType);
+
+    }
 }

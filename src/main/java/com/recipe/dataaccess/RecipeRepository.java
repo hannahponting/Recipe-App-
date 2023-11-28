@@ -1,6 +1,7 @@
 package com.recipe.dataaccess;
 
 import com.recipe.entities.Recipe;
+import com.recipe.utilities.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.repository.ListCrudRepository;
 
@@ -17,4 +18,14 @@ public interface RecipeRepository extends ListCrudRepository<Recipe,Long>{
     Collection<Recipe> findAllByServingNo(int servingNo);
 
     Collection<Recipe> findAllByTimeToCook(String timeToCook);
+
+    Collection<Recipe> findAllByCuisineType(Cuisine cuisineTyp);
+
+    Collection<Recipe> findAllByDifficultyLevel(Difficulty difficultyLevel);
+
+    Iterable<Recipe> findAllByMealType(MealTime mealType);
+
+    Iterable<Recipe> findAllByCostType(Cost costType);
+
+    Iterable<Recipe> findAllBySpiceType(SpiceLevel spiceType);
 }
