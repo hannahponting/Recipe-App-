@@ -2,10 +2,11 @@ package com.recipe.services;
 
 import com.recipe.dataaccess.RecipeRepository;
 import com.recipe.entities.Recipe;
+import com.recipe.utilities.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-
-
+import org.springframework.web.server.ResponseStatusException;
 
 
 import java.util.Collection;
@@ -46,8 +47,6 @@ public class RecipeService {
 
 
 
-
-
     public Iterable<Recipe> findAll(){
         return this.recipeRepository.findAll();
     }
@@ -60,11 +59,64 @@ public class RecipeService {
     }
 
     public Iterable<Recipe> findByNameContains(String keyword) {
-        final Collection<Recipe> result = recipeRepository.findAllByNameContainingIgnoreCase(keyword);
-        return result;
+        return recipeRepository.findAllByNameContainingIgnoreCase(keyword);
     }
+
+    public Recipe updateRecipe(Recipe incompleteRecipe){
+        if(incompleteRecipe ==null) throw new NullPointerException("No recipe entered");
+        Recipe oldRecipe;
+        if(incompleteRecipe.getId()==null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipe not found");
+        }
+        else {
+            oldRecipe = getRecipeById(incompleteRecipe.getId());
+        }
+        if (oldRecipe == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipe not found");
+        }
+        else {
+            if (incompleteRecipe.getName() != null)
+                oldRecipe.setName(incompleteRecipe.getName());
+            if (incompleteRecipe.getIngredientsList() != null)
+                oldRecipe.setIngredientsList(incompleteRecipe.getIngredientsList());
+            if (incompleteRecipe.getInstructions() != null)
+                oldRecipe.setInstructions(incompleteRecipe.getInstructions());
+        }
+        return recipeRepository.save(oldRecipe);}
     public Iterable<Recipe> findByIngredientsContain(String ingredient) {
         final Collection<Recipe> result = recipeRepository.findAllByIngredientSearch(ingredient);
         return result;
+    }
+
+
+    public Iterable<Recipe> getRecipeByServingNumber(int servingNo) {
+        return recipeRepository.findAllByServingNo(servingNo);
+
+    }
+
+    public Iterable<Recipe> getRecipeByCookingTime(String timeToCook) {
+        return recipeRepository.findAllByTimeToCook(timeToCook);
+    }
+
+    public Iterable<Recipe> getRecipeByCuisineType(Cuisine CuisineTyp) {
+        return recipeRepository.findAllByCuisineType(CuisineTyp);
+    }
+
+    public Iterable<Recipe> getRecipeByDifficultyLevel(Difficulty difficultyLevel) {
+        return recipeRepository.findAllByDifficultyLevel(difficultyLevel);
+
+    }
+
+    public Iterable<Recipe> getRecipeByMealType(MealTime mealType) {
+        return recipeRepository.findAllByMealType(mealType);
+    }
+
+    public Iterable<Recipe> getRecipeByCostType(Cost costType) {
+        return recipeRepository.findAllByCostType(costType);
+    }
+
+    public Iterable<Recipe> getRecipeBySpiceType(SpiceLevel spiceType) {
+        return recipeRepository.findAllBySpiceType(spiceType);
+
     }
 }

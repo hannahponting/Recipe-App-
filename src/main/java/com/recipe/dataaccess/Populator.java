@@ -4,8 +4,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.recipe.entities.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -28,7 +26,7 @@ public class Populator {
 
     //@EventListener(ContextRefreshedEvent.class)
     public void populate() throws IOException {
-        ArrayList <Recipe> recipes = objectMapper.readValue(recipeFile, new TypeReference<ArrayList<Recipe>>() {});
+        ArrayList <Recipe> recipes = objectMapper.readValue(recipeFile, new TypeReference<>() {});
         recipeRepository.saveAll(recipes);
 
     }

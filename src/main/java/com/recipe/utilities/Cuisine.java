@@ -1,19 +1,32 @@
 package com.recipe.utilities;
 
-import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum Cuisine {
-    French("French"), Chinese("Chinese"), Japanese("Japanese"), Italian("Italian"),
-    Greek("Greek"), Spanish("Spanish"),
-    Indian("Indian"), American("American"), International("International"),
-    Mediterranean("Mediterranean"), Mexican("Mexican"), Asian("Asian");
+    FRENCH("French"),
+    CHINESE("Chinese"),
+    JAPANESE("Japanese"),
+    ITALIAN("Italian"),
+    GREEK("Greek"),
+    SPANISH("Spanish"),
+    INDIAN("Indian"),
+    AMERICAN("American"),
+    INTERNATIONAL("International"),
+    MEDITERRANEAN("Mediterranean"),
+    MEXICAN("Mexican"),
+    ASIAN("Asian"),
+    BRITISH("British"),
+    SOUTHERN("Southern"),
+    THAI("Thai");
 
-    public String getCuisineName() {
-        return cuisineName;
+
+    public String getName() {
+        return name;
     }
-    @JsonValue
-    private String cuisineName;
-    Cuisine(String name) {
-        this.cuisineName = name;
+
+    Cuisine(String name){
+        this.name = name;
     }
+
+    private final String name;
+
 }

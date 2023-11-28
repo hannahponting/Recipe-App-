@@ -1,26 +1,20 @@
 package com.recipe.entities;
-
-
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.recipe.utilities.*;
 import jakarta.persistence.*;
-import org.springframework.context.annotation.Primary;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import javax.swing.text.Utilities;
 
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Recipe {
-    public Recipe (String name, ArrayList<String> ingredientsList, ArrayList<String> instructions){
+    public Recipe (String name, List<String> ingredientsList, List<String> instructions){
         this.name = name;
         this.ingredientsList = ingredientsList;
         this.instructions = instructions;
@@ -38,24 +32,32 @@ public class Recipe {
     private List<String> ingredientsList;
     private ArrayList<String> instructions;
 
-@JsonProperty(value = "serving")
+    @JsonProperty(value = "serving")
     private int servingNo;
+
+
     @JsonProperty(value = "time_to_cook")
     private String timeToCook;
-//    @JsonProperty(value = "cuisine")
-//    private String cuisineType;
-//    @JsonProperty(value = "difficulty_level")
-//    private String difficultyLevel;
+
+    @JsonProperty(value = "cuisine")
+    @Enumerated(EnumType.STRING)
+    private Cuisine cuisineType;
+
+    @JsonProperty(value = "difficulty_level")
+    @Enumerated(EnumType.STRING)
+    private Difficulty difficultyLevel;
+
     @JsonProperty(value = "mealType")
-    private String mealType;
+    @Enumerated(EnumType.STRING)
+    private MealTime mealType;
 
     @JsonProperty(value = "cost")
     @Enumerated(EnumType.STRING)
     private Cost costType;
 
-//    @JsonProperty(value = "spice_level")
-//    private String spiceType;
-
+    @JsonProperty(value = "spice_level")
+    @Enumerated(EnumType.STRING)
+    private SpiceLevel spiceType;
 
 
     public Long getId() {
@@ -78,11 +80,37 @@ public class Recipe {
         this.ingredientsList = ingredientsList;
     }
 
-    public ArrayList<String> getInstructions() {
+    public List<String> getInstructions() {
         return instructions;
     }
 
-    public void setInstructions(ArrayList<String> instructions) {
+    public void setInstructions(List<String> instructions) {
         this.instructions = instructions;
     }
+
+    public int getServingNo() {
+        return servingNo;
+    }
+
+    public String getTimeToCook() {
+        return timeToCook;
+    }
+
+    public Cuisine getCuisineType() {
+        return cuisineType;
+    }
+
+    public MealTime getMealType() {
+        return mealType;
+    }
+
+    public Cost getCostType() {
+        return costType;
+    }
+
+    public Difficulty getDifficultyLevel() {
+        return difficultyLevel;
+    }
+
+
 }

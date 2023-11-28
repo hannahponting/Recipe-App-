@@ -1,6 +1,18 @@
 package com.recipe.utilities;
 
 public enum Difficulty {
-    Easy, Moderate, Hard,
+    EASY("Easy"),
+    MODERATE("Moderate"),
+    HIGH("High");
+
+    public String getName() {
+        return name;
+    }
+
+    private final String name;
+
+    Difficulty(String name){
+        this.name=name;
+    }
 
 }

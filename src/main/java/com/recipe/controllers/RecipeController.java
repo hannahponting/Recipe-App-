@@ -1,6 +1,7 @@
 package com.recipe.controllers;
 import com.recipe.entities.Recipe;
 import com.recipe.services.RecipeService;
+import com.recipe.utilities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.http.HttpStatus;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Collections;
 
 @RestController
 @RequestMapping("/recipes")
@@ -69,29 +72,66 @@ public class RecipeController {
         return recipe;
     }
 
+    @GetMapping("serving/{servingNo}")
+    @Operation(summary = "get recipes by serving number ")
+    public Iterable<Recipe> getRecipeByServingNumber(@PathVariable int servingNo){
+        return handleEmptyResult(recipeService.getRecipeByServingNumber(servingNo),"Serving Number",servingNo);
+    }
+
+    @GetMapping("cooking_time/{timeToCook}")
+    @Operation(summary = "get recipes by cooking time ")
+    public Iterable<Recipe> getRecipeByCookingTime(@PathVariable String timeToCook){
+        return handleEmptyResult(recipeService.getRecipeByCookingTime(timeToCook), "Cooking Time", timeToCook);
+    }
+
+    @GetMapping("cuisine/{cuisineType}")
+    @Operation(summary = "get recipes by cuisine type ")
+    public Iterable<Recipe> getRecipeByCuisineType(@PathVariable Cuisine cuisineType){
+
+        return handleEmptyResult(recipeService.getRecipeByCuisineType(cuisineType), "Cuisine Type", cuisineType);
+    }
+
+    @GetMapping("difficulty/{difficultyLevel}")
+    @Operation(summary = "get recipes by difficulty level ")
+    public Iterable<Recipe> getRecipeByDifficultyLevel(@PathVariable Difficulty difficultyLevel){
+
+        return handleEmptyResult(recipeService.getRecipeByDifficultyLevel(difficultyLevel), "Difficulty Level", difficultyLevel);
+    }
+
+    @GetMapping("meal_type/{mealType}")
+    @Operation(summary = "get recipes by meal type")
+    public Iterable<Recipe> getRecipeByMealType(@PathVariable MealTime mealType){
+        return handleEmptyResult(recipeService.getRecipeByMealType(mealType), "Meal Type", mealType);
+    }
+
+    @GetMapping("cost/{costType}")
+    @Operation(summary = "get recipes by cost type")
+    public Iterable<Recipe> getRecipeByCostType(@PathVariable Cost costType){
+        return handleEmptyResult(recipeService.getRecipeByCostType(costType), "Cost Type", costType);
+    }
+
+    @GetMapping("spice_level/{spiceType}")
+    @Operation(summary = "get recipes by spice level")
+    public Iterable<Recipe> getRecipeBySpiceType(@PathVariable SpiceLevel spiceType){
+        return handleEmptyResult(recipeService.getRecipeBySpiceType(spiceType), "Spice Level", spiceType);
+    }
+
+    private Iterable<Recipe> handleEmptyResult(Iterable<Recipe> result, String parameterName, Object parameterValue) {
+        if (!result.iterator().hasNext()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Sorry, We Don't Have Recipes For " + parameterName + " Of " + parameterValue);
+        }
+        return result;
+    }
+
+
+
+
+
+
     @PatchMapping("")
     @Operation(summary = "update recipe")
     public Recipe updateRecipe(@RequestBody Recipe incompleteRecipe){
-        Recipe oldRecipe = null;
-        if(incompleteRecipe.getId()==null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipe not found");
-        }
-        else {
-            oldRecipe = recipeService.getRecipeById(incompleteRecipe.getId());
-        }
-        if (oldRecipe == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipe not found");
-        }
-        else {
-            if (incompleteRecipe.getName() != null)
-                oldRecipe.setName(incompleteRecipe.getName());
-            if (incompleteRecipe.getIngredientsList() != null)
-                oldRecipe.setIngredientsList(incompleteRecipe.getIngredientsList());
-            if (incompleteRecipe.getInstructions() != null)
-                oldRecipe.setInstructions(incompleteRecipe.getInstructions());
-//            oldRecipe = recipeService.updateRecipe(oldRecipe);
-        }
-        return oldRecipe;
+        return recipeService.updateRecipe(incompleteRecipe);
     }
 
 
