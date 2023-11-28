@@ -7,9 +7,7 @@ import java.util.concurrent.TimeUnit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.recipe.utilities.*;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.context.annotation.Primary;
 
 import javax.swing.text.Utilities;
@@ -38,18 +36,19 @@ public class Recipe {
     private int servingNo;
     @JsonProperty(value = "time_to_cook")
     private String timeToCook;
-    @JsonProperty(value = "cuisine")
-    private String cuisineType;
-    @JsonProperty(value = "difficulty_level")
-    private String difficultyLevel;
+//    @JsonProperty(value = "cuisine")
+//    private String cuisineType;
+//    @JsonProperty(value = "difficulty_level")
+//    private String difficultyLevel;
     @JsonProperty(value = "mealType")
     private String mealType;
 
     @JsonProperty(value = "cost")
-    private String costType;
+    @Enumerated(EnumType.STRING)
+    private Cost costType;
 
-    @JsonProperty(value = "spice_level")
-    private String spiceType;
+//    @JsonProperty(value = "spice_level")
+//    private String spiceType;
 
 
     public Long getId() {
