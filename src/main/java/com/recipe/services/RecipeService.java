@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 
-import java.util.Collection;
 import java.util.Optional;
 
 
@@ -62,30 +61,32 @@ public class RecipeService {
         return recipeRepository.findAllByNameContainingIgnoreCase(keyword);
     }
 
-    public Recipe updateRecipe(Recipe incompleteRecipe){
-        if(incompleteRecipe ==null) throw new NullPointerException("No recipe entered");
-        Recipe oldRecipe;
-        if(incompleteRecipe.getId()==null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipe not found");
-        }
-        else {
-            oldRecipe = getRecipeById(incompleteRecipe.getId());
-        }
-        if (oldRecipe == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipe not found");
-        }
-        else {
-            if (incompleteRecipe.getName() != null)
-                oldRecipe.setName(incompleteRecipe.getName());
-            if (incompleteRecipe.getIngredientsList() != null)
-                oldRecipe.setIngredientsList(incompleteRecipe.getIngredientsList());
-            if (incompleteRecipe.getInstructions() != null)
-                oldRecipe.setInstructions(incompleteRecipe.getInstructions());
-        }
-        return recipeRepository.save(oldRecipe);}
+    public Recipe updateRecipe(Recipe changesToRecipe){
+        if(changesToRecipe ==null) throw new NullPointerException("No recipe entered");
+        if(changesToRecipe.getId()==null) throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipe not found");
+        Recipe oldRecipe= getRecipeById(changesToRecipe.getId());
+        Recipe finalRecipe;
+        if (oldRecipe == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipe not found");
+        finalRecipe = makeChangesToRecipe(changesToRecipe, oldRecipe);
+        return recipeRepository.save(finalRecipe);}
+
+
+    private Recipe makeChangesToRecipe(Recipe changesToRecipe, Recipe oldRecipe) {
+        if (changesToRecipe.getName() != null) oldRecipe.setName(changesToRecipe.getName());
+        if (changesToRecipe.getIngredientsList() != null) oldRecipe.setIngredientsList(changesToRecipe.getIngredientsList());
+        if (changesToRecipe.getInstructions() != null) oldRecipe.setInstructions(changesToRecipe.getInstructions());
+        if (changesToRecipe.getServingNo() !=0) oldRecipe.setServingNo(changesToRecipe.getServingNo());
+        if (changesToRecipe.getCuisineType() != null) oldRecipe.setCuisineType(changesToRecipe.getCuisineType());
+        if (changesToRecipe.getTimeToCook() != null) oldRecipe.setTimeToCook(changesToRecipe.getTimeToCook());
+        if (changesToRecipe.getCostType() != null) oldRecipe.setCostType(changesToRecipe.getCostType());
+        if (changesToRecipe.getDifficultyLevel() != null) oldRecipe.setDifficultyLevel(changesToRecipe.getDifficultyLevel());
+        if (changesToRecipe.getMealType() != null)oldRecipe.setMealType(changesToRecipe.getMealType());
+        if (changesToRecipe.getSpiceType() != null) oldRecipe.setSpiceType(changesToRecipe.getSpiceType());
+        return oldRecipe;
+    }
+
     public Iterable<Recipe> findByIngredientsContain(String ingredient) {
-        final Collection<Recipe> result = recipeRepository.findAllByIngredientSearch(ingredient);
-        return result;
+        return recipeRepository.findAllByIngredientSearch(ingredient);
     }
 
 
@@ -98,8 +99,8 @@ public class RecipeService {
         return recipeRepository.findAllByTimeToCook(timeToCook);
     }
 
-    public Iterable<Recipe> getRecipeByCuisineType(Cuisine CuisineTyp) {
-        return recipeRepository.findAllByCuisineType(CuisineTyp);
+    public Iterable<Recipe> getRecipeByCuisineType(Cuisine cuisineType) {
+        return recipeRepository.findAllByCuisineType(cuisineType);
     }
 
     public Iterable<Recipe> getRecipeByDifficultyLevel(Difficulty difficultyLevel) {
