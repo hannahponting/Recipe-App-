@@ -399,5 +399,1265 @@
       "Pour the smoothie into bowls and top with sliced fruits, granola, and chia seeds.",
       "Enjoy your nutritious and delicious smoothie bowl!"
     ]
+  },
+  {
+    "name": "Beef Wellington",
+    "mealType": "Dinner",
+    "cuisine": "British",
+    "serving": 4,
+    "time_to_cook": "2 hours",
+    "difficulty_level": "High",
+    "cost": "Pricey",
+    "spice_level": "Mild",
+    "ingredients": [
+      "4 beef fillets",
+      "1/2 cup Dijon mustard",
+      "8 slices prosciutto",
+      "1 lb puff pastry",
+      "2 cups mushroom duxelles",
+      "1 egg (beaten)",
+      "Salt and black pepper to taste",
+      "Red wine reduction sauce"
+    ],
+    "instructions": [
+      "Season beef fillets with salt and black pepper.",
+      "Brush with Dijon mustard and wrap each fillet in prosciutto.",
+      "Sear in a hot pan until prosciutto is crispy.",
+      "Roll out puff pastry and wrap each fillet, sealing the edges.",
+      "Brush with beaten egg and bake until pastry is golden brown.",
+      "Serve with red wine reduction sauce."
+    ]
+  },
+  {
+    "name": "Eggs Benedict with Hollandaise Sauce",
+    "mealType": "Breakfast",
+    "cuisine": "International",
+    "serving": 4,
+    "time_to_cook": "30 minutes",
+    "difficulty_level": "High",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "8 eggs",
+      "4 English muffins (split and toasted)",
+      "8 slices Canadian bacon",
+      "1 cup hollandaise sauce",
+      "Chopped chives for garnish"
+    ],
+    "instructions": [
+      "Poach the eggs to your liking.",
+      "While eggs are poaching, cook Canadian bacon until heated through.",
+      "Place a slice of Canadian bacon on each toasted English muffin half.",
+      "Top with a poached egg and drizzle with hollandaise sauce.",
+      "Garnish with chopped chives and serve immediately."
+    ]
+  },
+  {
+    "name": "Sushi Rolls with Spicy Tuna",
+    "mealType": "Lunch",
+    "cuisine": "Japanese",
+    "serving": 4,
+    "time_to_cook": "1.5 hours",
+    "difficulty_level": "High",
+    "cost": "Pricey",
+    "spice_level": "Spicy",
+    "ingredients": [
+      "2 cups sushi rice",
+      "4 nori sheets",
+      "1/2 lb sushi-grade tuna (diced)",
+      "Spicy mayo",
+      "Soy sauce for dipping",
+      "Pickled ginger and wasabi for serving"
+    ],
+    "instructions": [
+      "Prepare sushi rice according to package instructions.",
+      "Place a nori sheet on a bamboo sushi mat.",
+      "Spread a thin layer of rice on the nori, leaving a border at the top.",
+      "Add diced tuna and drizzle with spicy mayo.",
+      "Roll the sushi tightly and slice into bite-sized pieces.",
+      "Serve with soy sauce, pickled ginger, and wasabi."
+    ]
+  },
+  {
+    "name": "Lobster Thermidor",
+    "mealType": "Dinner",
+    "cuisine": "French",
+    "serving": 2,
+    "time_to_cook": "1.5 hours",
+    "difficulty_level": "High",
+    "cost": "Pricey",
+    "spice_level": "Mild",
+    "ingredients": [
+      "2 lobster tails",
+      "1/4 cup butter",
+      "1/4 cup all-purpose flour",
+      "1 cup milk",
+      "1/2 cup Gruyere cheese (grated)",
+      "1/4 cup Parmesan cheese (grated)",
+      "Dijon mustard",
+      "Fresh parsley for garnish"
+    ],
+    "instructions": [
+      "Boil lobster tails until cooked; remove meat and chop into chunks.",
+      "In a saucepan, melt butter and stir in flour to create a roux.",
+      "Gradually whisk in milk until smooth and thickened.",
+      "Add Gruyere and Parmesan cheeses, a spoonful of Dijon mustard, and lobster chunks.",
+      "Spoon the mixture back into lobster shells and broil until golden brown.",
+      "Garnish with fresh parsley and serve."
+    ]
+  },
+
+  {
+    "name": "Croissants with Almond Filling",
+    "mealType": "Breakfast",
+    "cuisine": "French",
+    "serving": 8,
+    "time_to_cook": "3 hours",
+    "difficulty_level": "High",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "1 1/4 cups warm milk",
+      "2 tablespoons active dry yeast",
+      "1/4 cup granulated sugar",
+      "4 cups all-purpose flour",
+      "1 teaspoon salt",
+      "1 1/4 cups unsalted butter (cold)",
+      "1 cup almond paste",
+      "1/2 cup powdered sugar",
+      "1 egg for egg wash"
+    ],
+    "instructions": [
+      "In a bowl, combine warm milk, active dry yeast, and granulated sugar. Let it sit for 5 minutes until foamy.",
+      "In a large bowl, mix flour and salt. Cut in cold butter until the mixture resembles coarse crumbs.",
+      "Add the yeast mixture to the flour and knead until a dough forms. Chill for 1 hour.",
+      "Roll out the dough, fold in thirds, and chill for 30 minutes. Repeat this process three times.",
+      "Mix almond paste and powdered sugar to make the filling.",
+      "Roll out the dough, spread the almond filling, and roll into a log.",
+      "Cut into croissants, let rise for 1 hour, brush with egg wash, and bake until golden brown."
+    ]
+  },
+  {
+    "name": "Chicken Alfredo Pasta",
+    "mealType": "Dinner",
+    "cuisine": "Italian",
+    "serving": 4,
+    "time_to_cook": "30 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "400g fettuccine pasta",
+      "2 boneless, skinless chicken breasts (sliced)",
+      "2 cups heavy cream",
+      "1 cup Parmesan cheese (grated)",
+      "4 cloves garlic (minced)",
+      "1/4 cup butter",
+      "Salt and black pepper to taste",
+      "Chopped parsley for garnish"
+    ],
+    "instructions": [
+      "Cook fettuccine pasta according to package instructions.",
+      "In a pan, sauté sliced chicken in butter until cooked.",
+      "Add minced garlic, heavy cream, and Parmesan cheese. Stir until the cheese is melted.",
+      "Season with salt and black pepper.",
+      "Toss the cooked pasta in the Alfredo sauce, garnish with parsley, and serve hot."
+    ]
+  },
+  {
+    "name": "Shrimp and Asparagus Stir-Fry",
+    "mealType": "Lunch",
+    "cuisine": "Asian",
+    "serving": 4,
+    "time_to_cook": "20 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "1 lb large shrimp (peeled and deveined)",
+      "1 lb asparagus (trimmed and cut into 2-inch pieces)",
+      "3 tablespoons soy sauce",
+      "2 tablespoons oyster sauce",
+      "1 tablespoon sesame oil",
+      "1 tablespoon cornstarch",
+      "2 cloves garlic (minced)",
+      "1 teaspoon ginger (grated)",
+      "2 tablespoons vegetable oil"
+    ],
+    "instructions": [
+      "In a bowl, mix soy sauce, oyster sauce, sesame oil, and cornstarch.",
+      "In a wok or skillet, heat vegetable oil over high heat.",
+      "Add shrimp and stir-fry until pink; remove from the pan.",
+      "Stir-fry asparagus, garlic, and ginger until asparagus is crisp-tender.",
+      "Add the cooked shrimp back to the pan, pour the sauce over, and toss to coat.",
+      "Serve over rice."
+    ]
+  },
+  {
+    "name": "Vegetarian Stuffed Bell Peppers",
+    "mealType": "Dinner",
+    "cuisine": "International",
+    "serving": 4,
+    "time_to_cook": "40 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "4 large bell peppers (halved and seeds removed)",
+      "1 cup quinoa",
+      "2 cups vegetable broth",
+      "1 can black beans (drained and rinsed)",
+      "1 cup corn kernels (fresh or frozen)",
+      "1 cup cherry tomatoes (diced)",
+      "1/2 red onion (chopped)",
+      "1 teaspoon cumin",
+      "1 teaspoon chili powder",
+      "Salt and black pepper to taste",
+      "Shredded cheese for topping"
+    ],
+    "instructions": [
+      "Preheat the oven to 375°F (190°C).",
+      "Cook quinoa in vegetable broth according to package instructions.",
+      "In a bowl, mix cooked quinoa, black beans, corn, cherry tomatoes, red onion, cumin, chili powder, salt, and black pepper.",
+      "Stuff each bell pepper half with the quinoa mixture.",
+      "Top with shredded cheese and bake for 25-30 minutes or until peppers are tender.",
+      "Serve hot."
+    ]
+  },
+  {
+    "name": "Lemon Herb Roasted Chicken",
+    "mealType": "Dinner",
+    "cuisine": "International",
+    "serving": 4,
+    "time_to_cook": "1 hour",
+    "difficulty_level": "Moderate",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "1 whole chicken (about 4 lbs)",
+      "2 lemons (halved)",
+      "4 cloves garlic (minced)",
+      "2 tablespoons fresh rosemary (chopped)",
+      "2 tablespoons fresh thyme (chopped)",
+      "2 tablespoons olive oil",
+      "Salt and black pepper to taste",
+      "1 cup chicken broth"
+    ],
+    "instructions": [
+      "Preheat the oven to 375°F (190°C).",
+      "Pat the chicken dry with paper towels and season with salt and black pepper.",
+      "In a bowl, mix minced garlic, chopped rosemary, chopped thyme, and olive oil.",
+      "Rub the chicken with the herb mixture and place lemon halves in the cavity.",
+      "Place the chicken in a roasting pan and pour chicken broth into the pan.",
+      "Roast for about 1 hour or until the internal temperature reaches 165°F (74°C).",
+      "Let it rest for 10 minutes before carving."
+    ]
+  },
+  {
+    "name": "Butternut Squash Risotto",
+    "mealType": "Dinner",
+    "cuisine": "Italian",
+    "serving": 4,
+    "time_to_cook": "40 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "1 cup Arborio rice",
+      "3 cups butternut squash (peeled and diced)",
+      "1/2 cup dry white wine",
+      "4 cups vegetable broth (heated)",
+      "1 onion (finely chopped)",
+      "2 cloves garlic (minced)",
+      "1/2 cup Parmesan cheese (grated)",
+      "2 tablespoons butter",
+      "2 tablespoons olive oil",
+      "Salt and black pepper to taste",
+      "Fresh sage leaves for garnish"
+    ],
+    "instructions": [
+      "In a pan, sauté chopped onion and minced garlic in olive oil until translucent.",
+      "Add Arborio rice and cook until the edges become translucent.",
+      "Pour in the white wine and stir until mostly absorbed.",
+      "Add diced butternut squash and ladle in hot vegetable broth one scoop at a time, stirring until absorbed.",
+      "Continue this process until the rice and squash are creamy and tender.",
+      "Stir in butter and Parmesan cheese, season with salt and black pepper.",
+      "Garnish with fresh sage leaves and serve."
+    ]
+  },
+  {
+    "name": "Cajun Shrimp and Grits",
+    "mealType": "Dinner",
+    "cuisine": "Southern",
+    "serving": 4,
+    "time_to_cook": "30 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Moderate",
+    "spice_level": "Spicy",
+    "ingredients": [
+      "1 lb large shrimp (peeled and deveined)",
+      "1 cup stone-ground grits",
+      "4 cups chicken broth",
+      "1 cup cheddar cheese (shredded)",
+      "2 tablespoons butter",
+      "1 tablespoon Cajun seasoning",
+      "1 tablespoon olive oil",
+      "4 slices bacon (cooked and crumbled)",
+      "Chopped green onions for garnish"
+    ],
+    "instructions": [
+      "Bring chicken broth to a boil in a saucepan. Stir in grits and cook according to package instructions.",
+      "Stir in shredded cheddar cheese and butter into the cooked grits.",
+      "In a skillet, heat olive oil and cook shrimp with Cajun seasoning until pink and opaque.",
+      "Serve the Cajun shrimp over a bed of cheesy grits.",
+      "Top with crumbled bacon and chopped green onions."
+    ]
+  },
+  {
+    "name": "Thai Green Curry with Chicken",
+    "mealType": "Dinner",
+    "cuisine": "Thai",
+    "serving": 4,
+    "time_to_cook": "40 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Moderate",
+    "spice_level": "Spicy",
+    "ingredients": [
+      "1 lb boneless, skinless chicken thighs (sliced)",
+      "1 can coconut milk",
+      "2 tablespoons green curry paste",
+      "1 cup bamboo shoots",
+      "1 cup bell peppers (sliced)",
+      "1 cup eggplant (sliced)",
+      "1 tablespoon fish sauce",
+      "1 tablespoon soy sauce",
+      "1 tablespoon brown sugar",
+      "Fresh basil leaves for garnish"
+    ],
+    "instructions": [
+      "In a pot, heat coconut milk and green curry paste until fragrant.",
+      "Add sliced chicken and cook until browned.",
+      "Stir in bamboo shoots, bell peppers, and eggplant.",
+      "Season with fish sauce, soy sauce, and brown sugar.",
+      "Simmer until the vegetables are tender and the chicken is cooked through.",
+      "Garnish with fresh basil leaves and serve over rice."
+    ]
+  },
+  {
+    "name": "Peach and Prosciutto Salad",
+    "mealType": "Lunch",
+    "cuisine": "Mediterranean",
+    "serving": 4,
+    "time_to_cook": "15 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "4 cups arugula",
+      "2 ripe peaches (sliced)",
+      "4 oz prosciutto",
+      "1/2 cup feta cheese (crumbled)",
+      "1/4 cup balsamic glaze",
+      "1/4 cup extra-virgin olive oil",
+      "Salt and black pepper to taste",
+      "Toasted pine nuts for garnish"
+    ],
+    "instructions": [
+      "In a large bowl, combine arugula, sliced peaches, prosciutto, and crumbled feta cheese.",
+      "Drizzle with balsamic glaze and olive oil.",
+      "Toss the salad gently to coat the ingredients.",
+      "Season with salt and black pepper to taste.",
+      "Garnish with toasted pine nuts and serve immediately."
+    ]
+  },
+  {
+    "name": "Teriyaki Glazed Salmon",
+    "mealType": "Dinner",
+    "cuisine": "Asian",
+    "serving": 4,
+    "time_to_cook": "20 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "4 salmon fillets",
+      "1/4 cup soy sauce",
+      "2 tablespoons honey",
+      "1 tablespoon rice vinegar",
+      "1 tablespoon sesame oil",
+      "2 cloves garlic (minced)",
+      "1 teaspoon ginger (grated)",
+      "Sesame seeds and green onions for garnish"
+    ],
+    "instructions": [
+      "In a bowl, whisk together soy sauce, honey, rice vinegar, sesame oil, minced garlic, and grated ginger.",
+      "Marinate salmon fillets in the teriyaki sauce for 10-15 minutes.",
+      "In a skillet, heat olive oil over medium-high heat.",
+      "Cook salmon fillets for 3-4 minutes per side or until golden and cooked through.",
+      "Drizzle with extra teriyaki sauce if desired.",
+      "Garnish with sesame seeds and sliced green onions."
+    ]
+  },
+  {
+    "name": "Shrimp Scampi",
+    "mealType": "Dinner",
+    "cuisine": "Italian",
+    "serving": 4,
+    "time_to_cook": "20 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "1 lb large shrimp (peeled and deveined)",
+      "8 oz linguine pasta",
+      "4 tablespoons butter",
+      "4 cloves garlic (minced)",
+      "1/2 cup chicken broth",
+      "Juice of 1 lemon",
+      "Red pepper flakes and parsley for garnish"
+    ],
+    "instructions": [
+      "Cook linguine pasta according to package instructions.",
+      "In a skillet, melt butter and sauté minced garlic until fragrant.",
+      "Add shrimp and cook until pink; remove shrimp and set aside.",
+      "Deglaze the skillet with chicken broth and lemon juice.",
+      "Toss cooked pasta and shrimp in the sauce.",
+      "Garnish with red pepper flakes and parsley.",
+      "Serve immediately."
+    ]
+  },
+  {
+    "name": "Vegetable Lasagna",
+    "mealType": "Dinner",
+    "cuisine": "Italian",
+    "serving": 6,
+    "time_to_cook": "1.5 hours",
+    "difficulty_level": "Moderate",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "9 lasagna noodles",
+      "2 cups ricotta cheese",
+      "2 cups mozzarella cheese (shredded)",
+      "1 cup Parmesan cheese (grated)",
+      "2 cups marinara sauce",
+      "1 egg",
+      "Assorted vegetables (zucchini, bell peppers, spinach)",
+      "Fresh basil for garnish"
+    ],
+    "instructions": [
+      "Cook lasagna noodles according to package instructions.",
+      "In a bowl, mix ricotta, half of the mozzarella, Parmesan, and egg.",
+      "In a baking dish, layer noodles, ricotta mixture, vegetables, and marinara sauce.",
+      "Repeat layers, ending with a layer of sauce and mozzarella on top.",
+      "Bake until bubbly and golden brown.",
+      "Garnish with fresh basil and let it rest before slicing."
+    ]
+  },
+  {
+    "name": "Teriyaki Chicken Stir-Fry",
+    "mealType": "Dinner",
+    "cuisine": "Asian",
+    "serving": 4,
+    "time_to_cook": "30 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "1 lb boneless chicken breast (sliced)",
+      "2 cups broccoli florets",
+      "1 red bell pepper (sliced)",
+      "1 carrot (julienned)",
+      "3 tablespoons teriyaki sauce",
+      "2 tablespoons soy sauce",
+      "2 tablespoons vegetable oil"
+    ],
+    "instructions": [
+      "Heat vegetable oil in a wok or skillet over high heat.",
+      "Add sliced chicken and stir-fry until cooked.",
+      "Add broccoli, bell pepper, and carrot; stir-fry for 3-5 minutes.",
+      "Mix in teriyaki sauce and soy sauce.",
+      "Serve over rice or noodles."
+    ]
+  },
+  {
+    "name": "Roasted Butternut Squash Soup",
+    "mealType": "Lunch",
+    "cuisine": "American",
+    "serving": 6,
+    "time_to_cook": "1 hour",
+    "difficulty_level": "Moderate",
+    "cost": "Low",
+    "spice_level": "Mild",
+    "ingredients": [
+      "1 medium butternut squash (peeled and cubed)",
+      "1 onion (diced)",
+      "2 carrots (chopped)",
+      "3 cups vegetable broth",
+      "1 teaspoon cumin",
+      "1/2 teaspoon cinnamon",
+      "Salt and black pepper to taste",
+      "Olive oil for roasting",
+      "Fresh parsley for garnish"
+    ],
+    "instructions": [
+      "Preheat oven to 400°F (200°C).",
+      "Toss butternut squash, onion, and carrots with olive oil, cumin, and cinnamon.",
+      "Roast in the oven until vegetables are tender and caramelized.",
+      "Blend roasted vegetables with vegetable broth until smooth.",
+      "Transfer to a pot, season with salt and black pepper, and heat through.",
+      "Garnish with fresh parsley and serve hot."
+    ]
+  },
+  {
+    "name": "Caprese Quinoa Salad",
+    "mealType": "Lunch",
+    "cuisine": "Mediterranean",
+    "serving": 4,
+    "time_to_cook": "20 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "1 cup quinoa (cooked)",
+      "1 cup cherry tomatoes (halved)",
+      "1 cup fresh mozzarella balls",
+      "1/4 cup fresh basil (chopped)",
+      "2 tablespoons balsamic glaze",
+      "Salt and black pepper to taste",
+      "Extra virgin olive oil for drizzling"
+    ],
+    "instructions": [
+      "In a bowl, combine cooked quinoa, cherry tomatoes, mozzarella balls, and chopped basil.",
+      "Drizzle with balsamic glaze and olive oil.",
+      "Season with salt and black pepper, toss to combine.",
+      "Serve at room temperature or chilled."
+    ]
+  },
+  {
+    "name": "Sesame Ginger Salmon",
+    "mealType": "Dinner",
+    "cuisine": "Asian",
+    "serving": 4,
+    "time_to_cook": "25 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "4 salmon fillets",
+      "1/4 cup soy sauce",
+      "2 tablespoons sesame oil",
+      "1 tablespoon rice vinegar",
+      "1 tablespoon honey",
+      "2 teaspoons fresh ginger (grated)",
+      "2 tablespoons sesame seeds",
+      "Green onions for garnish"
+    ],
+    "instructions": [
+      "Preheat oven to 400°F (200°C).",
+      "In a bowl, mix soy sauce, sesame oil, rice vinegar, honey, and grated ginger.",
+      "Place salmon fillets on a baking sheet and brush with the sauce.",
+      "Sprinkle sesame seeds over the salmon.",
+      "Bake until salmon is cooked through and flakes easily.",
+      "Garnish with chopped green onions and serve."
+    ]
+  },
+  {
+    "name": "Mushroom and Spinach Stuffed Chicken Breast",
+    "mealType": "Dinner",
+    "cuisine": "International",
+    "serving": 4,
+    "time_to_cook": "40 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "4 boneless, skinless chicken breasts",
+      "1 cup mushrooms (chopped)",
+      "2 cups fresh spinach",
+      "1/2 cup feta cheese (crumbled)",
+      "2 cloves garlic (minced)",
+      "1 tablespoon olive oil",
+      "Salt and black pepper to taste",
+      "Toothpicks for securing"
+    ],
+    "instructions": [
+      "Preheat oven to 375°F (190°C).",
+      "In a skillet, sauté mushrooms, spinach, and garlic in olive oil until wilted.",
+      "Let the mixture cool, then stir in crumbled feta cheese.",
+      "Butterfly each chicken breast and stuff with the mushroom-spinach mixture.",
+      "Secure with toothpicks, season with salt and black pepper.",
+      "Bake until chicken is cooked through.",
+      "Remove toothpicks before serving."
+    ]
+  },
+  {
+    "name": "Cauliflower and Chickpea Curry",
+    "mealType": "Dinner",
+    "cuisine": "Indian",
+    "serving": 4,
+    "time_to_cook": "30 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Low",
+    "spice_level": "Medium",
+    "ingredients": [
+      "1 cauliflower (cut into florets)",
+      "1 can chickpeas (drained and rinsed)",
+      "1 onion (chopped)",
+      "2 tomatoes (chopped)",
+      "3 cloves garlic (minced)",
+      "1 tablespoon curry powder",
+      "1 teaspoon cumin",
+      "1 teaspoon turmeric",
+      "1/2 teaspoon cayenne pepper",
+      "1 can coconut milk",
+      "Fresh cilantro for garnish"
+    ],
+    "instructions": [
+      "In a large pot, sauté chopped onion and minced garlic until softened.",
+      "Add curry powder, cumin, turmeric, and cayenne pepper; cook for 1-2 minutes.",
+      "Stir in chopped tomatoes, cauliflower, and chickpeas.",
+      "Pour in coconut milk and simmer until cauliflower is tender.",
+      "Garnish with fresh cilantro and serve over rice."
+    ]
+  },
+  {
+    "name": "Stuffed Bell Peppers with Quinoa and Black Beans",
+    "mealType": "Dinner",
+    "cuisine": "Mexican",
+    "serving": 4,
+    "time_to_cook": "45 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Low",
+    "spice_level": "Mild",
+    "ingredients": [
+      "4 bell peppers (halved and seeds removed)",
+      "1 cup quinoa (cooked)",
+      "1 can black beans (drained and rinsed)",
+      "1 cup corn kernels",
+      "1 cup salsa",
+      "1 teaspoon cumin",
+      "1/2 teaspoon chili powder",
+      "1 cup shredded cheddar cheese",
+      "Fresh cilantro for garnish"
+    ],
+    "instructions": [
+      "Preheat oven to 375°F (190°C).",
+      "In a bowl, mix cooked quinoa, black beans, corn, salsa, cumin, and chili powder.",
+      "Stuff each bell pepper half with the quinoa mixture.",
+      "Top with shredded cheddar cheese.",
+      "Bake until peppers are tender and cheese is melted.",
+      "Garnish with fresh cilantro and serve."
+    ]
+  },
+
+  {
+    "name": "Lemon Garlic Roast Chicken",
+    "mealType": "Dinner",
+    "cuisine": "American",
+    "serving": 4,
+    "time_to_cook": "1 hour",
+    "difficulty_level": "Moderate",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "1 whole chicken (about 4 lbs)",
+      "4 cloves garlic (minced)",
+      "1 lemon (sliced)",
+      "2 tablespoons olive oil",
+      "1 teaspoon dried thyme",
+      "1 teaspoon dried rosemary",
+      "Salt and black pepper to taste",
+      "Chicken broth for basting"
+    ],
+    "instructions": [
+      "Preheat the oven to 375°F (190°C).",
+      "Rinse the chicken and pat it dry with paper towels.",
+      "Rub the chicken with olive oil, minced garlic, dried thyme, dried rosemary, salt, and black pepper.",
+      "Place lemon slices under the skin and inside the cavity of the chicken.",
+      "Roast in the preheated oven for about 1 hour, basting with chicken broth every 20 minutes.",
+      "Allow the chicken to rest before carving.",
+      "Serve with pan drippings."
+    ]
+  },
+  {
+    "name": "Salmon with Lemon-Dill Sauce",
+    "mealType": "Dinner",
+    "cuisine": "American",
+    "serving": 4,
+    "time_to_cook": "20 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "4 salmon fillets",
+      "2 tablespoons olive oil",
+      "1 lemon (juiced and zested)",
+      "2 tablespoons fresh dill (chopped)",
+      "2 cloves garlic (minced)",
+      "Salt and black pepper to taste",
+      "1/4 cup chicken broth",
+      "1/4 cup heavy cream"
+    ],
+    "instructions": [
+      "Season salmon fillets with salt and black pepper.",
+      "In a skillet, heat olive oil and sear the salmon fillets until golden brown on both sides.",
+      "Add minced garlic, lemon juice, lemon zest, chopped dill, chicken broth, and heavy cream to the skillet.",
+      "Simmer until the sauce thickens and the salmon is cooked through.",
+      "Serve hot, drizzling the lemon-dill sauce over the salmon."
+    ]
+  },
+  {
+    "name": "Vegetable Biryani",
+    "mealType": "Dinner",
+    "cuisine": "Indian",
+    "serving": 6,
+    "time_to_cook": "45 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Moderate",
+    "spice_level": "Medium",
+    "ingredients": [
+      "2 cups basmati rice (cooked)",
+      "1 cup mixed vegetables (carrots, peas, beans)",
+      "1 large onion (sliced)",
+      "2 tomatoes (chopped)",
+      "1/4 cup plain yogurt",
+      "1/4 cup chopped mint leaves",
+      "1/4 cup chopped cilantro",
+      "1 tablespoon ginger-garlic paste",
+      "1/2 teaspoon turmeric",
+      "1/2 teaspoon garam masala",
+      "1/2 teaspoon cumin seeds",
+      "4 cloves",
+      "4 green cardamom pods",
+      "Salt to taste"
+    ],
+    "instructions": [
+      "In a large pan, sauté cumin seeds, cloves, and cardamom pods until fragrant.",
+      "Add sliced onions and cook until golden brown.",
+      "Stir in ginger-garlic paste and cook until the raw smell disappears.",
+      "Add chopped tomatoes, turmeric, garam masala, and cook until tomatoes are soft.",
+      "Mix in plain yogurt, mixed vegetables, mint leaves, and cilantro. Cook until the vegetables are tender.",
+      "Layer the cooked basmati rice over the vegetable mixture and steam for 10 minutes.",
+      "Serve hot, garnished with additional mint and cilantro."
+    ]
+  },
+
+  {
+    "name": "Blueberry Oatmeal Smoothie",
+    "mealType": "Breakfast",
+    "cuisine": "International",
+    "serving": 2,
+    "time_to_cook": "10 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Low",
+    "spice_level": "Mild",
+    "ingredients": [
+      "1 cup blueberries (fresh or frozen)",
+      "1/2 cup rolled oats",
+      "1 banana",
+      "1 cup Greek yogurt",
+      "1 cup almond milk",
+      "1 tablespoon honey",
+      "Ice cubes (optional)"
+    ],
+    "instructions": [
+      "In a blender, combine blueberries, rolled oats, banana, Greek yogurt, almond milk, and honey.",
+      "Blend until smooth and creamy.",
+      "Add ice cubes if desired and blend again.",
+      "Pour into glasses and enjoy your nutritious blueberry oatmeal smoothie!"
+    ]
+  },
+
+  {
+    "name": "Egg and Veggie Breakfast Burrito",
+    "mealType": "Breakfast",
+    "cuisine": "Mexican",
+    "serving": 2,
+    "time_to_cook": "15 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Low",
+    "spice_level": "Mild",
+    "ingredients": [
+      "4 large eggs (beaten)",
+      "1/2 bell pepper (diced)",
+      "1/2 onion (chopped)",
+      "1 tomato (diced)",
+      "1/2 cup shredded cheese",
+      "2 large flour tortillas",
+      "Salt and pepper to taste",
+      "Salsa for serving"
+    ],
+    "instructions": [
+      "In a pan, sauté bell pepper and onion until softened.",
+      "Add beaten eggs and scramble until cooked.",
+      "Stir in diced tomato and shredded cheese until melted.",
+      "Season with salt and pepper to taste.",
+      "Spoon the egg mixture onto flour tortillas, roll into burritos, and serve with salsa."
+    ]
+  },
+
+  {
+    "name": "Banana Walnut Muffins",
+    "mealType": "Breakfast",
+    "cuisine": "International",
+    "serving": 12,
+    "time_to_cook": "25 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Low",
+    "spice_level": "Mild",
+    "ingredients": [
+      "2 cups all-purpose flour",
+      "1 teaspoon baking soda",
+      "1/2 teaspoon baking powder",
+      "1/2 teaspoon salt",
+      "3 ripe bananas (mashed)",
+      "1/2 cup unsalted butter (melted)",
+      "1/2 cup granulated sugar",
+      "1/2 cup brown sugar",
+      "2 large eggs",
+      "1 teaspoon vanilla extract",
+      "1 cup chopped walnuts"
+    ],
+    "instructions": [
+      "Preheat the oven to 350°F (175°C) and line a muffin tin with paper liners.",
+      "In a bowl, whisk together flour, baking soda, baking powder, and salt.",
+      "In another bowl, mix mashed bananas, melted butter, granulated sugar, brown sugar, eggs, and vanilla extract.",
+      "Combine the wet and dry ingredients, then fold in chopped walnuts.",
+      "Spoon the batter into muffin cups and bake for 20-25 minutes until a toothpick comes out clean.",
+      "Allow to cool before serving."
+    ]
+  },
+
+  {
+    "name": "Chia Seed Pudding with Berries",
+    "mealType": "Breakfast",
+    "cuisine": "International",
+    "serving": 2,
+    "time_to_cook": "4 hours (chilling time)",
+    "difficulty_level": "Easy",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "1/4 cup chia seeds",
+      "1 cup almond milk",
+      "1 tablespoon honey",
+      "1/2 teaspoon vanilla extract",
+      "Mixed berries for topping"
+    ],
+    "instructions": [
+      "In a bowl, mix chia seeds, almond milk, honey, and vanilla extract.",
+      "Stir well, cover, and refrigerate for at least 4 hours or overnight until the mixture thickens.",
+      "Before serving, stir the pudding and top with mixed berries.",
+      "Enjoy your nutritious chia seed pudding with berries!"
+    ]
+  },
+  {
+    "name": "Vegetarian Breakfast Burrito Bowl",
+    "mealType": "Breakfast",
+    "cuisine": "Mexican",
+    "serving": 2,
+    "time_to_cook": "20 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Low",
+    "spice_level": "Mild",
+    "ingredients": [
+      "1 cup cooked quinoa",
+      "1/2 cup black beans (canned, drained, and rinsed)",
+      "1/2 cup corn kernels (fresh or frozen)",
+      "1 avocado (sliced)",
+      "2 eggs (fried or poached)",
+      "Salsa for topping",
+      "Fresh cilantro for garnish"
+    ],
+    "instructions": [
+      "In each bowl, layer cooked quinoa, black beans, corn, sliced avocado, and fried or poached eggs.",
+      "Top with salsa and garnish with fresh cilantro.",
+      "Serve your delicious vegetarian breakfast burrito bowl!"
+    ]
+  },
+  {
+    "name": "Pancakes with Mixed Berry Compote",
+    "mealType": "Breakfast",
+    "cuisine": "International",
+    "serving": 4,
+    "time_to_cook": "25 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Low",
+    "spice_level": "Mild",
+    "ingredients": [
+      "1 cup all-purpose flour",
+      "2 tablespoons sugar",
+      "1 teaspoon baking powder",
+      "1/2 teaspoon baking soda",
+      "1/4 teaspoon salt",
+      "1 cup buttermilk",
+      "1 large egg",
+      "2 tablespoons unsalted butter (melted)",
+      "Mixed berries for compote (strawberries, blueberries, raspberries)",
+      "Maple syrup for serving"
+    ],
+    "instructions": [
+      "In a bowl, whisk together flour, sugar, baking powder, baking soda, and salt.",
+      "In another bowl, mix buttermilk, egg, and melted butter.",
+      "Combine wet and dry ingredients until just mixed.",
+      "Heat a griddle or non-stick pan over medium heat and ladle the batter onto it.",
+      "Cook until bubbles form on the surface, then flip and cook the other side.",
+      "In a saucepan, simmer mixed berries until they release their juices to make the compote.",
+      "Serve pancakes with the mixed berry compote and maple syrup."
+    ]
+  },
+  {
+    "name": "Avocado and Egg Breakfast Wrap",
+    "mealType": "Breakfast",
+    "cuisine": "International",
+    "serving": 2,
+    "time_to_cook": "15 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Low",
+    "spice_level": "Mild",
+    "ingredients": [
+      "2 large tortillas",
+      "2 eggs (scrambled)",
+      "1 avocado (sliced)",
+      "1/2 cup cherry tomatoes (halved)",
+      "1/4 cup feta cheese (crumbled)",
+      "Fresh cilantro for garnish",
+      "Salt and black pepper to taste"
+    ],
+    "instructions": [
+      "Scramble the eggs in a pan over medium heat until cooked.",
+      "Warm the tortillas in a dry pan or microwave.",
+      "Layer each tortilla with scrambled eggs, avocado slices, cherry tomatoes, and crumbled feta.",
+      "Season with salt and black pepper to taste.",
+      "Garnish with fresh cilantro and fold the tortillas into wraps.",
+      "Enjoy your avocado and egg breakfast wrap!"
+    ]
+  },
+  {
+    "name": "Chocolate Banana Smoothie Bowl",
+    "mealType": "Breakfast",
+    "cuisine": "International",
+    "serving": 2,
+    "time_to_cook": "10 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Low",
+    "spice_level": "Mild",
+    "ingredients": [
+      "2 frozen bananas",
+      "2 tablespoons cocoa powder",
+      "1 cup almond milk",
+      "1/2 cup granola",
+      "Sliced banana and strawberries for topping",
+      "Chocolate chips for garnish"
+    ],
+    "instructions": [
+      "In a blender, combine frozen bananas, cocoa powder, and almond milk.",
+      "Blend until smooth and creamy.",
+      "Pour the smoothie into bowls and top with granola, sliced banana, strawberries, and chocolate chips.",
+      "Enjoy your chocolate banana smoothie bowl!"
+    ]
+  },
+  {
+    "name": "Egg White Veggie Omelette",
+    "mealType": "Breakfast",
+    "cuisine": "International",
+    "serving": 1,
+    "time_to_cook": "10 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Low",
+    "spice_level": "Mild",
+    "ingredients": [
+      "3 egg whites",
+      "1/2 bell pepper (diced)",
+      "1/4 cup red onion (chopped)",
+      "1/4 cup spinach leaves (chopped)",
+      "1/4 cup cherry tomatoes (sliced)",
+      "1 tablespoon olive oil",
+      "Salt and black pepper to taste",
+      "Fresh herbs for garnish"
+    ],
+    "instructions": [
+      "In a bowl, whisk the egg whites until frothy.",
+      "In a non-stick skillet, sauté bell pepper, red onion, and spinach in olive oil until softened.",
+      "Pour the whisked egg whites over the veggies and cook until set.",
+      "Add sliced cherry tomatoes and fold the omelette in half.",
+      "Season with salt and black pepper, garnish with fresh herbs, and serve hot."
+    ]
+  },
+  {
+    "name": "Cinnamon French Toast Sticks",
+    "mealType": "Breakfast",
+    "cuisine": "International",
+    "serving": 4,
+    "time_to_cook": "15 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Low",
+    "spice_level": "Mild",
+    "ingredients": [
+      "8 slices bread (white or whole wheat)",
+      "2 large eggs",
+      "1/2 cup milk",
+      "1 teaspoon vanilla extract",
+      "2 tablespoons sugar",
+      "1 teaspoon ground cinnamon",
+      "Butter for cooking",
+      "Maple syrup for dipping"
+    ],
+    "instructions": [
+      "Cut each slice of bread into sticks.",
+      "In a bowl, whisk together eggs, milk, vanilla extract, sugar, and ground cinnamon.",
+      "Dip each bread stick into the egg mixture, coating all sides.",
+      "In a skillet, melt butter over medium heat and cook the bread sticks until golden brown on all sides.",
+      "Serve the cinnamon French toast sticks with maple syrup for dipping."
+    ]
+  },
+  {
+    "name": "Greek Yogurt and Berry Parfait",
+    "mealType": "Breakfast",
+    "cuisine": "Mediterranean",
+    "serving": 2,
+    "time_to_cook": "10 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "2 cups Greek yogurt",
+      "1 cup mixed berries (strawberries, blueberries, raspberries)",
+      "1/2 cup granola",
+      "Honey for drizzling",
+      "Chopped mint leaves for garnish"
+    ],
+    "instructions": [
+      "In serving glasses or bowls, layer Greek yogurt, mixed berries, and granola.",
+      "Repeat the layers until the glasses are filled.",
+      "Drizzle honey over the top and garnish with chopped mint leaves.",
+      "Serve immediately and enjoy your delightful Greek yogurt and berry parfait!"
+    ]
+  },
+
+  {
+    "name": "Vegetarian Breakfast Quesadilla",
+    "mealType": "Breakfast",
+    "cuisine": "Mexican",
+    "serving": 2,
+    "time_to_cook": "15 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Low",
+    "spice_level": "Mild",
+    "ingredients": [
+      "4 small flour tortillas",
+      "4 eggs (scrambled)",
+      "1 cup black beans (canned, drained, and rinsed)",
+      "1/2 cup diced bell peppers",
+      "1/2 cup shredded cheddar cheese",
+      "Salsa for serving",
+      "Avocado slices for garnish"
+    ],
+    "instructions": [
+      "In a pan, cook scrambled eggs until just set.",
+      "On a tortilla, layer black beans, scrambled eggs, diced bell peppers, and shredded cheddar cheese.",
+      "Top with another tortilla and cook on both sides until the cheese is melted and the tortillas are golden brown.",
+      "Repeat for the second quesadilla.",
+      "Serve with salsa and garnish with avocado slices."
+    ]
+  },
+  {
+    "name": "Cranberry Orange Muffins",
+    "mealType": "Breakfast",
+    "cuisine": "International",
+    "serving": 12,
+    "time_to_cook": "25 minutes",
+    "difficulty_level": "Moderate",
+    "cost": "Low",
+    "spice_level": "Mild",
+    "ingredients": [
+      "2 cups all-purpose flour",
+      "1 cup dried cranberries",
+      "1/2 cup unsalted butter (softened)",
+      "1 cup sugar",
+      "2 large eggs",
+      "1 cup orange juice",
+      "1 tablespoon orange zest",
+      "1 teaspoon vanilla extract",
+      "1 teaspoon baking powder",
+      "1/2 teaspoon baking soda",
+      "1/4 teaspoon salt"
+    ],
+    "instructions": [
+      "Preheat the oven to 375°F (190°C) and line a muffin tin with paper liners.",
+      "In a bowl, cream together butter and sugar until light and fluffy.",
+      "Add eggs one at a time, beating well after each addition.",
+      "In a separate bowl, whisk together flour, baking powder, baking soda, and salt.",
+      "Alternate adding the dry ingredients and orange juice to the butter mixture, beginning and ending with the dry ingredients.",
+      "Fold in dried cranberries, orange zest, and vanilla extract.",
+      "Spoon the batter into muffin cups and bake for 20-25 minutes until a toothpick comes out clean.",
+      "Allow to cool before serving."
+    ]
+  },
+  {
+    "name": "Spinach and Mushroom Breakfast Wrap",
+    "mealType": "Breakfast",
+    "cuisine": "International",
+    "serving": 2,
+    "time_to_cook": "15 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Low",
+    "spice_level": "Mild",
+    "ingredients": [
+      "4 large eggs (scrambled)",
+      "1 cup fresh spinach leaves",
+      "1/2 cup mushrooms (sliced)",
+      "1/4 cup feta cheese (crumbled)",
+      "2 large whole wheat tortillas",
+      "Salt and black pepper to taste",
+      "Salsa for serving"
+    ],
+    "instructions": [
+      "In a pan, sauté mushrooms until they release their moisture.",
+      "Add fresh spinach leaves and cook until wilted.",
+      "Pour scrambled eggs into the pan and cook until just set.",
+      "Divide the egg mixture between two whole wheat tortillas.",
+      "Sprinkle crumbled feta cheese on top, season with salt and black pepper, and fold into wraps.",
+      "Serve with salsa and enjoy your spinach and mushroom breakfast wrap!"
+    ]
+  },
+
+  {
+    "name": "Almond Butter and Banana Smoothie",
+    "mealType": "Breakfast",
+    "cuisine": "International",
+    "serving": 2,
+    "time_to_cook": "10 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "2 ripe bananas",
+      "2 tablespoons almond butter",
+      "1 cup almond milk",
+      "1/2 cup Greek yogurt",
+      "1 tablespoon honey",
+      "Ice cubes (optional)"
+    ],
+    "instructions": [
+      "In a blender, combine ripe bananas, almond butter, almond milk, Greek yogurt, and honey.",
+      "Blend until smooth and creamy.",
+      "Add ice cubes if desired and blend again.",
+      "Pour into glasses and enjoy your delicious almond butter and banana smoothie!"
+    ]
+  },
+  {
+    "name": "Grilled Chicken Caesar Salad",
+    "mealType": "Lunch",
+    "cuisine": "International",
+    "serving": 4,
+    "time_to_cook": "30 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "2 boneless, skinless chicken breasts",
+      "Romaine lettuce (chopped)",
+      "1 cup cherry tomatoes (halved)",
+      "1/2 cup croutons",
+      "1/2 cup grated Parmesan cheese",
+      "Caesar dressing",
+      "Salt and black pepper to taste",
+      "Olive oil for grilling"
+    ],
+    "instructions": [
+      "Preheat the grill to medium-high heat.",
+      "Season chicken breasts with salt, black pepper, and olive oil.",
+      "Grill the chicken for 6-8 minutes per side or until fully cooked.",
+      "Slice the grilled chicken into strips.",
+      "In a large bowl, combine chopped Romaine lettuce, cherry tomatoes, croutons, and grated Parmesan cheese.",
+      "Add the grilled chicken strips and drizzle with Caesar dressing.",
+      "Toss well and serve your delicious Grilled Chicken Caesar Salad!"
+    ]
+  },
+
+  {
+    "name": "Vegetarian Chickpea and Quinoa Bowl",
+    "mealType": "Lunch",
+    "cuisine": "Mediterranean",
+    "serving": 2,
+    "time_to_cook": "25 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Low",
+    "spice_level": "Mild",
+    "ingredients": [
+      "1 cup cooked quinoa",
+      "1 can chickpeas (canned, drained, and rinsed)",
+      "1 cup cherry tomatoes (halved)",
+      "1/2 cucumber (diced)",
+      "1/4 cup red onion (thinly sliced)",
+      "Feta cheese (crumbled)",
+      "Kalamata olives (pitted)",
+      "Olive oil and lemon juice dressing",
+      "Fresh parsley for garnish",
+      "Salt and black pepper to taste"
+    ],
+    "instructions": [
+      "In a bowl, combine cooked quinoa, chickpeas, cherry tomatoes, cucumber, and red onion.",
+      "Add crumbled feta cheese and Kalamata olives.",
+      "Drizzle with olive oil and lemon juice dressing.",
+      "Season with salt and black pepper to taste.",
+      "Garnish with fresh parsley and enjoy your Vegetarian Chickpea and Quinoa Bowl!"
+    ]
+  },
+  {
+    "name": "Spaghetti Aglio e Olio with Shrimp",
+    "mealType": "Lunch",
+    "cuisine": "Italian",
+    "serving": 4,
+    "time_to_cook": "20 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Moderate",
+    "spice_level": "Mild",
+    "ingredients": [
+      "400g spaghetti",
+      "1/2 cup olive oil",
+      "4 cloves garlic (thinly sliced)",
+      "1 teaspoon red pepper flakes",
+      "250g shrimp (peeled and deveined)",
+      "Salt and black pepper to taste",
+      "Fresh parsley for garnish",
+      "Grated Parmesan cheese for serving"
+    ],
+    "instructions": [
+      "Cook spaghetti according to package instructions; drain and set aside.",
+      "In a pan, heat olive oil over medium heat and sauté sliced garlic until golden brown.",
+      "Add red pepper flakes and shrimp; cook until shrimp are pink and opaque.",
+      "Toss the cooked spaghetti in the pan, coating it with the garlic and shrimp mixture.",
+      "Season with salt and black pepper to taste.",
+      "Garnish with fresh parsley and serve with grated Parmesan cheese."
+    ]
+  },
+  {
+    "name": "Caprese Salad Sandwich",
+    "mealType": "Lunch",
+    "cuisine": "Italian",
+    "serving": 2,
+    "time_to_cook": "10 minutes",
+    "difficulty_level": "Easy",
+    "cost": "Low",
+    "spice_level": "Mild",
+    "ingredients": [
+      "4 slices ciabatta bread",
+      "1 large tomato (sliced)",
+      "1 ball fresh mozzarella (sliced)",
+      "Fresh basil leaves",
+      "Balsamic glaze",
+      "Olive oil",
+      "Salt and black pepper to taste"
+    ],
+    "instructions": [
+      "Drizzle olive oil on one side of each ciabatta slice.",
+      "On two slices, layer tomato, fresh mozzarella, and basil leaves.",
+      "Drizzle with balsamic glaze and season with salt and black pepper.",
+      "Top with the remaining slices of ciabatta, olive oil side down.",
+      "Press the sandwiches together and serve your delightful Caprese Salad Sandwich!"
+    ]
   }
 ]
