@@ -305,7 +305,7 @@
     "time_to_cook": "10 minutes",
     "difficulty_level": "Easy",
     "cost": "Low",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "2 cups Greek yogurt",
       "1 cup granola",
@@ -328,7 +328,7 @@
     "time_to_cook": "10 minutes",
     "difficulty_level": "Easy",
     "cost": "Low",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "3 eggs",
       "Handful of fresh spinach",
@@ -354,7 +354,7 @@
     "time_to_cook": "20 minutes",
     "difficulty_level": "Moderate",
     "cost": "Low",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "1 cup all-purpose flour",
       "1 tablespoon sugar",
@@ -384,7 +384,7 @@
     "time_to_cook": "10 minutes",
     "difficulty_level": "Easy",
     "cost": "Moderate",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "2 frozen bananas",
       "1 cup frozen mixed berries",
@@ -436,7 +436,7 @@
     "time_to_cook": "30 minutes",
     "difficulty_level": "High",
     "cost": "Moderate",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "8 eggs",
       "4 English muffins (split and toasted)",
@@ -515,7 +515,7 @@
     "time_to_cook": "3 hours",
     "difficulty_level": "High",
     "cost": "Moderate",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "1 1/4 cups warm milk",
       "2 tablespoons active dry yeast",
@@ -661,7 +661,7 @@
     "time_to_cook": "40 minutes",
     "difficulty_level": "Moderate",
     "cost": "Moderate",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "1 cup Arborio rice",
       "3 cups butternut squash (peeled and diced)",
@@ -751,7 +751,7 @@
     "time_to_cook": "15 minutes",
     "difficulty_level": "Easy",
     "cost": "Moderate",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "4 cups arugula",
       "2 ripe peaches (sliced)",
@@ -778,7 +778,7 @@
     "time_to_cook": "20 minutes",
     "difficulty_level": "Easy",
     "cost": "Moderate",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "4 salmon fillets",
       "1/4 cup soy sauce",
@@ -917,7 +917,7 @@
     "time_to_cook": "20 minutes",
     "difficulty_level": "Easy",
     "cost": "Moderate",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "1 cup quinoa (cooked)",
       "1 cup cherry tomatoes (halved)",
@@ -942,7 +942,7 @@
     "time_to_cook": "25 minutes",
     "difficulty_level": "Moderate",
     "cost": "Moderate",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "4 salmon fillets",
       "1/4 cup soy sauce",
@@ -1151,7 +1151,7 @@
     "time_to_cook": "10 minutes",
     "difficulty_level": "Easy",
     "cost": "Low",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "1 cup blueberries (fresh or frozen)",
       "1/2 cup rolled oats",
@@ -1205,7 +1205,7 @@
     "time_to_cook": "25 minutes",
     "difficulty_level": "Moderate",
     "cost": "Low",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "2 cups all-purpose flour",
       "1 teaspoon baking soda",
@@ -1237,7 +1237,7 @@
     "time_to_cook": "4 hours (chilling time)",
     "difficulty_level": "Easy",
     "cost": "Moderate",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "1/4 cup chia seeds",
       "1 cup almond milk",
@@ -1284,7 +1284,7 @@
     "time_to_cook": "25 minutes",
     "difficulty_level": "Moderate",
     "cost": "Low",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "1 cup all-purpose flour",
       "2 tablespoons sugar",
@@ -1315,7 +1315,7 @@
     "time_to_cook": "15 minutes",
     "difficulty_level": "Easy",
     "cost": "Low",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "2 large tortillas",
       "2 eggs (scrambled)",
@@ -1342,7 +1342,7 @@
     "time_to_cook": "10 minutes",
     "difficulty_level": "Easy",
     "cost": "Low",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "2 frozen bananas",
       "2 tablespoons cocoa powder",
@@ -1366,7 +1366,7 @@
     "time_to_cook": "10 minutes",
     "difficulty_level": "Easy",
     "cost": "Low",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "3 egg whites",
       "1/2 bell pepper (diced)",
@@ -1393,7 +1393,7 @@
     "time_to_cook": "15 minutes",
     "difficulty_level": "Moderate",
     "cost": "Low",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "8 slices bread (white or whole wheat)",
       "2 large eggs",
@@ -1420,7 +1420,7 @@
     "time_to_cook": "10 minutes",
     "difficulty_level": "Easy",
     "cost": "Moderate",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "2 cups Greek yogurt",
       "1 cup mixed berries (strawberries, blueberries, raspberries)",
@@ -1470,7 +1470,7 @@
     "time_to_cook": "25 minutes",
     "difficulty_level": "Moderate",
     "cost": "Low",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "2 cups all-purpose flour",
       "1 cup dried cranberries",
@@ -1503,7 +1503,7 @@
     "time_to_cook": "15 minutes",
     "difficulty_level": "Easy",
     "cost": "Low",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "4 large eggs (scrambled)",
       "1 cup fresh spinach leaves",
@@ -1531,7 +1531,7 @@
     "time_to_cook": "10 minutes",
     "difficulty_level": "Easy",
     "cost": "Moderate",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "2 ripe bananas",
       "2 tablespoons almond butter",
@@ -1555,7 +1555,7 @@
     "time_to_cook": "30 minutes",
     "difficulty_level": "Easy",
     "cost": "Moderate",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "2 boneless, skinless chicken breasts",
       "Romaine lettuce (chopped)",
@@ -1585,7 +1585,7 @@
     "time_to_cook": "25 minutes",
     "difficulty_level": "Easy",
     "cost": "Low",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "1 cup cooked quinoa",
       "1 can chickpeas (canned, drained, and rinsed)",
@@ -1642,7 +1642,7 @@
     "time_to_cook": "10 minutes",
     "difficulty_level": "Easy",
     "cost": "Low",
-    "spice_level": "Mild",
+    "spice_level": "None",
     "ingredients": [
       "4 slices ciabatta bread",
       "1 large tomato (sliced)",
