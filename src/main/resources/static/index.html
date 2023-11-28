@@ -2,10 +2,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
-    <link rel="stylesheet" type="text/css" href="home.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N.E.R.D Recipes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 70%;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav a {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            text-decoration: none;
+            color: #333;
+            background-color: #eee;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+        }
+    </style>
 </head>
-<body >
-    <h1>Nerd-Recipes</h1>
+<body>
+
+<header>
+    <h1>Cooking Recipes</h1>
+</header>
+
+<section>
+    <label for="search">Search for recipes: </label>
+    <input type="text" id="search" placeholder="Enter keywords">
+    <button onclick="searchRecipes()">Search</button>
+
+    <nav>
+        <a href="recipe1.html">Recipe 1</a>
+        <a href="recipe2.html">Recipe 2</a>
+        <a href="recipe3.html">Recipe 3</a>
+    </nav>
+</section>
+
+<script>
+    function searchRecipes() {
+        // Add your search functionality here
+        alert('Search button clicked. Implement your search logic.');
+    }
+</script>
+
 </body>
 </html>
