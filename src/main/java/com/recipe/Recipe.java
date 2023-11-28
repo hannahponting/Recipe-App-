@@ -1,5 +1,6 @@
 package com.recipe;
 
+
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -9,8 +10,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.recipe.utilities.*;
 import jakarta.persistence.*;
 import org.springframework.context.annotation.Primary;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import javax.swing.text.Utilities;
+
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -49,6 +53,7 @@ public class Recipe {
 
 //    @JsonProperty(value = "spice_level")
 //    private String spiceType;
+
 
 
     public Long getId() {

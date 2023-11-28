@@ -31,7 +31,7 @@ public class RecipeController {
     }
 
     @PostMapping("")
-    @Operation(summary = "create a new user")
+    @Operation(summary = "create a new recipe")
     @ResponseStatus(HttpStatus.CREATED)
     public Recipe addRecipe(@RequestBody Recipe recipe) {
         Recipe newRecipe;
@@ -47,6 +47,11 @@ public class RecipeController {
     @Operation(summary = "get all recipes")
     public Iterable<Recipe> getRecipe(){
         return recipeService.findAll();
+    }
+    @GetMapping("/search/{keyword}")
+    @Operation(summary = "get recipes by keyword in name")
+    public Iterable<Recipe> getRecipeByName(@PathVariable String keyword){
+        return recipeService.findByNameContains(keyword);
     }
 
     @GetMapping("/{recipeId}")
