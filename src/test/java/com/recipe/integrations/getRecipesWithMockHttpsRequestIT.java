@@ -23,6 +23,7 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
@@ -33,32 +34,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ContextConfiguration
 @AutoConfigureMockMvc
 @Sql("classpath:test-data.sql")
-@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD) //what does this do?
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 @TestPropertySource(properties = {"spring.sql.init.mode=never"})
-//@WebMvcTest(RecipeController.class)
 public class getRecipesWithMockHttpsRequestIT {
-
-
         @Autowired
         MockMvc mockMvc;
 
-
         private final ObjectMapper mapper = new ObjectMapper();
-
         @Test
         public void testGettingAllRecipes() throws Exception {
-                final String expectedJson = """
-                [{"id":101,
-                "ingredientsList":"Grilled Lemon Herb Chicken','4 boneless, skinless chicken breasts",
-                "instructions":"In a bowl, mix lemon juice, olive oil, minced garlic, oregano, salt, and pepper."}
-             ]""";
-
 
                 MvcResult result =
                         (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes")))
                                 .andExpect(status().isOk())
                                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                                //.andExpect(content().json(expectedJson))
                                 .andReturn();
 
                 String contentAsJson = result.getResponse().getContentAsString();
@@ -67,8 +56,8 @@ public class getRecipesWithMockHttpsRequestIT {
 
                 assertEquals("Grilled Lemon Herb Chicken",actualRecipe[0].getName());
                 assertEquals("Vegetarian Quinoa Bowl",actualRecipe[1].getName());
-
-
+                assertEquals("[4 boneless, skinless chicken breasts]",actualRecipe[0].getIngredientsList().toString());
+                assertEquals("[In a bowl, mix lemon juice, olive oil, minced garlic, oregano, salt, and pepper.]",actualRecipe[0].getInstructions().toString());
         }
 
 
