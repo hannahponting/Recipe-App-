@@ -1,4 +1,4 @@
-package com.recipe;
+package com.recipe.entities;
 
 
 import java.time.temporal.ChronoUnit;

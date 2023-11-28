@@ -1,7 +1,7 @@
 package com.recipe.integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.recipe.Recipe;
+import com.recipe.entities.Recipe;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

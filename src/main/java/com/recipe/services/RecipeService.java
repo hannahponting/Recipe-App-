@@ -1,7 +1,7 @@
 package com.recipe.services;
 
 import com.recipe.dataaccess.RecipeRepository;
-import com.recipe.Recipe;
+import com.recipe.entities.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
