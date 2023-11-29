@@ -4,7 +4,7 @@ package com.recipe.utilities;
 public enum Cost {
     LOW("Low"),
     MODERATE("Moderate"),
-    PRICEY("Moderate");
+    PRICEY("Pricey");
 
     private final String name;
 

@@ -27,6 +27,24 @@
     </div>
 
 
+    <div id="filters">
+        <form action="http://localhost:8080/recipes/cost" method="get">
+            <label for="filter">Filter by Category:</label>
+            <select id="filter" name="category">
+                <option value="LOW">Low</option>
+                <option value="MODERATE">Moderate</option>
+                <option value="PRICEY">Pricey</option>
+                <!-- Add more options as needed -->
+            </select>
+            <button type="submit">Apply Filter</button>
+        </form>
+
+
+
+
+    </div>
+
+
 
 <div id="recipes" class="item-container">
     <script>
@@ -34,7 +52,7 @@
 
 
 
-            fetch("http://localhost:8080/recipes")
+            fetch("http://localhost:8080/api/recipes")
                 .then(response => response.json())
                 .then(data => {
 

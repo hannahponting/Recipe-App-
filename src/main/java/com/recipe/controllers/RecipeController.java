@@ -18,7 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Collections;
 
 @RestController
-@RequestMapping("/recipes")
+@RequestMapping("/api/recipes")
 public class RecipeController {
     RecipeService recipeService;
 
@@ -58,7 +58,7 @@ public class RecipeController {
         return recipeService.findByNameContains(keyword);
     }
 
-    @GetMapping("/api/{recipeId}")
+    @GetMapping("{recipeId}")
     @Operation(summary = "get recipes by id ")
     public Recipe getRecipeById(@PathVariable Long recipeId){
         Recipe recipe = recipeService.getRecipeById(recipeId);

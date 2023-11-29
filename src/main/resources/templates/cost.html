@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Test</h1>
+
+<div>
+    <ul id="each-recipe" th:each="recipe: ${recipes}">
+    <a th:href="@{/api/recipes/{id}(id=${recipe.getId()})}" ><li th:text="${recipe.getName()}"></li></a>
+
+        <!-- Ingredients will be dynamically added here -->
+
+
+
+
+
+
+
+
+    </ul>
+
+</div>
+
+
+
+
+</body>
+</html>

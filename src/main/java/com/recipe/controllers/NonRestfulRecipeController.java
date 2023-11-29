@@ -3,15 +3,13 @@ package com.recipe.controllers;
 
 import com.recipe.entities.Recipe;
 import com.recipe.services.RecipeService;
+import com.recipe.utilities.Cost;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 @Controller
@@ -35,6 +33,26 @@ public class NonRestfulRecipeController {
         model.addAttribute("recipe", recipe);
         return "old";
     }
+
+    @GetMapping("cost")
+    @Operation(summary = "get recipes by cost type")
+    public String getRecipeByCostType(@RequestParam(value= "category", defaultValue = "Low") String keyword, Model model){
+        Iterable<Recipe> recipes = handleEmptyResult(recipeService.getRecipeByCostType(Cost.valueOf(keyword)), "Cost Type", keyword);
+        model.addAttribute("recipes", recipes);
+        return "cost";
+    }
+
+
+
+
+
+    private Iterable<Recipe> handleEmptyResult(Iterable<Recipe> result, String parameterName, Object parameterValue) {
+        if (!result.iterator().hasNext()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Sorry, We Don't Have Recipes For " + parameterName + " Of " + parameterValue);
+        }
+        return result;
+    }
+
 
 
 }
