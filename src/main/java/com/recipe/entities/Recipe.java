@@ -1,5 +1,4 @@
 package com.recipe.entities;
-import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,11 +6,10 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.recipe.utilities.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 
-import static com.recipe.utilities.Cuisine.MEDITERRANEAN;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 @Entity
@@ -71,8 +69,21 @@ public class Recipe {
 
     @JsonProperty(value = "time_to_cook")
     @JsonView(CreateReadUpdateDelete.class)
-    @Schema(description = "Cooking time", example = "30 minutes", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(description = "Cooking time. If this is provided in the format X hours or X minutes, it will be searchable", example = "50 minutes", requiredMode = Schema.RequiredMode.REQUIRED)
     private String timeToCook;
+
+    public double getCookingMinutes() {
+        return cookingMinutes;
+    }
+
+    public void setCookingMinutes(double cookingMinutes) {
+        this.cookingMinutes = cookingMinutes;
+    }
+    @JsonProperty(value = "cooking_minutes")
+    @JsonView(ReadUpdateDelete.class)
+    @Schema(description = "Cooking time in minutes", example = "90", requiredMode = Schema.RequiredMode.REQUIRED, accessMode = Schema.AccessMode.READ_ONLY)
+    private double cookingMinutes;
+
 
     @JsonProperty(value = "cuisine")
     @Enumerated(EnumType.STRING)
@@ -170,6 +181,30 @@ public class Recipe {
 
     public void setTimeToCook(String timeToCook) {
         this.timeToCook = timeToCook;
+        populateCookingMinutes(timeToCook);
+
+    }
+
+    private void populateCookingMinutes(String timeToCook) {
+        double parsedHours = 0;
+        double parsedMinutes = 0;
+        Pattern hours = Pattern.compile("[0-9\\.]+ [Hh]our");
+        Matcher matcher = hours.matcher(timeToCook);
+        if (matcher.find()){
+            String[] hourString = matcher.group().split(" ");
+            parsedHours += Double.parseDouble(hourString[0]);
+            parsedMinutes += parsedHours*60;
+        }
+        Pattern minutes = Pattern.compile("[0-9\\.]+ [Mm]in");
+        matcher = minutes.matcher(timeToCook);
+        if (matcher.find()) {
+            String[] minuteString = matcher.group().split(" ");
+            parsedMinutes += Double.parseDouble(minuteString[0]);
+            }
+        if (parsedMinutes != 0) {
+            setCookingMinutes(parsedMinutes);
+        }
+        else {setCookingMinutes(-1);}
     }
 
     public void setCuisineType(Cuisine cuisineType) {
