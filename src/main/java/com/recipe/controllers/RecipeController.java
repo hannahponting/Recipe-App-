@@ -59,7 +59,7 @@ public class RecipeController {
     @GetMapping("/search/ingredient/{ingredient}")
     @Operation(summary = "get recipes by keyword in ingredients")
     public Iterable<Recipe> getRecipeByIngredient(@PathVariable String ingredient){
-        return recipeService.findByIngredientsContain(ingredient);
+        return handleEmptyResult(recipeService.findByIngredientsContain(ingredient),"ingredient",ingredient);
     }
 
     @GetMapping("/{recipeId}")
@@ -118,7 +118,7 @@ public class RecipeController {
 
     private Iterable<Recipe> handleEmptyResult(Iterable<Recipe> result, String parameterName, Object parameterValue) {
         if (!result.iterator().hasNext()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Sorry, we don't have any recipes For " + parameterName + " of " + parameterValue);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Sorry, we don't have any recipes for " + parameterName + " of " + parameterValue);
         }
         return result;
     }
