@@ -5,7 +5,61 @@
     <title>Index</title>
     <link rel="stylesheet" type="text/css" href="home.css">
 </head>
-<body >
-    <h1>Nerd-Recipes</h1>
+<body>
+<h1>Nerd-Recipes</h1>
+
+
+<div class="search-container">
+    <form action="http://localhost:8080/recipes/search" method="get">
+        <label>
+            <input class="search-input" name="keyword" type="text" placeholder="Search for recipes">
+        </label>
+        <button class="search-button" type="submit">Search</button>
+
+    </form>
+
+    <a href="http://localhost:8080">
+        <div>
+            <p>Hello</p>
+        </div>
+    </a>
+
+
+
+    <div id="recipes" class="item-container">
+        <script>
+            fetch("http://localhost:8080/recipes")
+                .then(response => response.json())
+                .then(data => {
+
+                    console.log(data.length);
+                    let target = document.getElementById('recipes')
+                    for (let i = 0; i < data.length; i++) {
+
+                        let link = document.createElement("a")
+                        link.href = `http://localhost:8080/recipes/${data[i].id}`
+                        console.log(data[i].name)
+
+                        link.id =`item-link${data[i].name}`
+                        target.appendChild(link)
+                       let div = document.createElement("div");
+                        div.className = "individual-items"
+                        div.id = "specific-item"
+                        div.innerHTML = data[i].name
+                        let target2 = document.getElementById(`item-link${data[i].name}`)
+                        target2.appendChild(div);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error)
+                })
+
+
+
+        </script>
+
+
+    </div>
+</div>
 </body>
 </html>
