@@ -31,7 +31,7 @@ public interface RecipeRepository extends ListCrudRepository<Recipe,Long>{
 
     Iterable<Recipe> findAllBySpiceType(SpiceLevel spiceType);
 
-    @Query(value = "SELECT recipe FROM Recipe recipe INNER JOIN ingredientsList ON ID=ID WHERE element(ingredientsList) LIKE %:ingredient%")
+    @Query(value = "SELECT recipe FROM Recipe recipe INNER JOIN ingredientsList ON ID=ID WHERE element(ingredientsList) ILIKE %:ingredient%")
     Collection<Recipe> findAllByIngredientSearch(@Param("ingredient") String ingredient);
 
 }
