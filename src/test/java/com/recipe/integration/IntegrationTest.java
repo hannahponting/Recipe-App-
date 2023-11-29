@@ -34,14 +34,33 @@ class IntegrationTest {
     void testPostingRecipe() throws Exception {
         String bakedPotato = """
                 {
-                   "name": "baked potato",
-                   "instructions": [
-                     "bake the potato"
-                   ],
-                   "ingredients": [
-                     "1 potato"
-                   ]
-                 }
+                    "name": "Mediterranean Vegetable Lasagne",
+                    "instructions": [
+                      "Cook lasagna noodles according to package instructions.",
+                      "In a bowl, mix ricotta, half of the mozzarella, Parmesan, and egg.",
+                      "In a baking dish, layer noodles, ricotta mixture, vegetables, and marinara sauce.",
+                      "Repeat layers, ending with a layer of sauce and mozzarella on top.",
+                      "Bake until bubbly and golden brown.",
+                      "Garnish with fresh basil and let it rest before slicing."
+                    ],
+                    "ingredients": [
+                      "9 lasagna noodles",
+                      "2 cups ricotta cheese",
+                      "2 cups mozzarella cheese (shredded)",
+                      "1 cup Parmesan cheese (grated)",
+                      "2 cups marinara sauce",
+                      "1 egg",
+                      "Assorted vegetables (zucchini, bell peppers, spinach)",
+                      "Fresh basil for garnish"
+                    ],
+                    "serving": 2,
+                    "time_to_cook": "30 minutes",
+                    "cuisine": "MEDITERRANEAN",
+                    "difficulty_level": "EASY",
+                    "mealType": "DINNER",
+                    "cost": "MODERATE",
+                    "spice_level": "NONE"
+                  }
                 """;
         MvcResult result =
                 mockMvc.perform(MockMvcRequestBuilders.post("/recipes")
@@ -53,9 +72,9 @@ class IntegrationTest {
         String contentAsJson = result.getResponse().getContentAsString();
         ObjectMapper mapper = new ObjectMapper();
         Recipe actualRecipe = mapper.readValue(contentAsJson, Recipe.class);
-        Assertions.assertEquals("baked potato",actualRecipe.getName());
-        Assertions.assertEquals("bake the potato",actualRecipe.getInstructions().get(0));
-        Assertions.assertEquals("1 potato",actualRecipe.getIngredientsList().get(0));
+        Assertions.assertEquals("Mediterranean Vegetable Lasagne",actualRecipe.getName());
+        Assertions.assertEquals("Cook lasagna noodles according to package instructions.",actualRecipe.getInstructions().get(0));
+        Assertions.assertEquals("9 lasagna noodles",actualRecipe.getIngredientsList().get(0));
 
 
     }
