@@ -79,6 +79,34 @@ public class Recipe {
         return ingredientsList;
     }
 
+    public int getServingNo() {
+        return servingNo;
+    }
+
+    public String getTimeToCook() {
+        return timeToCook;
+    }
+
+    public Cuisine getCuisineType() {
+        return cuisineType;
+    }
+
+    public Difficulty getDifficultyLevel() {
+        return difficultyLevel;
+    }
+
+    public MealTime getMealType() {
+        return mealType;
+    }
+
+    public Cost getCostType() {
+        return costType;
+    }
+
+    public SpiceLevel getSpiceType() {
+        return spiceType;
+    }
+
     public void setIngredientsList(List<String> ingredientsList) {
         this.ingredientsList = ingredientsList;
     }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${recipe.getName()}">Recipe 1 </title>
+</head>
+<body>
+
+
+
+
+<h1 id="recipeTitle" th:text="${recipe.getName()}"></h1>
+
+<ul id="recipeInfo">
+    <!-- Recipe information will be dynamically added here -->
+    <li> <strong>Servings:</strong> <span th:text="${recipe.getServingNo()}"></span></li>
+
+
+    <li><strong>Cuisine:</strong> <span th:text="${recipe.getCuisineType()}">ff</span></li>
+    <li> <strong>Cooking Time:</strong>  <span th:text="${recipe.getTimeToCook()}">ff</span></li>
+    <li><strong>Meal Time </strong> <span th:text="${recipe.getMealType()}">ff</span></li>
+    <li><strong>Cost: </strong> <span th:text="${recipe.getCostType()}">ff</span></li>
+   <li><strong> Spice Level:</strong> <span th:text="${recipe.getSpiceType()}">ff</span></li>
+
+</ul>
+
+
+
+<h2>Ingredients:</h2>
+<ul id="ingredientsspanst">
+    <!-- Ingredients will be dynamically added here -->
+
+
+
+
+
+</ul>
+
+<h2>Instructions:</h2>
+<ol id="instructionsList">
+    <!-- Instructions will be dynamically added here -->
+</ol>
+
+
+
+<p th:text="${recipe.getName()}"></p>
+
+
+<div>
+    <p th:text="${recipe.getIngredientsList()}"></p>
+</div>
+
+<div>
+    <p th:text="${recipe.getInstructions()}"></p>
+</div>
+
+
+</body>
+</html>

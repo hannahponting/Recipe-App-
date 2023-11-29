@@ -3,6 +3,7 @@ import com.recipe.entities.Recipe;
 import com.recipe.services.RecipeService;
 import com.recipe.utilities.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.http.HttpStatus;
 
@@ -57,7 +58,7 @@ public class RecipeController {
         return recipeService.findByNameContains(keyword);
     }
 
-    @GetMapping("/{recipeId}")
+    @GetMapping("/api/{recipeId}")
     @Operation(summary = "get recipes by id ")
     public Recipe getRecipeById(@PathVariable Long recipeId){
         Recipe recipe = recipeService.getRecipeById(recipeId);
@@ -66,6 +67,10 @@ public class RecipeController {
 
         return recipe;
     }
+
+
+
+
 
     @GetMapping("serving/{servingNo}")
     @Operation(summary = "get recipes by serving number ")
@@ -136,6 +141,36 @@ public class RecipeController {
     public Recipe updateRecipe(@RequestBody Recipe incompleteRecipe){
         return recipeService.updateRecipe(incompleteRecipe);
     }
+
+
+
+
+    //Endpoints for search bar
+
+    @GetMapping("/recipeId")
+    @ResponseBody
+    public Recipe getRecipeByIdSearch(@RequestParam(value = "id", defaultValue = "1" ) Long id) {
+        Recipe recipe = recipeService.getRecipeById(id);
+        if (recipe == null)
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipe not found");
+
+        return recipe;
+    }
+
+    @GetMapping("/search")
+    @ResponseBody
+    public Iterable<Recipe> searchRecipeByName(@RequestParam(value = "keyword", defaultValue = "chicken") String keyword){
+        return recipeService.findByNameContains(keyword);
+    }
+
+
+
+
+
+
+
+
+
 
 
 
