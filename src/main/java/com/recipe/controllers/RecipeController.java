@@ -131,7 +131,11 @@ public class RecipeController {
     public Recipe updateRecipe(@RequestBody Recipe incompleteRecipe){
         return recipeService.updateRecipe(incompleteRecipe);
     }
-
+    @GetMapping("/coffee")
+    @Operation(summary = "get coffee")
+    public void getCoffee(){
+        throw new ResponseStatusException(HttpStatus.I_AM_A_TEAPOT, "Sorry, I don't know how to make coffee");
+    }
 
 
 }

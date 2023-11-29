@@ -248,7 +248,19 @@ class IntegrationTest {
         assertEquals(expectedError, message);
     }
 
+    @Test
+    void testGetCoffee() throws Exception {
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/coffee")))
+                        .andExpect(status().isIAmATeapot())
+                        .andReturn();
 
+        String message = result.getResponse().getErrorMessage();
+
+        String expectedError = "Sorry, I don't know how to make coffee";
+
+        assertEquals(expectedError, message);
+    }
 
 
 }
