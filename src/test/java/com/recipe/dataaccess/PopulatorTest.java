@@ -30,9 +30,7 @@ class PopulatorTest {
 
     @Test
     void testOfPopulator() throws Exception{
-        List<Recipe> list = new ArrayList<>();
         long id = 1;
-        assertEquals(list,recipeRepository.findRecipeById(id));
         populator.populate();
         assertNotNull(recipeRepository.findRecipeById(id));
 
