@@ -29,8 +29,11 @@ public class RecipeController {
     @DeleteMapping("/{id}")
     @Operation(summary = "delete recipe by ID")
     @ResponseStatus(HttpStatus.OK)
-    public void deleteById(@PathVariable("id") long id) {
-        recipeService.deleteById(id);
+    public String deleteById(@PathVariable("id") long id) {
+        try {
+            return recipeService.deleteById(id);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(e.getMessage());}
     }
 
     @PostMapping("")
