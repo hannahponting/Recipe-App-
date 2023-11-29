@@ -12,7 +12,7 @@ body {
 }
 
 h1 {
-    color: black;
+    color: cornflowerblue;
     text-align: center;
     font-family: Consolas, serif;
 
@@ -48,12 +48,12 @@ h1 {
 .item-container {
     margin-top: 200px;
     padding: 200px;
-    background-color: white;
+    background-color: lightgrey;
 }
 
 .individual-items {
     margin: 25px;
-    background-color: black;
+    background-color: white;
     border: solid;
 
     padding: 15px;
@@ -61,5 +61,5 @@ h1 {
 }
 
 #specific-item {
-    color: orange;
+    color: black;
 }
