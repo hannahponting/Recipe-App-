@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe 1: Loading...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1 id="recipeTitle">Recipe 1: Loading...</h1>
+
+<ul id="recipeInfo">
+    <!-- Recipe information will be dynamically added here -->
+</ul>
+
+-
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Fetch recipe data from the API
+        fetch('http://localhost:8080/recipes/2') // Replace with your actual API endpoint
+            .then(response => response.json())
+            .then(data => {
+                // Update the recipe title dynamically
+                document.getElementById('recipeTitle').innerText = `${data.name}`;
+
+                // Update the other recipe information
+                document.getElementById('recipeInfo').innerHTML = `
+                    <li><strong>Servings:</strong> ${data.serving}</li>
+                    <li><strong>Difficulty:</strong> ${data.difficulty_level}</li>
+                    <li><strong>Cook Time:</strong> ${data.time_to_cook}</li>
+                    <li><strong>Meal Type:</strong> ${data.mealType}</li>
+                    <li><strong>Cuisine:</strong> ${data.cuisine}</li>
+                    <li><strong>Cost:</strong> ${data.cost}</li>
+                    <li><strong>Spice Level:</strong> ${data.spice_level}</li>
+                `;
+
+                document.getElementById('ingredientsList').innerHTML = data.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('');
+
+                document.getElementById('instructionsList').innerHTML = data.instructions.map(instruction => `<li>${instruction}</li>`).join('');
+            })
+            .catch(error => {
+                console.error('Error fetching recipe data:', error);
+            });
+    });
+</script>
+
+<p><a href="/index.html">Back to Home</a></p>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,10 @@
 package com.recipe.entities;
 
+
+
+import java.util.List;
+
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -7,10 +12,13 @@ import com.recipe.utilities.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -118,6 +126,7 @@ public class Recipe {
     private SpiceLevel spiceType;
 
 
+
     public Long getId() {
         return id;
     }
@@ -126,10 +135,14 @@ public class Recipe {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public List<String> getIngredientsList() {
         return ingredientsList;
     }
+
 
     public List<String> getInstructions() {
         return instructions;
@@ -163,9 +176,7 @@ public class Recipe {
         return difficultyLevel;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+
 
     public void setIngredientsList(List<String> ingredientsList) {
         this.ingredientsList = ingredientsList;
