@@ -46,7 +46,7 @@ class RecipeServiceTest {
                  }
                 """;
         Recipe recipe = mapper.readValue(jsonRecipe, Recipe.class);
-        assertThrows(ResponseStatusException.class, () -> {
+        assertThrows(IllegalArgumentException.class, () -> {
             this.recipeService.updateRecipe(recipe);
         });
     }
