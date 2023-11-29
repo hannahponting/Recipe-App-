@@ -1,4 +1,5 @@
 package com.recipe.controllers;
+import com.fasterxml.jackson.annotation.JsonView;
 import com.recipe.entities.Recipe;
 import com.recipe.services.RecipeService;
 import com.recipe.utilities.*;
@@ -26,7 +27,7 @@ public class RecipeController {
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "delete recipe")
+    @Operation(summary = "delete recipe by ID")
     @ResponseStatus(HttpStatus.OK)
     public void deleteById(@PathVariable("id") long id) {
         recipeService.deleteById(id);
@@ -35,7 +36,7 @@ public class RecipeController {
     @PostMapping("")
     @Operation(summary = "create a new recipe")
     @ResponseStatus(HttpStatus.CREATED)
-    public Recipe addRecipe(@RequestBody Recipe recipe) {
+    public Recipe addRecipe(@RequestBody @JsonView(Recipe.CreateReadUpdateDelete.class) Recipe recipe) {
         Recipe newRecipe;
         try {
             newRecipe = recipeService.addRecipe(recipe);
@@ -51,7 +52,7 @@ public class RecipeController {
         return recipeService.findAll();
     }
     @GetMapping("/search/name/{keyword}")
-    @Operation(summary = "get recipes by keyword in name")
+    @Operation(summary = "get recipes by keyword in recipe name")
     public Iterable<Recipe> getRecipeByName(@PathVariable String keyword){
         return recipeService.findByNameContains(keyword);
     }
@@ -72,7 +73,7 @@ public class RecipeController {
     }
 
     @GetMapping("serving/{servingNo}")
-    @Operation(summary = "get recipes by serving number ")
+    @Operation(summary = "get recipes by number of servings")
     public Iterable<Recipe> getRecipeByServingNumber(@PathVariable int servingNo){
         return handleEmptyResult(recipeService.getRecipeByServingNumber(servingNo),"Serving Number",servingNo);
     }
@@ -117,15 +118,10 @@ public class RecipeController {
 
     private Iterable<Recipe> handleEmptyResult(Iterable<Recipe> result, String parameterName, Object parameterValue) {
         if (!result.iterator().hasNext()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Sorry, We Don't Have Recipes For " + parameterName + " Of " + parameterValue);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Sorry, we don't have any recipes For " + parameterName + " of " + parameterValue);
         }
         return result;
     }
-
-
-
-
-
 
     @PatchMapping("")
     @Operation(summary = "update recipe")
