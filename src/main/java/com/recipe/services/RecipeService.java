@@ -40,8 +40,14 @@ public class RecipeService {
     }
 
   
-    public void deleteById(long id){
+    public String deleteById(long id){
+        Recipe proposedDeletion = recipeRepository.findRecipeById(id);
+        if (proposedDeletion == null){
+            throw new IllegalArgumentException("The specified recipe ID does not exist");
+        }
+        String name = proposedDeletion.getName();
         recipeRepository.deleteById(id);
+        return "The recipe with ID " + id + " and title " + name + " has now been deleted.";
     }
 
 
