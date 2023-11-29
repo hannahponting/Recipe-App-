@@ -151,7 +151,7 @@ class IntegrationTest {
 
         String message = result.getResponse().getErrorMessage();
 
-        String expectedError = "Sorry, We Don't Have Recipes For Serving Number Of "+serving;
+        String expectedError = "Sorry, we don't have any recipes for Serving Number of "+serving;
         assertEquals(expectedError, message);
     }
 
@@ -187,7 +187,7 @@ class IntegrationTest {
 
         String message = result.getResponse().getErrorMessage();
 
-        String expectedError = "Sorry, We Don't Have Recipes For Cooking Time Of "+timeToCook;
+        String expectedError = "Sorry, we don't have any recipes for Cooking Time of "+timeToCook;
         assertEquals(expectedError, message);
     }
 
@@ -221,7 +221,7 @@ class IntegrationTest {
                         .andReturn();
 
         String message = result.getResponse().getErrorMessage();
-        String expectedError = "Sorry, We Don't Have Recipes For Cuisine Type Of "+cuisine;
+        String expectedError = "Sorry, we don't have any recipes for Cuisine Type of "+cuisine;
         assertEquals(expectedError, message);
     }
 
