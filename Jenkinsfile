@@ -31,6 +31,17 @@ pipeline {
                              }
                          }
 
+               stage ('OWASP-DC') {
+                                   steps {
+                                       dependencyCheck additionalArguments: '''
+                                           --out "./"
+                                           --scan "./"
+                                           --format "ALL"
+                                           --prettyPrint''', odcInstallation: 'OWASP-DC'
+                                       dependencyCheckPublisher pattern: 'dependency-check-report.xml'
+                                   }
+                       }
+
                  stage("Quality Gate") {
                      steps {
                        timeout(time: 15, unit: 'MINUTES') {

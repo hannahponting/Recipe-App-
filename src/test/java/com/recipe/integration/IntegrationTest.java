@@ -16,7 +16,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 @SpringBootTest
 @ContextConfiguration
@@ -32,14 +34,33 @@ class IntegrationTest {
     void testPostingRecipe() throws Exception {
         String bakedPotato = """
                 {
-                   "name": "baked potato",
-                   "instructions": [
-                     "bake the potato"
-                   ],
-                   "ingredients": [
-                     "1 potato"
-                   ]
-                 }
+                    "name": "Mediterranean Vegetable Lasagne",
+                    "instructions": [
+                      "Cook lasagna noodles according to package instructions.",
+                      "In a bowl, mix ricotta, half of the mozzarella, Parmesan, and egg.",
+                      "In a baking dish, layer noodles, ricotta mixture, vegetables, and marinara sauce.",
+                      "Repeat layers, ending with a layer of sauce and mozzarella on top.",
+                      "Bake until bubbly and golden brown.",
+                      "Garnish with fresh basil and let it rest before slicing."
+                    ],
+                    "ingredients": [
+                      "9 lasagna noodles",
+                      "2 cups ricotta cheese",
+                      "2 cups mozzarella cheese (shredded)",
+                      "1 cup Parmesan cheese (grated)",
+                      "2 cups marinara sauce",
+                      "1 egg",
+                      "Assorted vegetables (zucchini, bell peppers, spinach)",
+                      "Fresh basil for garnish"
+                    ],
+                    "serving": 2,
+                    "time_to_cook": "30 minutes",
+                    "cuisine": "MEDITERRANEAN",
+                    "difficulty_level": "EASY",
+                    "mealType": "DINNER",
+                    "cost": "MODERATE",
+                    "spice_level": "NONE"
+                  }
                 """;
         MvcResult result =
                 mockMvc.perform(MockMvcRequestBuilders.post("/recipes")
@@ -51,9 +72,9 @@ class IntegrationTest {
         String contentAsJson = result.getResponse().getContentAsString();
         ObjectMapper mapper = new ObjectMapper();
         Recipe actualRecipe = mapper.readValue(contentAsJson, Recipe.class);
-        Assertions.assertEquals("baked potato",actualRecipe.getName());
-        Assertions.assertEquals("bake the potato",actualRecipe.getInstructions().get(0));
-        Assertions.assertEquals("1 potato",actualRecipe.getIngredientsList().get(0));
+        Assertions.assertEquals("Mediterranean Vegetable Lasagne",actualRecipe.getName());
+        Assertions.assertEquals("Cook lasagna noodles according to package instructions.",actualRecipe.getInstructions().get(0));
+        Assertions.assertEquals("9 lasagna noodles",actualRecipe.getIngredientsList().get(0));
 
 
     }
@@ -113,6 +134,133 @@ class IntegrationTest {
 
     }
 
+
+
+    @Test
+    void testGetRecipeByServingNumber() throws Exception {
+        int serving = 4;
+        String servingTest = "serving/";
+
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/"+servingTest+serving)))
+                        .andExpect(status().isOk())
+                        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                        .andReturn();
+
+        String contentAsJson = result.getResponse().getContentAsString();
+        ObjectMapper mapper = new ObjectMapper();
+        Recipe[] actualRecipe = mapper.readValue(contentAsJson,Recipe[].class);
+
+        assertEquals(2,actualRecipe.length);
+        assertEquals(4, actualRecipe[0].getServingNo());
+        assertEquals(4, actualRecipe[1].getServingNo());
+
+    }
+
+
+    @Test
+    void testGetRecipeByServingNumberIfNone() throws Exception {
+        int serving = 10000;
+        String servingTest = "serving/";
+
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/"+servingTest+serving)))
+                        .andExpect(status().isNotFound())
+                        .andReturn();
+
+        String message = result.getResponse().getErrorMessage();
+
+
+        String expectedError = "Sorry, we don't have any recipes for Serving Number of "+serving;
+
+        assertEquals(expectedError, message);
+    }
+
+    @Test
+    void testGetRecipeByCookingTime() throws Exception {
+        String timeToCook = "20 minutes";
+        String test = "cooking_time/";
+
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/"+test+timeToCook)))
+                        .andExpect(status().isOk())
+                        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                        .andReturn();
+
+        String contentAsJson = result.getResponse().getContentAsString();
+        ObjectMapper mapper = new ObjectMapper();
+        Recipe[] actualRecipe = mapper.readValue(contentAsJson,Recipe[].class);
+
+        assertEquals(1,actualRecipe.length);
+        assertEquals("20 minutes", actualRecipe[0].getTimeToCook());
+
+    }
+
+    @Test
+    void testGetRecipeByCookingTimeIfNone() throws Exception {
+        String timeToCook = "1000 minutes";
+        String test = "cooking_time/";
+
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/"+test+timeToCook)))
+                        .andExpect(status().isNotFound())
+                        .andReturn();
+
+        String message = result.getResponse().getErrorMessage();
+
+        String expectedError = "Sorry, we don't have any recipes for Cooking Time of "+timeToCook;
+        assertEquals(expectedError, message);
+    }
+
+    @Test
+    void testGetRecipeByCuisineType() throws Exception {
+        String cuisine = "MEXICAN";
+        String test = "cuisine/";
+
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/"+test+cuisine)))
+                        .andExpect(status().isOk())
+                        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                        .andReturn();
+        String contentAsJson = result.getResponse().getContentAsString();
+        ObjectMapper mapper = new ObjectMapper();
+        Recipe[] actualRecipe = mapper.readValue(contentAsJson,Recipe[].class);
+
+        assertEquals(1,actualRecipe.length);
+        assertEquals("Mexican", actualRecipe[0].getCuisineType().getName());
+
+    }
+
+    @Test
+    void testGetRecipeByCuisineTypeIfNone() throws Exception {
+        String cuisine = "THAI";
+        String test = "cuisine/";
+
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/"+test+cuisine)))
+                        .andExpect(status().isNotFound())
+                        .andReturn();
+
+        String message = result.getResponse().getErrorMessage();
+
+        String expectedError = "Sorry, we don't have any recipes for Cuisine Type of "+cuisine;
+
+        assertEquals(expectedError, message);
+    }
+
+    @Test
+    void testGetCoffee() throws Exception {
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/coffee")))
+                        .andExpect(status().isIAmATeapot())
+                        .andReturn();
+
+        String message = result.getResponse().getErrorMessage();
+
+        String expectedError = "Sorry, I don't know how to make coffee";
+
+        assertEquals(expectedError, message);
+    }
 
 
 }
