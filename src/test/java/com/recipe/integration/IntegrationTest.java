@@ -63,7 +63,7 @@ class IntegrationTest {
                   }
                 """;
         MvcResult result =
-                mockMvc.perform(MockMvcRequestBuilders.post("/recipes")
+                mockMvc.perform(MockMvcRequestBuilders.post("/api/recipes")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(bakedPotato))
                         .andExpect(status().isCreated())
@@ -85,17 +85,17 @@ class IntegrationTest {
         String id = "101";
 
         MvcResult result =
-                this.mockMvc.perform(get("/recipes/"+id))
+                this.mockMvc.perform(get("/api/recipes/"+id))
                 .andExpect(status().isOk())
                         .andReturn();
 
         MvcResult updatedResult =
-                mockMvc.perform(MockMvcRequestBuilders.delete("/recipes/"+id))
+                mockMvc.perform(MockMvcRequestBuilders.delete("/api/recipes/"+id))
                         .andExpect(status().isOk())
                         .andReturn();
 
         result =
-                this.mockMvc.perform(get("/recipes/"+id))
+                this.mockMvc.perform(get("/api/recipes/"+id))
                         .andExpect(status().isNotFound())
                         .andReturn();
 
@@ -110,7 +110,7 @@ class IntegrationTest {
                           "name": "Spicy Lemon Herb Chicken"}
                           """;
         MvcResult result =
-                this.mockMvc.perform(get("/recipes/101"))
+                this.mockMvc.perform(get("/api/recipes/101"))
                         .andReturn();
 
         String contentAsJson = result.getResponse().getContentAsString();
@@ -119,13 +119,13 @@ class IntegrationTest {
         Assertions.assertNotSame("Spicy Lemon Herb Chicken", actualRecipe.getName());
 
         MvcResult updatedResult =
-                this.mockMvc.perform(MockMvcRequestBuilders.patch("/recipes")
+                this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/recipes")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(jsonToUpdate))
                         .andReturn();
 
         result =
-                this.mockMvc.perform(get("/recipes/101"))
+                this.mockMvc.perform(get("/api/recipes/101"))
                         .andReturn();
 
         contentAsJson = result.getResponse().getContentAsString();
@@ -142,7 +142,7 @@ class IntegrationTest {
         String servingTest = "serving/";
 
         MvcResult result =
-                (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/"+servingTest+serving)))
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/"+servingTest+serving)))
                         .andExpect(status().isOk())
                         .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                         .andReturn();
@@ -164,7 +164,7 @@ class IntegrationTest {
         String servingTest = "serving/";
 
         MvcResult result =
-                (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/"+servingTest+serving)))
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/"+servingTest+serving)))
                         .andExpect(status().isNotFound())
                         .andReturn();
 
@@ -182,7 +182,7 @@ class IntegrationTest {
         String test = "cooking_time/";
 
         MvcResult result =
-                (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/"+test+timeToCook)))
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/"+test+timeToCook)))
                         .andExpect(status().isOk())
                         .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                         .andReturn();
@@ -202,7 +202,7 @@ class IntegrationTest {
         String test = "cooking_time/";
 
         MvcResult result =
-                (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/"+test+timeToCook)))
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/"+test+timeToCook)))
                         .andExpect(status().isNotFound())
                         .andReturn();
 
@@ -218,7 +218,7 @@ class IntegrationTest {
         String test = "cuisine/";
 
         MvcResult result =
-                (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/"+test+cuisine)))
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/"+test+cuisine)))
                         .andExpect(status().isOk())
                         .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                         .andReturn();
@@ -237,7 +237,7 @@ class IntegrationTest {
         String test = "cuisine/";
 
         MvcResult result =
-                (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/"+test+cuisine)))
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/"+test+cuisine)))
                         .andExpect(status().isNotFound())
                         .andReturn();
 
@@ -251,7 +251,7 @@ class IntegrationTest {
     @Test
     void testGetCoffee() throws Exception {
         MvcResult result =
-                (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/coffee")))
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/coffee")))
                         .andExpect(status().isIAmATeapot())
                         .andReturn();
 
