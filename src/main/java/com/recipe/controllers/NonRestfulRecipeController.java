@@ -5,6 +5,8 @@ import com.recipe.entities.Recipe;
 import com.recipe.services.RecipeService;
 import com.recipe.utilities.Cost;
 import com.recipe.utilities.Cuisine;
+import com.recipe.utilities.MealTime;
+import com.recipe.utilities.SpiceLevel;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -56,6 +58,25 @@ public class NonRestfulRecipeController {
         model.addAttribute("recipes", recipes);
         return "cuisine";
     }
+
+    @GetMapping("spice_level")
+    @Operation(summary = "get recipes by spice Level")
+    public String getRecipeBySpiceLevel(@RequestParam(value= "spice_level", defaultValue = "None") String keyword, Model model){
+        Iterable<Recipe> recipes = handleEmptyResult(recipeService.getRecipeBySpiceType(SpiceLevel.valueOf(keyword)), "Spice Level", keyword);
+        model.addAttribute("recipes", recipes);
+        return "spiceLevel";
+    }
+
+    @GetMapping("meal_type")
+    @Operation(summary = "get recipes by meal_type")
+    public String getRecipeByMealType(@RequestParam(value= "meal_type", defaultValue = "Breakfast") String keyword, Model model){
+        Iterable<Recipe> recipes = handleEmptyResult(recipeService.getRecipeByMealType(MealTime.valueOf(keyword)), "Meal Type", keyword);
+        model.addAttribute("recipes", recipes);
+        return "mealType";
+    }
+
+
+
 
 
 

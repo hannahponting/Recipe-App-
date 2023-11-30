@@ -1959,7 +1959,7 @@
     "time_to_cook": "30 minutes",
     "difficulty_level": "MODERATE",
     "cost": "MODERATE",
-    "spice_level": "HIGH",
+    "spice_level": "SPICY",
     "ingredients": [
       "1 lb chicken thighs (boneless, skinless, thinly sliced)",
       "3 tablespoons gochujang (Korean red pepper paste)",
@@ -2015,7 +2015,7 @@
     "cuisine": "BRITISH",
     "serving": 6,
     "time_to_cook": "1 hour",
-    "difficulty_level": "MDOERATE",
+    "difficulty_level": "MODERATE",
     "cost": "MODERATE",
     "spice_level": "MILD",
     "ingredients": [
