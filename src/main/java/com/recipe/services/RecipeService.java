@@ -1,15 +1,26 @@
 package com.recipe.services;
 
+import com.querydsl.core.types.dsl.BooleanExpression;
+import com.querydsl.jpa.JPQLTemplates;
+import com.querydsl.jpa.impl.JPAQueryFactory;
+import com.recipe.dataaccess.RecipePredicatesBuilder;
 import com.recipe.dataaccess.RecipeRepository;
+import com.recipe.entities.QRecipe;
 import com.recipe.entities.Recipe;
 import com.recipe.utilities.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 
@@ -108,9 +119,6 @@ public class RecipeService {
     public Iterable<Recipe> getRecipeByCookingTime(String timeToCook) {
         return recipeRepository.findAllByTimeToCook(timeToCook);
     }
-//    public Iterable<Recipe> getRecipeByCookingTimeInMinutes(int timeToCook) {
-//        return recipeRepository.findAllByTimeToCook(timeToCook);
-//    }
 
     public Iterable<Recipe> getRecipeByCuisineType(Cuisine cuisineType) {
         return recipeRepository.findAllByCuisineType(cuisineType);
@@ -136,5 +144,19 @@ public class RecipeService {
 
     public Iterable<Recipe> getRecipeByCookingTimeLessThanOrEqual(Double minutes) {
         return recipeRepository.findRecipeByCookingTimeLessThanOrEqualTo(minutes);
+    }
+    public Iterable<Recipe> findRecipeByCustomQuery(String query){
+
+        RecipePredicatesBuilder builder = new RecipePredicatesBuilder();
+
+        if (query != null) {
+            Pattern pattern = Pattern.compile("(\\w+?)(:|<=|>=)(\\w+?)&");
+            Matcher matcher = pattern.matcher(query + "&");
+            while (matcher.find()) {
+                builder.with(matcher.group(1), matcher.group(2), matcher.group(3));
+            }
+        }
+        BooleanExpression exp = builder.build();
+        return recipeRepository.findAll(exp);
     }
 }

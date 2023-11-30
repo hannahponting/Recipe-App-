@@ -18,10 +18,6 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 
-
-
-
-
 @RestController
 @RequestMapping("/api/recipes")
 public class RecipeController {
@@ -64,6 +60,16 @@ public class RecipeController {
     @Operation(summary = "get recipes by keyword in recipe name")
     public Iterable<Recipe> getRecipeByName(@PathVariable String keyword){
         return recipeService.findByNameContains(keyword);
+    }
+    @GetMapping("search/custom")
+    @Operation(summary = "get recipes using custom query",
+            description = "Search on any parameter of the recipe whose value is a string or number. \n" +
+                    "The parameter name is the underlying name of the field, such as servingNo, rather than the Json property name given in the schema. \n" +
+                    "A colon indicates equals or contains. Other options are <= or >=. \n" +
+                    "Multiple queries are separated by an ampersand. \n" +
+                    "Non-string/number fields such as ingredients list cannot be searched in this way.")
+    public Iterable<Recipe> getRecipeByCustomQuery(@RequestParam(value = "query", defaultValue = "servingNo>=2&cookingMinutes<=30&cuisineType=mexican") String query){
+        return handleEmptyResult(recipeService.findRecipeByCustomQuery(query),"custom query", query);
     }
     @GetMapping("/search/ingredient/{ingredient}")
     @Operation(summary = "get recipes by keyword in ingredients")
