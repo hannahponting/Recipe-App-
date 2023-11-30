@@ -69,6 +69,29 @@
         </form>
 
 
+        <form action="http://localhost:8080/recipes/meal_type" method="get">
+            <label for="meal_type">Meal Type:</label>
+            <select id="meal_type" name="meal_type">
+                <option value="BREAKFAST">Breakfast</option>
+                <option value="LUNCH">Lunch</option>
+                <option value="DINNER">Dinner</option>
+                <!-- Add more options as needed -->
+            </select>
+            <button type="submit">Apply Filter</button>
+        </form>
+
+        <form action="http://localhost:8080/recipes/difficulty" method="get">
+            <label for="difficulty">Difficult Level:</label>
+            <select id="difficulty" name="difficulty">
+                <option value="EASY">Easy</option>
+                <option value="MODERATE">Moderate</option>
+                <option value="HIGH">High</option>
+                <!-- Add more options as needed -->
+            </select>
+            <button type="submit">Apply Filter</button>
+        </form>
+
+
 
 
     </div>
