@@ -3,16 +3,81 @@
        xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>N.E.R.D Recipes</title>
+    <link rel="stylesheet" type="text/css" href="/filterpage.css">
 </head>
+
 <body>
 
-<h1>Available Recipes would be listed below: </h1>
-<div>
-    <ul id="each-recipe" th:each="recipe: ${recipes}">
-        <a th:href="@{/recipes/{id}(id=${recipe.getId()})}" ><li th:text="${recipe.getName()}"></li></a>
-
-    </ul>
+<div class="logo-container">
+    <a href="http://localhost:8080"><img src="/images/Nerd_logo-removebg-preview.png" height="200" alt="Website Logo"></a>
 </div>
+
+<h1>Recipes By Spice Level</h1>
+<h3 id="result-keyword-heading">Search results</h3>
+<script>
+    let searchResultKeyword = window.location.search
+    let searchResultKeywordResult = searchResultKeyword.replace(/.*=/, '');
+    console.log(searchResultKeywordResult)
+    let target = document.getElementById("result-keyword-heading");
+    target.innerText = `Search results for Spice Level: "${searchResultKeywordResult}"`
+</script>
+<!--<div>-->
+<!--    <ul id="each-recipe" th:each="recipe: ${recipes}">-->
+<!--    <a th:href="@{/recipes/{id}(id=${recipe.getId()})}" ><li th:text="${recipe.getName()}"></li></a>-->
+
+<!--    </ul>-->
+<!--</div>-->
+
+<div id="recipes" class="item-container">
+    <script>
+
+        let keyword = window.location.search
+        let result = keyword.replace(/.*=/, '');
+        console.log(result)
+
+        fetch(`http://localhost:8080/api/recipes/spice_level/${result}`)
+            .then(response => response.json())
+            .then(data => {
+                let recipesTarget = document.getElementById('recipes')
+
+                if (data.length > 0) {
+                    console.log(data.length);
+                    for (let i = 0; i < data.length; i++) {
+
+                        let link = document.createElement("a")
+                        link.href = `http://localhost:8080/recipes/${data[i].id}`
+                        console.log(data[i].name)
+
+                        link.id =`item-link${data[i].name}`
+                        recipesTarget.appendChild(link)
+                        let div = document.createElement("div");
+                        div.className = "individual-items"
+                        div.id = "specific-item"
+                        div.innerHTML = data[i].name
+                        let target2 = document.getElementById(`item-link${data[i].name}`)
+                        target2.appendChild(div);
+                    }
+
+                }
+
+                else
+                    recipesTarget.innerText = "Sorry no items found for your search result"
+
+
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error)
+
+            })
+
+
+
+    </script>
+
+
+</div>
+
+
 </body>
 </html>
