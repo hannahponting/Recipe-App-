@@ -26,6 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Sql("classpath:test-data.sql")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 @TestPropertySource(properties = {"spring.sql.init.mode=never"})
+@TestPropertySource(locations="classpath:test.properties")
 
 class IntegrationTest {
     @Autowired
@@ -82,7 +83,7 @@ class IntegrationTest {
 
     @Test
     void testDeletingRecipe() throws Exception {
-        String id = "101";
+        String id = "102";
 
         MvcResult result =
                 this.mockMvc.perform(get("/api/recipes/"+id))
