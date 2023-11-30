@@ -14,8 +14,8 @@ public class RecipeAppApplication {
 
 	public static void main(String[] args) throws IOException {
 		ApplicationContext applicationContext=SpringApplication.run(RecipeAppApplication.class, args);
-		Populator populator= applicationContext.getBean(Populator.class);
-		populator.populate();
+//		Populator populator= applicationContext.getBean(Populator.class);
+//		populator.populate();
 
 	}
 
