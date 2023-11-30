@@ -162,11 +162,7 @@ public class RecipeController {
         return recipe;
     }
 
-    @GetMapping("/search")
-    @ResponseBody
-    public Iterable<Recipe> searchRecipeByName(@RequestParam(value = "keyword", defaultValue = "chicken") String keyword){
-        return recipeService.findByNameContains(keyword);
-    }
+
 
 
 

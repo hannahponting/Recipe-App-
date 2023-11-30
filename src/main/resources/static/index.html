@@ -21,13 +21,14 @@
             <button class="search-button" type="submit">Search</button>
 
         </form>
+
     </div>
 
 
     <div id="filters">
         <form action="http://localhost:8080/recipes/cost" method="get">
-            <label for="filter">Filter by Category:</label>
-            <select id="filter" name="category">
+            <label for="cost">Cost Level:</label>
+            <select id="cost" name="cost">
                 <option value="LOW">Low</option>
                 <option value="MODERATE">Moderate</option>
                 <option value="PRICEY">Pricey</option>
@@ -35,6 +36,35 @@
             </select>
             <button type="submit">Apply Filter</button>
         </form>
+
+        <form action="http://localhost:8080/recipes/cuisine" method="get">
+            <label for="cuisine">Cuisine:</label>
+            <select id="cuisine" name="cuisine">
+<!--                <optgroup label="Cuisine">-->
+                    <option value="FRENCH">French</option>
+                    <option value="CHINESE">Chinese</option>
+                    <option value="JAPANESE">Japanese</option>
+                    <option value="ITALIAN">Italian</option>
+                    <option value="GREEK">Greek</option>
+                    <option value="SPANISH">Spanish</option>
+                    <option value="INDIAN">Indian</option>
+                    <option value="AMERICAN">American</option>
+                    <option value="INTERNATIONAL">International</option>
+                    <option value="MEDITERRANEAN">Mediterranean</option>
+                    <option value="MEXICAN">Mexican</option>
+                    <option value="ASIAN">Asian</option>
+                    <option value="BRITISH">British</option>
+                    <option value="SOUTHERN">Southern</option>
+                    <option value="THAI">Thai</option>
+<!--                </optgroup>-->
+<!--            </select>-->
+            </select>
+            <button type="submit">Apply Filter</button>
+        </form>
+
+
+
+
     </div>
 
 
