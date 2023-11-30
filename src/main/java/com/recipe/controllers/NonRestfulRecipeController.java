@@ -3,10 +3,7 @@ package com.recipe.controllers;
 
 import com.recipe.entities.Recipe;
 import com.recipe.services.RecipeService;
-import com.recipe.utilities.Cost;
-import com.recipe.utilities.Cuisine;
-import com.recipe.utilities.MealTime;
-import com.recipe.utilities.SpiceLevel;
+import com.recipe.utilities.*;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,6 +42,14 @@ public class NonRestfulRecipeController {
         Iterable<Recipe> recipes = handleEmptyResult(recipeService.getRecipeByCostType(Cost.valueOf(keyword)), "Cost Type", keyword);
         model.addAttribute("recipes", recipes);
         return "cost";
+    }
+
+    @GetMapping("difficulty")
+    @Operation(summary = "get recipes by difficulty")
+    public String getRecipeByDifficulty(@RequestParam(value= "difficulty", defaultValue = "Easy") String keyword, Model model){
+        Iterable<Recipe> recipes = handleEmptyResult(recipeService.getRecipeByDifficultyLevel(Difficulty.valueOf(keyword)), "Difficulty Level", keyword);
+        model.addAttribute("recipes", recipes);
+        return "difficulty";
     }
 
     @GetMapping("cuisine")
