@@ -24,11 +24,7 @@ public class NonRestfulRecipeController {
     }
 
 
-    @GetMapping("/search")
-    @ResponseBody
-    public Iterable<Recipe> searchRecipeByName(@RequestParam(value = "keyword", defaultValue = "chicken") String keyword){
-        return recipeService.findByNameContains(keyword);
-    }
+
 
     @GetMapping("/{recipeId}")
     @Operation(summary = "get recipes by id ")
