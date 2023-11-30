@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Available Recipes would be listed below: </h1>
+<div>
+    <ul id="each-recipe" th:each="recipe: ${recipes}">
+        <a th:href="@{/recipes/{id}(id=${recipe.getId()})}" ><li th:text="${recipe.getName()}"></li></a>
+
+    </ul>
+</div>
+</body>
+</html>
