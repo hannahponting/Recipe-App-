@@ -38,10 +38,10 @@ public class NonRestfulRecipeController {
 
     @GetMapping("cost")
     @Operation(summary = "get recipes by cost type")
-    public String getRecipeByCostType(@RequestParam(value= "cost", defaultValue = "Low") String keyword, Model model){
+    public Iterable<Recipe> getRecipeByCostType(@RequestParam(value= "cost", defaultValue = "Low") String keyword, Model model){
         Iterable<Recipe> recipes = handleEmptyResult(recipeService.getRecipeByCostType(Cost.valueOf(keyword)), "Cost Type", keyword);
         model.addAttribute("recipes", recipes);
-        return "cost";
+        return recipes;
     }
 
     @GetMapping("difficulty")
