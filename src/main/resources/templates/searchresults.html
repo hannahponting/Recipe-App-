@@ -42,6 +42,37 @@
             <button type="submit">Apply Filter</button>
         </form>
 
+        <form action="http://localhost:8080/recipes/cuisine" method="get">
+            <label for="cuisine">Cuisine:</label>
+            <select id="cuisine" name="cuisine">
+                <option value="FRENCH">French</option>
+                <option value="ITALIAN">Italian</option>
+                <option value="GREEK">Greek</option>
+                <option value="SPANISH">Spanish</option>
+                <option value="INDIAN">Indian</option>
+                <option value="AMERICAN">American</option>
+                <option value="INTERNATIONAL">International</option>
+                <option value="MEDITERRANEAN">Mediterranean</option>
+                <option value="MEXICAN">Mexican</option>
+                <option value="ASIAN">Asian</option>
+                <option value="BRITISH">British</option>
+                <option value="THAI">Thai</option>
+            </select>
+            <button type="submit">Apply Filter</button>
+        </form>
+
+        <form action="http://localhost:8080/recipes/spice_level" method="get">
+            <label for="spice_level">Spicy Level:</label>
+            <select id="spice_level" name="spice_level">
+                <option value="NONE">None</option>
+                <option value="MILD">Mild</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="SPICY">Spicy</option>
+                <!-- Add more options as needed -->
+            </select>
+            <button type="submit">Apply Filter</button>
+        </form>
+
 
 
 
