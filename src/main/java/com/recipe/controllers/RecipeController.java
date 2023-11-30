@@ -1,23 +1,29 @@
 package com.recipe.controllers;
-import com.fasterxml.jackson.annotation.JsonView;
+
+
 import com.recipe.entities.Recipe;
 import com.recipe.services.RecipeService;
 import com.recipe.utilities.*;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.web.bind.annotation.*;
-import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
+import com.fasterxml.jackson.annotation.JsonView;
+
+
+
+
 
 
 @RestController
-@RequestMapping("/recipes")
+@RequestMapping("/api/recipes")
 public class RecipeController {
     RecipeService recipeService;
 
@@ -86,6 +92,11 @@ public class RecipeController {
     public Iterable<Recipe> getRecipeByCookingTime(@PathVariable String timeToCook){
         return handleEmptyResult(recipeService.getRecipeByCookingTime(timeToCook), "Cooking Time", timeToCook);
     }
+    @GetMapping("cooking_time_minutes/{minutes}")
+    @Operation(summary = "get recipes with a cooking time less than or equal to a number of minutes")
+    public Iterable<Recipe> getRecipeByCookingTimeLessThanOrEqual(@PathVariable Double minutes){
+        return handleEmptyResult(recipeService.getRecipeByCookingTimeLessThanOrEqual(minutes), "Cooking Time", minutes);
+    }
 
     @GetMapping("cuisine/{cuisineType}")
     @Operation(summary = "get recipes by cuisine type ")
@@ -136,6 +147,4 @@ public class RecipeController {
     public void getCoffee(){
         throw new ResponseStatusException(HttpStatus.I_AM_A_TEAPOT, "Sorry, I don't know how to make coffee");
     }
-
-
 }

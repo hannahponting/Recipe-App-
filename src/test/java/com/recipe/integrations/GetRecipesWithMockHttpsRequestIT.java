@@ -19,7 +19,6 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -39,7 +38,7 @@ class GetRecipesWithMockHttpsRequestIT {
         void testGettingAllRecipes() throws Exception {
 
                 MvcResult result =
-                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes")))
+                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes")))
                                 .andExpect(status().isOk())
                                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                                 .andReturn();
@@ -59,7 +58,7 @@ class GetRecipesWithMockHttpsRequestIT {
         void testFindRecipeById() throws Exception {
                 Long Id= 101L;
                 MvcResult result =
-                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/"+Id)))
+                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/"+Id)))
                                 .andExpect(status().isOk())
                                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                                 .andReturn();
@@ -87,7 +86,7 @@ class GetRecipesWithMockHttpsRequestIT {
 
                 Difficulty difficultyLevel =Difficulty.EASY;
                 MvcResult result =
-                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/difficulty/"+difficultyLevel)))
+                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/difficulty/"+difficultyLevel)))
                                 .andExpect(status().isOk())
                                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                                 .andReturn();
@@ -102,7 +101,7 @@ class GetRecipesWithMockHttpsRequestIT {
         @Test
         void testSearchRecipesByDifficultyNotFound() throws Exception {
                 MvcResult result =
-                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/difficulty/"+"HIGH")))
+                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/difficulty/"+"HIGH")))
                                 .andExpect(status().isNotFound())
                                 .andReturn();
         }
@@ -112,7 +111,7 @@ class GetRecipesWithMockHttpsRequestIT {
 
                 MealTime mealType = MealTime.LUNCH;
                 MvcResult result =
-                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/meal_type/"+mealType)))
+                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/meal_type/"+mealType)))
                                 .andExpect(status().isOk())
                                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                                 .andReturn();
@@ -127,7 +126,7 @@ class GetRecipesWithMockHttpsRequestIT {
         @Test
         void testSearchRecipesByMealTypeNotFound() throws Exception {
                 MvcResult result =
-                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/meal_type/"+"BREAKFAST")))
+                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/meal_type/"+"BREAKFAST")))
                                 .andExpect(status().isNotFound())
                                 .andReturn();
         }
@@ -138,7 +137,7 @@ class GetRecipesWithMockHttpsRequestIT {
                 Cost costType = Cost.MODERATE;
 
                 MvcResult result =
-                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/cost/"+costType)))
+                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/cost/"+costType)))
                                 .andExpect(status().isOk())
                                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                                 .andReturn();
@@ -153,7 +152,7 @@ class GetRecipesWithMockHttpsRequestIT {
         @Test
         void testSearchRecipesByByCostTypNotFound() throws Exception {
                 MvcResult result =
-                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/recipes/cost/"+"PRICEY")))
+                        (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/cost/"+"PRICEY")))
                                 .andExpect(status().isNotFound())
                                 .andReturn();
         }

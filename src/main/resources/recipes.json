@@ -455,7 +455,7 @@
   {
     "name": "Sushi Rolls with Spicy Tuna",
     "mealType": "LUNCH",
-    "cuisine": "JAPANESE",
+    "cuisine": "ASIAN",
     "serving": 4,
     "time_to_cook": "1.5 hours",
     "difficulty_level": "HIGH",
@@ -688,7 +688,7 @@
   {
     "name": "Cajun Shrimp and Grits",
     "mealType": "DINNER",
-    "cuisine": "SOUTHERN",
+    "cuisine": "AMERICAN",
     "serving": 4,
     "time_to_cook": "30 minutes",
     "difficulty_level": "MODERATE",
@@ -716,7 +716,7 @@
   {
     "name": "Thai Green Curry with Chicken",
     "mealType": "DINNER",
-    "cuisine": "THAI",
+    "cuisine": "ASIAN",
     "serving": 4,
     "time_to_cook": "40 minutes",
     "difficulty_level": "MODERATE",
@@ -1658,6 +1658,547 @@
       "Drizzle with balsamic glaze and season with salt and black pepper.",
       "Top with the remaining slices of ciabatta, olive oil side down.",
       "Press the sandwiches together and serve your delightful Caprese Salad Sandwich!"
+    ]
+  },
+
+  {
+    "name": "Coq au Vin",
+    "mealType": "LUNCH",
+    "cuisine": "FRENCH",
+    "serving": 4,
+    "time_to_cook": "2 hours",
+    "difficulty_level": "MODERATE",
+    "cost": "MODERATE",
+    "spice_level": "NONE",
+    "ingredients": [
+      "1 whole chicken (cut into pieces)",
+      "200g bacon (chopped)",
+      "1 bottle red wine",
+      "2 cups chicken broth",
+      "1 onion (chopped)",
+      "2 carrots (sliced)",
+      "2 cloves garlic (minced)",
+      "1 bouquet garni (thyme, bay leaves, parsley)",
+      "Salt and black pepper to taste",
+      "2 tablespoons olive oil",
+      "2 tablespoons all-purpose flour"
+    ],
+    "instructions": [
+      "Season chicken pieces with salt and black pepper, then dust with flour.",
+      "In a large pot, heat olive oil and brown chicken on all sides.",
+      "Remove chicken and sauté bacon, onion, carrots, and garlic until softened.",
+      "Place chicken back into the pot, add wine, chicken broth, and bouquet garni.",
+      "Simmer on low heat for about 1.5 to 2 hours or until chicken is tender and cooked through.",
+      "Serve Coq au Vin hot with a side of crusty bread or over mashed potatoes."
+    ]
+  },
+  {
+    "name": "Ratatouille",
+    "mealType": "DINNER",
+    "cuisine": "FRENCH",
+    "serving": 6,
+    "time_to_cook": "1 hour",
+    "difficulty_level": "EASY",
+    "cost": "LOW",
+    "spice_level": "NONE",
+    "ingredients": [
+      "1 eggplant (sliced)",
+      "2 zucchinis (sliced)",
+      "1 yellow bell pepper (sliced)",
+      "1 red bell pepper (sliced)",
+      "4 tomatoes (sliced)",
+      "1 onion (sliced)",
+      "3 cloves garlic (minced)",
+      "1/4 cup olive oil",
+      "1 teaspoon dried thyme",
+      "Salt and black pepper to taste",
+      "Fresh basil for garnish"
+    ],
+    "instructions": [
+      "Preheat the oven to 375°F (190°C).",
+      "In a baking dish, arrange sliced vegetables in an alternating pattern.",
+      "Mix minced garlic with olive oil, thyme, salt, and black pepper. Drizzle over the vegetables.",
+      "Cover with foil and bake for 45 minutes. Uncover and bake for an additional 15 minutes until vegetables are tender.",
+      "Garnish Ratatouille with fresh basil before serving."
+    ]
+  },
+  {
+    "name": "Beef Bourguignon",
+    "mealType": "LUNCH",
+    "cuisine": "FRENCH",
+    "serving": 6,
+    "time_to_cook": "3 hours",
+    "difficulty_level": "MODERATE",
+    "cost": "MODERATE",
+    "spice_level": "NONE",
+    "ingredients": [
+      "2 pounds beef stew meat",
+      "200g bacon (chopped)",
+      "1 bottle red wine",
+      "2 cups beef broth",
+      "1 onion (chopped)",
+      "2 carrots (sliced)",
+      "3 cloves garlic (minced)",
+      "1 bouquet garni (thyme, bay leaves, parsley)",
+      "Salt and black pepper to taste",
+      "2 tablespoons olive oil",
+      "2 tablespoons all-purpose flour"
+    ],
+    "instructions": [
+      "Season beef with salt and black pepper, then dust with flour.",
+      "In a Dutch oven, heat olive oil and brown beef on all sides.",
+      "Remove beef and sauté bacon, onion, carrots, and garlic until softened.",
+      "Place beef back into the Dutch oven, add wine, beef broth, and bouquet garni.",
+      "Simmer on low heat for about 2.5 to 3 hours or until beef is tender.",
+      "Serve Beef Bourguignon hot over mashed potatoes or with crusty bread."
+    ]
+  },
+
+  {
+    "name": "Salade Niçoise",
+    "mealType": "LUNCH",
+    "cuisine": "FRENCH",
+    "serving": 4,
+    "time_to_cook": "20 minutes",
+    "difficulty_level": "EASY",
+    "cost": "MODERATE",
+    "spice_level": "NONE",
+    "ingredients": [
+      "4 cups mixed salad greens",
+      "1 can tuna (drained)",
+      "4 hard-boiled eggs (halved)",
+      "1 cup cherry tomatoes (halved)",
+      "1/2 cup Niçoise olives",
+      "1/2 cup green beans (blanched)",
+      "1/4 cup red onion (sliced)",
+      "2 tablespoons capers",
+      "Olive oil and balsamic vinaigrette",
+      "Salt and black pepper to taste"
+    ],
+    "instructions": [
+      "Arrange mixed salad greens on a platter.",
+      "Top with tuna, hard-boiled eggs, cherry tomatoes, Niçoise olives, green beans, red onion, and capers.",
+      "Drizzle with olive oil and balsamic vinaigrette.",
+      "Season with salt and black pepper to taste.",
+      "Serve Salade Niçoise chilled."
+    ]
+  },
+
+  {
+    "name": "Chicken Fricassee",
+    "mealType": "LUNCH",
+    "cuisine": "FRENCH",
+    "serving": 4,
+    "time_to_cook": "1.5 hours",
+    "difficulty_level": "MODERATE",
+    "cost": "MODERATE",
+    "spice_level": "NONE",
+    "ingredients": [
+      "4 chicken thighs",
+      "2 tablespoons butter",
+      "1 onion (chopped)",
+      "2 carrots (sliced)",
+      "2 cloves garlic (minced)",
+      "1/4 cup all-purpose flour",
+      "1 cup chicken broth",
+      "1 cup white wine",
+      "1 cup mushrooms (sliced)",
+      "1/2 cup frozen peas",
+      "1 bouquet garni (thyme, bay leaves, parsley)",
+      "Salt and black pepper to taste"
+    ],
+    "instructions": [
+      "Season chicken thighs with salt and black pepper, then dust with flour.",
+      "In a large Dutch oven, melt butter over medium-high heat.",
+      "Brown the chicken thighs on both sides until golden brown. Remove and set aside.",
+      "In the same pot, sauté chopped onion, sliced carrots, and minced garlic until softened.",
+      "Sprinkle flour over the vegetables and stir to create a roux.",
+      "Gradually add chicken broth and white wine, stirring constantly to avoid lumps.",
+      "Return the browned chicken thighs to the pot and add sliced mushrooms, frozen peas, and the bouquet garni.",
+      "Cover and simmer on low heat for 1 to 1.5 hours or until the chicken is cooked through and tender.",
+      "Adjust seasoning with salt and black pepper as needed.",
+      "Serve Chicken Fricassee hot over mashed potatoes or with crusty bread."
+    ]
+  },
+  {
+    "name": "Spicy Chicken Curry",
+    "mealType": "LUNCH",
+    "cuisine": "INDIAN",
+    "serving": 4,
+    "time_to_cook": "1 hour",
+    "difficulty_level": "MODERATE",
+    "cost": "MODERATE",
+    "spice_level": "SPICY",
+    "ingredients": [
+      "1 kg chicken pieces",
+      "2 onions (finely chopped)",
+      "3 tomatoes (pureed)",
+      "1/4 cup yogurt",
+      "4 cloves garlic (minced)",
+      "1 inch ginger (grated)",
+      "2 green chilies (sliced)",
+      "1/4 cup vegetable oil",
+      "1 tablespoon curry powder",
+      "1 teaspoon turmeric powder",
+      "1 tablespoon red chili powder",
+      "1 tablespoon garam masala",
+      "Salt to taste",
+      "Fresh coriander for garnish"
+    ],
+    "instructions": [
+      "In a pan, heat vegetable oil and sauté chopped onions until golden brown.",
+      "Add minced garlic, grated ginger, and sliced green chilies; cook until fragrant.",
+      "Add chicken pieces and brown them on all sides.",
+      "Stir in curry powder, turmeric powder, red chili powder, and salt.",
+      "Pour in tomato puree, yogurt, and garam masala; mix well.",
+      "Simmer on low heat for 30-40 minutes or until the chicken is cooked through.",
+      "Garnish with fresh coriander and serve the Spicy Chicken Curry with rice or naan."
+    ]
+  },
+  {
+    "name": "Jambalaya",
+    "mealType": "DINNER",
+    "cuisine": "AMERICAN",
+    "serving": 6,
+    "time_to_cook": "45 minutes",
+    "difficulty_level": "MODERATE",
+    "cost": "MODERATE",
+    "spice_level": "MEDIUM",
+    "ingredients": [
+      "1 lb andouille sausage (sliced)",
+      "1 lb chicken thighs (boneless, skinless, diced)",
+      "1 onion (chopped)",
+      "1 bell pepper (chopped)",
+      "2 celery stalks (chopped)",
+      "3 cloves garlic (minced)",
+      "1 can diced tomatoes",
+      "1 cup long-grain rice",
+      "2 cups chicken broth",
+      "1 teaspoon Cajun seasoning",
+      "1 teaspoon paprika",
+      "1/2 teaspoon cayenne pepper",
+      "Salt and black pepper to taste",
+      "Green onions for garnish"
+    ],
+    "instructions": [
+      "In a large pot, brown the andouille sausage and chicken thighs.",
+      "Add chopped onion, bell pepper, celery, and minced garlic; sauté until vegetables are tender.",
+      "Stir in diced tomatoes, rice, chicken broth, Cajun seasoning, paprika, cayenne pepper, salt, and black pepper.",
+      "Bring to a boil, then reduce heat, cover, and simmer for 25-30 minutes or until rice is cooked and liquid is absorbed.",
+      "Garnish with sliced green onions and serve the Jambalaya hot."
+    ]
+  },
+  {
+    "name": "Sichuan Mapo Tofu",
+    "mealType": "LUNCH",
+    "cuisine": "ASIAN",
+    "serving": 4,
+    "time_to_cook": "30 minutes",
+    "difficulty_level": "MODERATE",
+    "cost": "LOW",
+    "spice_level": "SPICY",
+    "ingredients": [
+      "1 block firm tofu (cubed)",
+      "2 tablespoons vegetable oil",
+      "1/4 cup ground pork",
+      "2 tablespoons doubanjiang (spicy fermented bean paste)",
+      "1 tablespoon soy sauce",
+      "1 teaspoon Sichuan peppercorns (crushed)",
+      "1 teaspoon chili flakes",
+      "2 green onions (sliced)",
+      "1 cup chicken broth",
+      "2 cloves garlic (minced)",
+      "1 teaspoon ginger (grated)",
+      "1 tablespoon cornstarch (dissolved in water)",
+      "Fresh cilantro for garnish"
+    ],
+    "instructions": [
+      "In a wok, heat vegetable oil and sauté ground pork until browned.",
+      "Add minced garlic, grated ginger, doubanjiang, soy sauce, Sichuan peppercorns, and chili flakes; stir well.",
+      "Pour in chicken broth and bring to a simmer.",
+      "Gently add cubed tofu, being careful not to break it.",
+      "Stir in dissolved cornstarch to thicken the sauce.",
+      "Garnish with sliced green onions and fresh cilantro; serve the Sichuan Mapo Tofu hot with rice."
+    ]
+  },
+  {
+    "name": "Spicy Shrimp Tacos",
+    "mealType": "DINNER",
+    "cuisine": "MEXICAN",
+    "serving": 4,
+    "time_to_cook": "20 minutes",
+    "difficulty_level": "EASY",
+    "cost": "MODERATE",
+    "spice_level": "MEDIUM",
+    "ingredients": [
+      "1 lb shrimp (peeled and deveined)",
+      "2 tablespoons olive oil",
+      "1 tablespoon chili powder",
+      "1 teaspoon cayenne pepper",
+      "1 teaspoon garlic powder",
+      "1 teaspoon onion powder",
+      "1/2 teaspoon cumin",
+      "Salt and black pepper to taste",
+      "8 small flour tortillas",
+      "Cabbage slaw (shredded cabbage, lime juice, cilantro)",
+      "Sour cream and lime wedges for serving"
+    ],
+    "instructions": [
+      "In a bowl, toss shrimp with olive oil, chili powder, cayenne pepper, garlic powder, onion powder, cumin, salt, and black pepper.",
+      "Heat a skillet over medium-high heat and cook shrimp for 2-3 minutes per side or until pink and opaque.",
+      "Warm tortillas and fill them with spicy shrimp and cabbage slaw.",
+      "Serve with sour cream and lime wedges; enjoy your Spicy Shrimp Tacos!"
+    ]
+  },
+
+  {
+    "name": "Korean Spicy Chicken Stir-Fry (Dak Bulgogi)",
+    "mealType": "DINNER",
+    "cuisine": "ASIAN",
+    "serving": 4,
+    "time_to_cook": "30 minutes",
+    "difficulty_level": "MODERATE",
+    "cost": "MODERATE",
+    "spice_level": "SPICY",
+    "ingredients": [
+      "1 lb chicken thighs (boneless, skinless, thinly sliced)",
+      "3 tablespoons gochujang (Korean red pepper paste)",
+      "2 tablespoons soy sauce",
+      "1 tablespoon honey",
+      "1 tablespoon sesame oil",
+      "4 cloves garlic (minced)",
+      "1 tablespoon ginger (grated)",
+      "1 onion (thinly sliced)",
+      "1 carrot (julienned)",
+      "2 green onions (sliced)",
+      "1 tablespoon vegetable oil",
+      "Toasted sesame seeds for garnish"
+    ],
+    "instructions": [
+      "In a bowl, mix gochujang, soy sauce, honey, sesame oil, minced garlic, and grated ginger to make the marinade.",
+      "Add sliced chicken to the marinade and let it sit for at least 15 minutes.",
+      "Heat vegetable oil in a wok or skillet and stir-fry marinated chicken until cooked through.",
+      "Add sliced onion, julienned carrot, and continue stir-frying until vegetables are tender-crisp.",
+      "Garnish with sliced green onions and toasted sesame seeds; serve hot."
+    ]
+  },
+  {
+    "name": "Fish and Chips",
+    "mealType": "DINNER",
+    "cuisine": "BRITISH",
+    "serving": 4,
+    "time_to_cook": "30 minutes",
+    "difficulty_level": "EASY",
+    "cost": "MODERATE",
+    "spice_level": "NONE",
+    "ingredients": [
+      "4 large white fish fillets (cod or haddock)",
+      "1 cup all-purpose flour",
+      "1 cup beer",
+      "1 teaspoon baking powder",
+      "Salt and black pepper to taste",
+      "4 large potatoes (cut into thick fries)",
+      "Vegetable oil for frying",
+      "Malt vinegar for serving",
+      "Peas (optional, for serving)"
+    ],
+    "instructions": [
+      "In a bowl, whisk together flour, beer, baking powder, salt, and black pepper to make the batter.",
+      "Dip each fish fillet into the batter, allowing excess to drip off, and deep-fry until golden brown and crispy.",
+      "In a separate pot, fry the potato fries until golden and crispy.",
+      "Serve fish and chips hot with malt vinegar. Optional: Serve with peas on the side."
+    ]
+  },
+  {
+    "name": "Shepherd's Pie",
+    "mealType": "DINNER",
+    "cuisine": "BRITISH",
+    "serving": 6,
+    "time_to_cook": "1 hour",
+    "difficulty_level": "MODERATE",
+    "cost": "MODERATE",
+    "spice_level": "MILD",
+    "ingredients": [
+      "1 lb ground lamb",
+      "1 onion (chopped)",
+      "2 carrots (diced)",
+      "2 cloves garlic (minced)",
+      "1 cup frozen peas",
+      "2 tablespoons tomato paste",
+      "1 cup beef or vegetable broth",
+      "1 tablespoon Worcestershire sauce",
+      "2 cups mashed potatoes",
+      "Salt and black pepper to taste",
+      "Butter for greasing"
+    ],
+    "instructions": [
+      "In a skillet, brown ground lamb over medium heat. Drain excess fat if needed.",
+      "Add chopped onion, diced carrots, and minced garlic; sauté until vegetables are tender.",
+      "Stir in tomato paste, beef or vegetable broth, Worcestershire sauce, and frozen peas. Simmer until the mixture thickens.",
+      "Preheat oven to 400°F (200°C).",
+      "Transfer the lamb mixture to a buttered baking dish and top with mashed potatoes.",
+      "Bake for 20-25 minutes or until the mashed potatoes are golden brown.",
+      "Serve Shepherd's Pie hot."
+    ]
+  },
+  {
+    "name": "Ploughman's Lunch",
+    "mealType": "LUNCH",
+    "cuisine": "BRITISH",
+    "serving": 2,
+    "time_to_cook": "15 minutes",
+    "difficulty_level": "EASY",
+    "cost": "LOW",
+    "spice_level": "NONE",
+    "ingredients": [
+      "2 slices cheddar cheese",
+      "2 slices ham",
+      "Pickled onions",
+      "Branston pickle",
+      "Hard-boiled eggs (sliced)",
+      "Cherry tomatoes",
+      "Mixed salad greens",
+      "Crusty bread or rolls"
+    ],
+    "instructions": [
+      "Arrange cheddar cheese, ham, pickled onions, Branston pickle, sliced hard-boiled eggs, cherry tomatoes, and mixed salad greens on a serving platter.",
+      "Serve with crusty bread or rolls.",
+      "Enjoy the classic Ploughman's Lunch!"
+    ]
+  },
+
+  {
+    "name": "Cornish Pasty",
+    "mealType": "LUNCH",
+    "cuisine": "BRITISH",
+    "serving": 4,
+    "time_to_cook": "1 hour",
+    "difficulty_level": "MODERATE",
+    "cost": "LOW",
+    "spice_level": "MILD",
+    "ingredients": [
+      "2 cups all-purpose flour",
+      "1 cup unsalted butter (cubed)",
+      "1/2 cup cold water",
+      "1 lb beef (diced)",
+      "1 potato (peeled and diced)",
+      "1 onion (chopped)",
+      "1 carrot (diced)",
+      "Salt and black pepper to taste",
+      "1 egg (beaten, for egg wash)"
+    ],
+    "instructions": [
+      "In a bowl, combine flour and cubed butter. Gradually add cold water and knead to form a dough.",
+      "Wrap the dough in plastic wrap and refrigerate for 30 minutes.",
+      "Preheat oven to 375°F (190°C).",
+      "Roll out the chilled dough and cut into rounds.",
+      "In a bowl, mix diced beef, potato, chopped onion, diced carrot, salt, and black pepper.",
+      "Place a portion of the beef mixture on one half of each pastry round.",
+      "Fold the pastry over to form a semi-circle and crimp the edges to seal.",
+      "Brush each pasty with beaten egg for a golden finish.",
+      "Bake for 40-45 minutes or until the pasties are golden brown.",
+      "Serve Cornish Pasties hot."
+    ]
+  },
+
+  {
+    "name": "Wagyu Beef Steak",
+    "mealType": "DINNER",
+    "cuisine": "ASIAN",
+    "serving": 2,
+    "time_to_cook": "20 minutes",
+    "difficulty_level": "MODERATE",
+    "cost": "PRICEY",
+    "spice_level": "NONE",
+    "ingredients": [
+      "2 Wagyu beef steaks",
+      "Salt and black pepper to taste",
+      "2 tablespoons olive oil",
+      "2 cloves garlic (crushed)",
+      "Fresh rosemary sprigs for garnish",
+      "Red wine reduction sauce (optional)"
+    ],
+    "instructions": [
+      "Season Wagyu beef steaks with salt and black pepper.",
+      "Heat olive oil in a skillet over high heat and sear steaks for 2-3 minutes on each side for medium-rare.",
+      "Add crushed garlic and rosemary to the skillet, basting the steaks with the infused oil.",
+      "Let the steaks rest for a few minutes before slicing.",
+      "Serve Wagyu Beef Steak with a red wine reduction sauce if desired."
+    ]
+  },
+  {
+    "name": "Truffle Risotto",
+    "mealType": "DINNER",
+    "cuisine": "ITALIAN",
+    "serving": 4,
+    "time_to_cook": "30 minutes",
+    "difficulty_level": "MODERATE",
+    "cost": "PRICEY",
+    "spice_level": "MILD",
+    "ingredients": [
+      "2 cups Arborio rice",
+      "1/2 cup dry white wine",
+      "1 shallot (finely chopped)",
+      "4 cups chicken or vegetable broth (heated)",
+      "1/2 cup Parmesan cheese (grated)",
+      "2 tablespoons truffle oil",
+      "Salt and black pepper to taste",
+      "Fresh chives for garnish"
+    ],
+    "instructions": [
+      "In a large pan, sauté chopped shallot until translucent.",
+      "Add Arborio rice and cook until lightly toasted.",
+      "Pour in white wine and stir until mostly evaporated.",
+      "Gradually add heated broth, one ladle at a time, stirring constantly until absorbed.",
+      "Continue this process until the rice is creamy and cooked to al dente.",
+      "Stir in grated Parmesan cheese and truffle oil, season with salt and black pepper.",
+      "Garnish Truffle Risotto with fresh chives before serving."
+    ]
+  },
+
+  {
+    "name": "Pan-Seared Foie Gras",
+    "mealType": "LUNCH",
+    "cuisine": "FRENCH",
+    "serving": 2,
+    "time_to_cook": "15 minutes",
+    "difficulty_level": "HIGH",
+    "cost": "PRICEY",
+    "spice_level": "NONE",
+    "ingredients": [
+      "2 duck foie gras lobes",
+      "Salt and black pepper to taste",
+      "1 tablespoon port wine reduction",
+      "Toasted brioche for serving",
+      "Fig compote (optional, for serving)"
+    ],
+    "instructions": [
+      "Score the foie gras lobes and season with salt and black pepper.",
+      "Heat a skillet over medium-high heat and sear foie gras for 1-2 minutes on each side until golden brown.",
+      "Drizzle port wine reduction over the foie gras.",
+      "Serve Pan-Seared Foie Gras on toasted brioche with optional fig compote."
+    ]
+  },
+
+  {
+    "name": "Alaskan King Crab Legs",
+    "mealType": "LUNCH",
+    "cuisine": "INTERNATIONAL",
+    "serving": 4,
+    "time_to_cook": "15 minutes",
+    "difficulty_level": "EASY",
+    "cost": "PRICEY",
+    "spice_level": "NONE",
+    "ingredients": [
+      "4 lbs Alaskan king crab legs",
+      "1/2 cup clarified butter",
+      "1 lemon (cut into wedges)",
+      "Fresh parsley for garnish"
+    ],
+    "instructions": [
+      "Steam or boil Alaskan king crab legs until heated through, about 5-7 minutes.",
+      "Crack open the crab legs and serve with clarified butter and lemon wedges.",
+      "Garnish with fresh parsley and enjoy your indulgent Alaskan King Crab Legs!"
     ]
   }
 ]

@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-
 import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -109,6 +108,9 @@ public class RecipeService {
     public Iterable<Recipe> getRecipeByCookingTime(String timeToCook) {
         return recipeRepository.findAllByTimeToCook(timeToCook);
     }
+//    public Iterable<Recipe> getRecipeByCookingTimeInMinutes(int timeToCook) {
+//        return recipeRepository.findAllByTimeToCook(timeToCook);
+//    }
 
     public Iterable<Recipe> getRecipeByCuisineType(Cuisine cuisineType) {
         return recipeRepository.findAllByCuisineType(cuisineType);
@@ -130,5 +132,9 @@ public class RecipeService {
     public Iterable<Recipe> getRecipeBySpiceType(SpiceLevel spiceType) {
         return recipeRepository.findAllBySpiceType(spiceType);
 
+    }
+
+    public Iterable<Recipe> getRecipeByCookingTimeLessThanOrEqual(Double minutes) {
+        return recipeRepository.findRecipeByCookingTimeLessThanOrEqualTo(minutes);
     }
 }
