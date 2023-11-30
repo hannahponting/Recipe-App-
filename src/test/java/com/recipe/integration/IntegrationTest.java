@@ -233,7 +233,7 @@ class IntegrationTest {
 
     @Test
     void testGetRecipeByCuisineTypeIfNone() throws Exception {
-        String cuisine = "THAI";
+        String cuisine = "FRENCH";
         String test = "cuisine/";
 
         MvcResult result =

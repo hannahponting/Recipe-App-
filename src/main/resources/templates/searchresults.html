@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>N.E.R.D Recipes</title>
-    <link rel="stylesheet" type="text/css" href="home.css">
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" href="/home.css">
 </head>
 <body>
-    <h1>N.E.R.D Recipes</h1>
+    <h1 id="result-keyword-heading">Search results</h1>
+    <script>
+        let searchResultKeyword = window.location.search
+        let searchResultKeywordResult = searchResultKeyword.replace(/.*=/, '');
+        console.log(searchResultKeywordResult)
+        let target = document.getElementById("result-keyword-heading");
+        target.innerText = `Search results for "${searchResultKeywordResult}"`
+    </script>
 
-    <!-- Logo container at the right corner -->
-    <div class="logo-container">
-        <img src="images/Nerd_logo-removebg-preview.png" alt="Website Logo">
-    </div>
 
     <div class="search-container">
         <form action="http://localhost:8080/recipes/search" method="get">
@@ -22,13 +26,14 @@
 
         </form>
 
+
     </div>
 
 
     <div id="filters">
         <form action="http://localhost:8080/recipes/cost" method="get">
-            <label for="cost">Cost Level:</label>
-            <select id="cost" name="cost">
+            <label for="filter">Filter by Category:</label>
+            <select id="filter" name="category">
                 <option value="LOW">Low</option>
                 <option value="MODERATE">Moderate</option>
                 <option value="PRICEY">Pricey</option>
@@ -40,16 +45,18 @@
         <form action="http://localhost:8080/recipes/cuisine" method="get">
             <label for="cuisine">Cuisine:</label>
             <select id="cuisine" name="cuisine">
-                    <option value="FRENCH">French</option>
-                    <option value="ITALIAN">Italian</option>
-                    <option value="INDIAN">Indian</option>
-                    <option value="AMERICAN">American</option>
-                    <option value="INTERNATIONAL">International</option>
-                    <option value="MEDITERRANEAN">Mediterranean</option>
-                    <option value="MEXICAN">Mexican</option>
-                    <option value="ASIAN">Asian</option>
-                    <option value="BRITISH">British</option>
-                    <option value="THAI">Thai</option>
+                <option value="FRENCH">French</option>
+                <option value="ITALIAN">Italian</option>
+                <option value="GREEK">Greek</option>
+                <option value="SPANISH">Spanish</option>
+                <option value="INDIAN">Indian</option>
+                <option value="AMERICAN">American</option>
+                <option value="INTERNATIONAL">International</option>
+                <option value="MEDITERRANEAN">Mediterranean</option>
+                <option value="MEXICAN">Mexican</option>
+                <option value="ASIAN">Asian</option>
+                <option value="BRITISH">British</option>
+                <option value="THAI">Thai</option>
             </select>
             <button type="submit">Apply Filter</button>
         </form>
@@ -65,7 +72,6 @@
             </select>
             <button type="submit">Apply Filter</button>
         </form>
-
 
         <form action="http://localhost:8080/recipes/meal_type" method="get">
             <label for="meal_type">Meal Type:</label>
@@ -96,39 +102,54 @@
 
 
 
-    <div id="recipes" class="item-container">
-        <script>
-            fetch("http://localhost:8080/api/recipes")
+<div id="recipes" class="item-container">
+    <script>
+
+            let keyword = window.location.search
+            let result = keyword.replace(/.*=/, '');
+            console.log(result)
+
+            fetch(`http://localhost:8080/api/recipes/search/name/${result}`)
                 .then(response => response.json())
                 .then(data => {
+                    let recipesTarget = document.getElementById('recipes')
 
-                    console.log(data.length);
-                    let target = document.getElementById('recipes')
-                    for (let i = 0; i < data.length; i++) {
+                    if (data.length > 0) {
+                        console.log(data.length);
+                        for (let i = 0; i < data.length; i++) {
 
-                        let link = document.createElement("a")
-                        link.href = `http://localhost:8080/recipes/${data[i].id}`
-                        console.log(data[i].name)
+                            let link = document.createElement("a")
+                            link.href = `http://localhost:8080/recipes/${data[i].id}`
+                            console.log(data[i].name)
 
-                        link.id =`item-link${data[i].name}`
-                        target.appendChild(link)
-                       let div = document.createElement("div");
-                        div.className = "individual-items"
-                        div.id = "specific-item"
-                        div.innerHTML = data[i].name
-                        let target2 = document.getElementById(`item-link${data[i].name}`)
-                        target2.appendChild(div);
+                            link.id =`item-link${data[i].name}`
+                            recipesTarget.appendChild(link)
+                            let div = document.createElement("div");
+                            div.className = "individual-items"
+                            div.id = "specific-item"
+                            div.innerHTML = data[i].name
+                            let target2 = document.getElementById(`item-link${data[i].name}`)
+                            target2.appendChild(div);
+                        }
+
                     }
+
+                    else
+                    recipesTarget.innerText = "Sorry no items found for your search result"
+
+
                 })
                 .catch(error => {
                     console.error("Error fetching data:", error)
+
                 })
-        </script>
-    </div>
 
 
 
+    </script>
 
-</body>
+
+</div>
+    </body>
 </html>
 
