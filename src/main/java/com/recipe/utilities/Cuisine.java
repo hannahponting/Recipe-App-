@@ -3,10 +3,7 @@ package com.recipe.utilities;
 
 public enum Cuisine {
     FRENCH("French"),
-    CHINESE("Chinese"),
-    JAPANESE("Japanese"),
     ITALIAN("Italian"),
-    GREEK("Greek"),
     SPANISH("Spanish"),
     INDIAN("Indian"),
     AMERICAN("American"),
@@ -14,9 +11,7 @@ public enum Cuisine {
     MEDITERRANEAN("Mediterranean"),
     MEXICAN("Mexican"),
     ASIAN("Asian"),
-    BRITISH("British"),
-    SOUTHERN("Southern"),
-    THAI("Thai");
+    BRITISH("British");
 
 
     public String getName() {
