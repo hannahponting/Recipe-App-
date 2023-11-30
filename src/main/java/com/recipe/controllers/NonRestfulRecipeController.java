@@ -4,6 +4,7 @@ package com.recipe.controllers;
 import com.recipe.entities.Recipe;
 import com.recipe.services.RecipeService;
 import com.recipe.utilities.Cost;
+import com.recipe.utilities.Cuisine;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,12 @@ public class NonRestfulRecipeController {
     }
 
 
+    @GetMapping("/search")
+    @ResponseBody
+    public Iterable<Recipe> searchRecipeByName(@RequestParam(value = "keyword", defaultValue = "chicken") String keyword){
+        return recipeService.findByNameContains(keyword);
+    }
+
     @GetMapping("/{recipeId}")
     @Operation(summary = "get recipes by id ")
     public String  getRecipeById(@PathVariable Long recipeId, Model model){
@@ -36,13 +43,19 @@ public class NonRestfulRecipeController {
 
     @GetMapping("cost")
     @Operation(summary = "get recipes by cost type")
-    public String getRecipeByCostType(@RequestParam(value= "category", defaultValue = "Low") String keyword, Model model){
+    public String getRecipeByCostType(@RequestParam(value= "cost", defaultValue = "Low") String keyword, Model model){
         Iterable<Recipe> recipes = handleEmptyResult(recipeService.getRecipeByCostType(Cost.valueOf(keyword)), "Cost Type", keyword);
         model.addAttribute("recipes", recipes);
         return "cost";
     }
 
-
+    @GetMapping("cuisine")
+    @Operation(summary = "get recipes by cuisine type")
+    public String getRecipeByCuisineType(@RequestParam(value= "cuisine", defaultValue = "French") String keyword, Model model){
+        Iterable<Recipe> recipes = handleEmptyResult(recipeService.getRecipeByCuisineType(Cuisine.valueOf(keyword)), "Cuisine", keyword);
+        model.addAttribute("recipes", recipes);
+        return "cuisine";
+    }
 
 
 

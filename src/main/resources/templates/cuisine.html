@@ -8,10 +8,9 @@
 <body>
 
 <h1>Available Recipes would be listed below: </h1>
-
 <div>
     <ul id="each-recipe" th:each="recipe: ${recipes}">
-    <a th:href="@{/recipes/{id}(id=${recipe.getId()})}" ><li th:text="${recipe.getName()}"></li></a>
+        <a th:href="@{/api/recipes/{id}(id=${recipe.getId()})}" ><li th:text="${recipe.getName()}"></li></a>
 
     </ul>
 </div>
