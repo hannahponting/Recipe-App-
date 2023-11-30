@@ -147,32 +147,4 @@ public class RecipeController {
     public void getCoffee(){
         throw new ResponseStatusException(HttpStatus.I_AM_A_TEAPOT, "Sorry, I don't know how to make coffee");
     }
-
-
-
-    //Endpoints for search bar
-
-    @GetMapping("/recipeId")
-    @ResponseBody
-    public Recipe getRecipeByIdSearch(@RequestParam(value = "id", defaultValue = "1" ) Long id) {
-        Recipe recipe = recipeService.getRecipeById(id);
-        if (recipe == null)
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipe not found");
-
-        return recipe;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
