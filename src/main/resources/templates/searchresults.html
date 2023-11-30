@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" href="/home.css">
+</head>
+<body>
+    <h1 id="result-keyword-heading">Search results</h1>
+    <script>
+        let searchResultKeyword = window.location.search
+        let searchResultKeywordResult = searchResultKeyword.replace(/.*=/, '');
+        console.log(searchResultKeywordResult)
+        let target = document.getElementById("result-keyword-heading");
+        target.innerText = `Search results for "${searchResultKeywordResult}"`
+    </script>
+
+
+    <div class="search-container">
+        <form action="http://localhost:8080/recipes/search" method="get">
+            <label>
+                <input class="search-input" name="keyword" type="text" placeholder="Search for recipes">
+            </label>
+            <button class="search-button" type="submit">Search</button>
+
+        </form>
+
+
+    </div>
+
+
+    <div id="filters">
+        <form action="http://localhost:8080/recipes/cost" method="get">
+            <label for="filter">Filter by Category:</label>
+            <select id="filter" name="category">
+                <option value="LOW">Low</option>
+                <option value="MODERATE">Moderate</option>
+                <option value="PRICEY">Pricey</option>
+                <!-- Add more options as needed -->
+            </select>
+            <button type="submit">Apply Filter</button>
+        </form>
+
+
+
+
+    </div>
+
+
+
+<div id="recipes" class="item-container">
+    <script>
+
+            let keyword = window.location.search
+            let result = keyword.replace(/.*=/, '');
+            console.log(result)
+
+            fetch(`http://localhost:8080/api/recipes/search/name/${result}`)
+                .then(response => response.json())
+                .then(data => {
+                    let recipesTarget = document.getElementById('recipes')
+
+                    if (data.length > 0) {
+                        console.log(data.length);
+                        for (let i = 0; i < data.length; i++) {
+
+                            let link = document.createElement("a")
+                            link.href = `http://localhost:8080/recipes/${data[i].id}`
+                            console.log(data[i].name)
+
+                            link.id =`item-link${data[i].name}`
+                            recipesTarget.appendChild(link)
+                            let div = document.createElement("div");
+                            div.className = "individual-items"
+                            div.id = "specific-item"
+                            div.innerHTML = data[i].name
+                            let target2 = document.getElementById(`item-link${data[i].name}`)
+                            target2.appendChild(div);
+                        }
+
+                    }
+
+                    else
+                    recipesTarget.innerText = "Sorry no items found for your search result"
+
+
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error)
+
+                })
+
+
+
+    </script>
+
+
+</div>
+    </body>
+</html>
+

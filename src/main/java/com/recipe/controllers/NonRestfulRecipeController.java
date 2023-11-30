@@ -46,6 +46,21 @@ public class NonRestfulRecipeController {
 
 
 
+
+
+
+
+    @GetMapping("/search")
+    public String searchRecipeByName(@RequestParam(value = "keyword", defaultValue = "chicken") String keyword, Model model){
+    Iterable<Recipe> recipes =  recipeService.findByNameContains(keyword);
+       model.addAttribute("recipes", recipes);
+        return "searchresults";
+    }
+
+
+
+
+
     private Iterable<Recipe> handleEmptyResult(Iterable<Recipe> result, String parameterName, Object parameterValue) {
         if (!result.iterator().hasNext()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Sorry, We Don't Have Recipes For " + parameterName + " Of " + parameterValue);
