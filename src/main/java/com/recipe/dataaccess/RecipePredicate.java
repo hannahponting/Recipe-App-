@@ -1,12 +1,10 @@
 package com.recipe.dataaccess;
 
-import com.querydsl.core.types.dsl.*;
+import com.querydsl.core.types.dsl.BooleanExpression;
+import com.querydsl.core.types.dsl.NumberPath;
+import com.querydsl.core.types.dsl.PathBuilder;
+import com.querydsl.core.types.dsl.StringPath;
 import com.recipe.entities.Recipe;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 import static org.apache.commons.lang3.StringUtils.isNumeric;
 
@@ -24,7 +22,7 @@ public class RecipePredicate {
             NumberPath<Integer> path = entityPath.getNumber(criteria.getKey(), Integer.class);
             int value = Integer.parseInt(criteria.getValue().toString());
             switch (criteria.getOperation()) {
-                case ":":
+                case "=":
                     return path.eq(value);
                 case ">=":
                     return path.goe(value);
@@ -34,7 +32,7 @@ public class RecipePredicate {
         }
         else {
             StringPath path = entityPath.getString(criteria.getKey());
-            if (criteria.getOperation().equalsIgnoreCase(":")) {
+            if (criteria.getOperation().equalsIgnoreCase("=")) {
                 return path.containsIgnoreCase(criteria.getValue().toString());
             }
         }

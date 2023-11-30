@@ -1,21 +1,15 @@
 package com.recipe.controllers;
 
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.recipe.entities.Recipe;
 import com.recipe.services.RecipeService;
 import com.recipe.utilities.*;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.http.HttpStatus;
-
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
-import com.fasterxml.jackson.annotation.JsonView;
 
 
 @RestController
@@ -65,7 +59,7 @@ public class RecipeController {
     @Operation(summary = "get recipes using custom query",
             description = "Search on any parameter of the recipe whose value is a string or number. \n" +
                     "The parameter name is the underlying name of the field, such as servingNo, rather than the Json property name given in the schema. \n" +
-                    "A colon indicates equals or contains. Other options are <= or >=. \n" +
+                    "An = indicates equals or contains. Other options are <= or >=. \n" +
                     "Multiple queries are separated by an ampersand. \n" +
                     "Non-string/number fields such as ingredients list cannot be searched in this way.")
     public Iterable<Recipe> getRecipeByCustomQuery(@RequestParam(value = "query", defaultValue = "servingNo>=2&cookingMinutes<=30&cuisineType=mexican") String query){
