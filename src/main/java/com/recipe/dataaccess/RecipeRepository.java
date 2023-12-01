@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Collection;
 
 @Repository
-public interface RecipeRepository extends ListCrudRepository<Recipe,Long> , QuerydslPredicateExecutor {
+public interface RecipeRepository extends ListCrudRepository<Recipe,Long> , QuerydslPredicateExecutor{
 
 
     Recipe findRecipeById(Long recipeId);

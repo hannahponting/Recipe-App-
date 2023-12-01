@@ -28,6 +28,7 @@ public class RecipePredicate {
                     return path.goe(value);
                 case "<=":
                     return path.loe(value);
+                default:
             }
         } else {
             StringPath path = entityPath.getString(criteria.getKey());
