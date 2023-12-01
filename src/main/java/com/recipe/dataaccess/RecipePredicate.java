@@ -29,8 +29,7 @@ public class RecipePredicate {
                 case "<=":
                     return path.loe(value);
             }
-        }
-        else {
+        } else {
             StringPath path = entityPath.getString(criteria.getKey());
             if (criteria.getOperation().equalsIgnoreCase("=")) {
                 return path.containsIgnoreCase(criteria.getValue().toString());

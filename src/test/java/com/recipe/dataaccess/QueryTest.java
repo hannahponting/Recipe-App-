@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
 
 import java.io.IOException;
 
@@ -18,21 +19,25 @@ public class QueryTest {
     RecipeRepository recipeRepository;
     @Test
     public void testQuery() throws IOException {
-        populator.populate();
         RecipePredicatesBuilder builder = new RecipePredicatesBuilder().with("mealType",":","BREAKFAST");
         Iterable<Recipe> results = recipeRepository.findAll(builder.build());
         Assertions.assertNotNull(results);
     }
     @Test
-    public void testQueryTwoParamaters() throws IOException {
-        populator.populate();
+    public void testQueryMultipleParameters() throws IOException {
         RecipePredicatesBuilder builder = new RecipePredicatesBuilder()
-                .with("mealType",":","BREAKFAST")
+                .with("name","=","quinoa")
+                .with("cookingMinutes","<=",30)
                 .with("servingNo",">=",4)
+                .with("id","=",102)
                 ;
         Iterable<Recipe> results = recipeRepository.findAll(builder.build());
         Assertions.assertNotNull(results);
     }
-
+    @Test
+    public void testQueryNoParameters() throws IOException {
+        RecipePredicatesBuilder builder = new RecipePredicatesBuilder();
+        Assertions.assertThrows(InvalidDataAccessApiUsageException.class,()-> recipeRepository.findAll(builder.build()));
+    }
 
 }

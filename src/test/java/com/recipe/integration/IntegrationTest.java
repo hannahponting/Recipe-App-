@@ -2,6 +2,7 @@ package com.recipe.integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.recipe.entities.Recipe;
+import com.recipe.utilities.Cost;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -263,5 +264,18 @@ class IntegrationTest {
         assertEquals(expectedError, message);
     }
 
+    @Test
+    void testCustomQueryMultipleCriteria() throws Exception {
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/search/custom?query=name=quinoa&cookingMinutes<=30&servingNo>=4&id=102")))
+                        .andExpect(status().isOk())
+                        .andReturn();
 
+        String contentAsJson = result.getResponse().getContentAsString();
+        ObjectMapper mapper = new ObjectMapper();
+        Recipe[] actualRecipe = mapper.readValue(contentAsJson,Recipe[].class);
+
+        assertEquals(102, actualRecipe[0].getId());
+        assertEquals(Cost.MODERATE,actualRecipe[0].getCostType());
+    }
 }

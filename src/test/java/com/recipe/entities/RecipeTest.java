@@ -26,5 +26,15 @@ class RecipeTest {
         assertEquals(recipe.getIngredientsList(), ingredients);
         assertEquals(recipe.getInstructions(), instructions);
     }
+    @Test
+    void testParseMinutes(){
+
+        Recipe recipe = new Recipe();
+        recipe.setTimeToCook("1.5 hours");
+        assertEquals(90, recipe.getCookingMinutes());
+        recipe.setTimeToCook("twenty minutes");
+        assertEquals(-1, recipe.getCookingMinutes());
+
+    }
 
 }
