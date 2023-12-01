@@ -35,70 +35,105 @@
     </div>
 
 
-    <div id="filters">
-        <form action="http://localhost:8080/recipes/cost" method="get">
-            <label for="filter">Filter by Category:</label>
-            <select id="filter" name="category">
-                <option value="LOW">Low</option>
-                <option value="MODERATE">Moderate</option>
-                <option value="PRICEY">Pricey</option>
-                <!-- Add more options as needed -->
-            </select>
-            <button type="submit">Apply Filter</button>
-        </form>
+    <div class="filter-containers">
 
-        <form action="http://localhost:8080/recipes/cuisine" method="get">
-            <label for="cuisine">Cuisine:</label>
-            <select id="cuisine" name="cuisine">
-                <option value="FRENCH">French</option>
-                <option value="ITALIAN">Italian</option>
-                <option value="GREEK">Greek</option>
-                <option value="SPANISH">Spanish</option>
-                <option value="INDIAN">Indian</option>
-                <option value="AMERICAN">American</option>
-                <option value="INTERNATIONAL">International</option>
-                <option value="MEDITERRANEAN">Mediterranean</option>
-                <option value="MEXICAN">Mexican</option>
-                <option value="ASIAN">Asian</option>
-                <option value="BRITISH">British</option>
-                <option value="THAI">Thai</option>
-            </select>
-            <button type="submit">Apply Filter</button>
-        </form>
+                <form id="spice_levelform" action="http://localhost:8080" method="get">
+                    <label for="spice_level">Spicy Level:</label>
+                    <select id="spice_level" name="spice_level">
+                        <option value="NONE">None</option>
+                        <option value="MILD">Mild</option>
+                        <option value="MEDIUM">Medium</option>
+                        <option value="SPICY">Spicy</option>
+                    </select>
+                    <form  id="difficultyform" action="http://localhost:8080" method="get">
+                        <label for="difficulty">Difficult Level:</label>
+                        <select id="difficulty" name="difficulty">
+                            <option value="EASY">Easy</option>
+                            <option value="MODERATE">Moderate</option>
+                            <option value="HIGH">High</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                        <form id="costform" action="http://localhost:8080" method="get">
+                            <label for="cost">Cost Level:</label>
+                            <select id="cost" name="cost">
+                                <option  value="LOW">Low</option>
+                                <option  value="MODERATE">Moderate</option>
+                                <option  value="PRICEY">Pricey</option>
+                                <!-- Add more options as needed -->
+                            </select>
+                            <br > <button id ="apply-filters" type="button" onclick="myFunction()">Apply Filters</button> <br>
+                        </form>
+                    </form>
+                </form>
 
-        <form action="http://localhost:8080/recipes/spice_level" method="get">
-            <label for="spice_level">Spicy Level:</label>
-            <select id="spice_level" name="spice_level">
-                <option value="NONE">None</option>
-                <option value="MILD">Mild</option>
-                <option value="MEDIUM">Medium</option>
-                <option value="SPICY">Spicy</option>
-                <!-- Add more options as needed -->
-            </select>
-            <button type="submit">Apply Filter</button>
-        </form>
 
-        <form action="http://localhost:8080/recipes/meal_type" method="get">
-            <label for="meal_type">Meal Type:</label>
-            <select id="meal_type" name="meal_type">
-                <option value="BREAKFAST">Breakfast</option>
-                <option value="LUNCH">Lunch</option>
-                <option value="DINNER">Dinner</option>
-                <!-- Add more options as needed -->
-            </select>
-            <button type="submit">Apply Filter</button>
-        </form>
 
-        <form action="http://localhost:8080/recipes/difficulty" method="get">
-            <label for="difficulty">Difficult Level:</label>
-            <select id="difficulty" name="difficulty">
-                <option value="EASY">Easy</option>
-                <option value="MODERATE">Moderate</option>
-                <option value="HIGH">High</option>
-                <!-- Add more options as needed -->
-            </select>
-            <button type="submit">Apply Filter</button>
-        </form>
+
+
+
+
+
+
+
+
+
+        <script>
+            function myFunction() {
+                let costform = document.getElementById("cost")
+                let costEnum = costform.options[costform.selectedIndex].value
+
+                let difficultyform = document.getElementById("difficulty")
+                let difficultyEnum = difficultyform.options[difficultyform.selectedIndex].value
+                console.log(difficultyEnum)
+
+                let spice_levelform = document.getElementById("spice_level")
+                let spice_levelEnum = spice_levelform.options[spice_levelform.selectedIndex].value
+                console.log(spice_levelEnum)
+
+
+
+                fetch(`http://localhost:8080/api/recipes/cost/${costEnum}`)
+                    .then(response => response.json())
+                    .then(data => {
+
+                        console.log(data.length);
+                        console.log(data[0])
+                        let newdata = data.filter(recipe => {
+                            return recipe["difficulty_level"].includes(difficultyEnum) && recipe["spice_level"].includes(spice_levelEnum)
+
+                        });
+                        console.log(newdata.length)
+                        console.log(newdata)
+
+
+                        let target = document.getElementById('recipes')
+                        target.innerHTML = "";
+                        if (newdata.length === 0) {target.innerText = "No recipes for this filter combination found"
+                        }
+                        for (let i = 0; i < newdata.length; i++) {
+
+                            let link = document.createElement("a")
+                            link.href = `http://localhost:8080/recipes/${newdata[i].id}`
+                            // console.log(data[i].name)
+
+                            link.id =`item-link${newdata[i].name}`
+                            target.appendChild(link)
+                            let div = document.createElement("div");
+                            div.className = "individual-items"
+                            div.id = "specific-item"
+                            div.innerHTML = newdata[i].name
+                            let target2 = document.getElementById(`item-link${newdata[i].name}`)
+                            target2.appendChild(div);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error fetching data:", error)
+                    })
+
+
+            }
+        </script>
+
 
 
 
@@ -107,7 +142,7 @@
 
 
 
-<div id="recipes" class="item-container">
+    <div id="recipes" class="item-container">
     <script>
 
             let keyword = window.location.search
