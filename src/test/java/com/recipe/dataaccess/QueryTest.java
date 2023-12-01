@@ -18,14 +18,14 @@ public class QueryTest {
     RecipeRepository recipeRepository;
     @Test
     public void testQuery() throws IOException {
-        populator.populate();
+//        populator.populate();
         RecipePredicatesBuilder builder = new RecipePredicatesBuilder().with("mealType",":","BREAKFAST");
         Iterable<Recipe> results = recipeRepository.findAll(builder.build());
         Assertions.assertNotNull(results);
     }
     @Test
     public void testQueryTwoParamaters() throws IOException {
-        populator.populate();
+//        populator.populate();
         RecipePredicatesBuilder builder = new RecipePredicatesBuilder()
                 .with("mealType",":","BREAKFAST")
                 .with("servingNo",">=",4)
