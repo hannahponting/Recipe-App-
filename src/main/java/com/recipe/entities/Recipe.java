@@ -67,7 +67,10 @@ public class Recipe {
                    "Garnish with fresh basil and let it rest before slicing."
                  ]"""
             , requiredMode = Schema.RequiredMode.REQUIRED)
+    @ElementCollection
+    @CollectionTable(name="INSTRUCTIONS",joinColumns=@JoinColumn(name="ID"))
     private List<String> instructions;
+
 
     @JsonProperty(value = "serving")
     @JsonView(CreateReadUpdateDelete.class)

@@ -29,6 +29,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Sql("classpath:test-data.sql")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 @TestPropertySource(properties = {"spring.sql.init.mode=never"})
+@TestPropertySource(locations="classpath:test.properties")
+
 class GetRecipesWithMockHttpsRequestIT {
         @Autowired
         MockMvc mockMvc;
