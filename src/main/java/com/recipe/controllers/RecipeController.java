@@ -7,9 +7,19 @@ import com.recipe.services.RecipeService;
 import com.recipe.utilities.*;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.io.IOException;
+import java.util.Optional;
+
+import static com.recipe.entities.QRecipe.recipe;
 
 
 @RestController
@@ -146,5 +156,20 @@ public class RecipeController {
     @Operation(summary = "get coffee")
     public void getCoffee(){
         throw new ResponseStatusException(HttpStatus.I_AM_A_TEAPOT, "Sorry, I don't know how to make coffee");
+    }
+
+
+    @GetMapping(value = "/image/{recipeId}")
+    public ResponseEntity<byte[]> getRecipeImage(@PathVariable Long recipeId) {
+        Optional <Recipe> recipeImage = recipeService.getRecipeForImage(recipeId);
+        if (recipeImage.isPresent()) {
+            Recipe recipe = recipeImage.get();
+            byte[] imageBytes = java.util.Base64.getDecoder().decode(recipe.getImage());
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.IMAGE_JPEG);
+            return new ResponseEntity<>(imageBytes, headers, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(new byte[0], HttpStatus.NOT_FOUND);
+        }
     }
 }
