@@ -30,18 +30,17 @@ public class Populator {
     }
 
 
-//    @EventListener(ContextRefreshedEvent.class)
+    //@EventListener(ContextRefreshedEvent.class)
     public void populate() throws IOException {
         ArrayList <Recipe> recipes = objectMapper.readValue(recipeFile, new TypeReference<>() {});
         recipeRepository.saveAll(recipes);
 
     }
 
+
 //    @EventListener(ContextRefreshedEvent.class)
     public void addImageToExistingRecipe() throws IOException {
-
                 int imageCounter = 1702;
-
             for (int i = 1; i < 79; i++) {
                 RecipeService recipeService = new RecipeService(recipeRepository);
 
