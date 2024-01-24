@@ -37,7 +37,7 @@ public class Populator {
 
     }
 
-    @EventListener(ContextRefreshedEvent.class)
+//    @EventListener(ContextRefreshedEvent.class)
     public void addImageToExistingRecipe() throws IOException {
 
                 int imageCounter = 1702;
