@@ -35,4 +35,7 @@ public interface RecipeRepository extends ListCrudRepository<Recipe,Long> , Quer
     Collection<Recipe> findAllByIngredientSearch(@Param("ingredient") String ingredient);
     @Query(value = "SELECT recipe FROM Recipe recipe WHERE cookingMinutes <= :minutes AND cookingMinutes != -1")
     Iterable<Recipe> findRecipeByCookingTimeLessThanOrEqualTo(@Param("minutes") Double minutes);
+
+    @Query(value = "SELECT recipe FROM Recipe recipe WHERE rating >= :rating")
+    Iterable<Recipe> findRecipeByRatingGreaterThanOrEqualTo(@Param("rating") Double rating);
 }

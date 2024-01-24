@@ -2,6 +2,7 @@ package com.recipe.controllers;
 
 
 import com.fasterxml.jackson.annotation.JsonView;
+import com.recipe.entities.Rating;
 import com.recipe.entities.Recipe;
 import com.recipe.services.RecipeService;
 import com.recipe.utilities.*;
@@ -107,6 +108,11 @@ public class RecipeController {
     public Iterable<Recipe> getRecipeByCookingTimeLessThanOrEqual(@PathVariable Double minutes){
         return handleEmptyResult(recipeService.getRecipeByCookingTimeLessThanOrEqual(minutes), "Cooking Time", minutes);
     }
+    @GetMapping("rating/{rating}")
+    @Operation(summary = "get recipes with a rating greater than or equal to a number from 1 to 5")
+    public Iterable<Recipe> getRecipeByRatingGreaterThanOrEqual(@PathVariable Double rating){
+        return handleEmptyResult(recipeService.getRecipeByRatingGreaterThanOrEqual(rating), "rating", rating);
+    }
 
     @GetMapping("cuisine/{cuisineType}")
     @Operation(summary = "get recipes by cuisine type ")
@@ -151,6 +157,11 @@ public class RecipeController {
     @Operation(summary = "update recipe")
     public Recipe updateRecipe(@RequestBody Recipe incompleteRecipe){
         return recipeService.updateRecipe(incompleteRecipe);
+    }
+    @PatchMapping("/rating")
+    @Operation(summary = "rate recipe")
+    public Recipe rateRecipe(@RequestBody @JsonView({Recipe.Rate.class}) Rating rating){
+        return recipeService.rateRecipe(rating);
     }
     @GetMapping("/coffee")
     @Operation(summary = "get coffee")
