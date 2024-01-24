@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Base64;
 
-import static com.recipe.entities.QRecipe.recipe;
 
 
 @SpringBootApplication
