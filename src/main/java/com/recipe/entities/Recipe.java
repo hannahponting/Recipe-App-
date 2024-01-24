@@ -39,6 +39,7 @@ public class Recipe {
 
     @Lob
     @Column(columnDefinition = "MEDIUMBLOB")
+    @JsonView({ReadUpdateDelete.class, Rating.class})
     private String image;
 
 
@@ -46,7 +47,7 @@ public class Recipe {
 
     @Id
     @GeneratedValue
-    @JsonView(ReadUpdateDelete.class)
+    @JsonView({ReadUpdateDelete.class, Rate.class})
     @Schema(description = "Unique ID of the recipe", requiredMode = Schema.RequiredMode.REQUIRED)
     private Long id;
 
@@ -70,6 +71,14 @@ public class Recipe {
             ]"""
             , requiredMode = Schema.RequiredMode.REQUIRED)
     private List<String> ingredientsList;
+
+    @JsonView(ReadUpdateDelete.class)
+    @Schema(description = "The average rating for the recipe")
+    private double rating;
+
+    @Schema(description = "the number of times the recipe has been rated", hidden = true)
+    private int ratingCount = 0;
+
     @JsonView(CreateReadUpdateDelete.class)
     @Schema(description = "List of cooking instructions", example = """
             [
@@ -193,6 +202,11 @@ public class Recipe {
         return difficultyLevel;
     }
 
+    public double getRating() {return rating;}
+    public void setRating(double newRating) {this.rating = newRating;}
+
+    public int getRatingCount() {return ratingCount;}
+    public void setRatingCount() {this.ratingCount ++;}
 
 
     public void setIngredientsList(List<String> ingredientsList) {
@@ -257,5 +271,6 @@ public class Recipe {
 
     public interface ReadUpdateDelete{}
     public interface CreateReadUpdateDelete{}
+    public interface Rate{}
 
 }

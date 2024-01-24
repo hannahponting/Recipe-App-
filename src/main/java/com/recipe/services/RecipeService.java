@@ -3,6 +3,7 @@ package com.recipe.services;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.recipe.dataaccess.RecipePredicatesBuilder;
 import com.recipe.dataaccess.RecipeRepository;
+import com.recipe.entities.Rating;
 import com.recipe.entities.Recipe;
 import com.recipe.utilities.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,6 +91,25 @@ public class RecipeService {
         finalRecipe = makeChangesToRecipe(changesToRecipe, oldRecipe);
         return recipeRepository.save(finalRecipe);}
 
+    public Recipe rateRecipe(Rating rating){
+        if(rating.getRecipe() ==null) throw new NullPointerException("No recipe entered");
+        if(rating.getMyRating() < 1 | rating.getMyRating() > 5 ) throw new IllegalArgumentException("Rating must be an integer between 1 and 5");
+        Recipe oldRecipe= getRecipeById(rating.getRecipe().getId());
+        Recipe finalRecipe;
+        if (oldRecipe == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipe not found");
+        finalRecipe = updateRating(rating, oldRecipe);
+        return recipeRepository.save(finalRecipe);}
+
+    private Recipe updateRating(Rating rating, Recipe oldRecipe){
+        if (oldRecipe.getRatingCount() == 0){
+            oldRecipe.setRating(rating.getMyRating());
+            oldRecipe.setRatingCount();
+        }
+        else {oldRecipe.setRating(((oldRecipe.getRating()* oldRecipe.getRatingCount()) + rating.getMyRating())/(oldRecipe.getRatingCount() + 1));
+        oldRecipe.setRatingCount();}
+        return oldRecipe;
+    }
+
 
     private Recipe makeChangesToRecipe(Recipe changesToRecipe, Recipe oldRecipe) {
         if (changesToRecipe.getName() != null) oldRecipe.setName(changesToRecipe.getName());
@@ -143,6 +163,9 @@ public class RecipeService {
 
     public Iterable<Recipe> getRecipeByCookingTimeLessThanOrEqual(Double minutes) {
         return recipeRepository.findRecipeByCookingTimeLessThanOrEqualTo(minutes);
+    }
+    public Iterable<Recipe> getRecipeByRatingGreaterThanOrEqual(Double rating) {
+        return recipeRepository.findRecipeByRatingGreaterThanOrEqualTo(rating);
     }
     public Iterable<Recipe> findRecipeByCustomQuery(String query){
 
