@@ -36,20 +36,21 @@ public class Populator {
         recipeRepository.saveAll(recipes);
 
     }
+
 //    @EventListener(ContextRefreshedEvent.class)
     public void addImageToExistingRecipe() throws IOException {
-         RecipeService recipeService = new RecipeService(recipeRepository);
+        for (int recipe_id = 1702; recipe_id < 1780; recipe_id++) {
+            RecipeService recipeService = new RecipeService(recipeRepository);
 
-        Recipe recipe = recipeService.getRecipeById(1702);
+            Recipe recipe = recipeService.getRecipeById(recipe_id);
 
-        File imageFile = new File("src/main/resources/static/images/veggieFajitaBowl.jpg");
-        if(!imageFile.exists()) throw new FileNotFoundException("Can't find image file");
+            File imageFile = new File("src/main/resources/static/images/FoodPictures/" + recipe_id + ".jpg");
+            if(!imageFile.exists()) throw new FileNotFoundException("Can't find image file");
 
-        byte[] bytes = Files.readAllBytes(imageFile.toPath());
-        String imageString = Base64.getEncoder().encodeToString(bytes);
-        recipe.setImage(imageString);
-        recipeRepository.save(recipe);
+            byte[] bytes = Files.readAllBytes(imageFile.toPath());
+            String imageString = Base64.getEncoder().encodeToString(bytes);
+            recipe.setImage(imageString);
+            recipeRepository.save(recipe);
+        }
     }
-
-
 }
