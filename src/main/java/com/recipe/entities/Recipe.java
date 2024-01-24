@@ -28,6 +28,20 @@ public class Recipe {
         this.ingredientsList = ingredientsList;
         this.instructions = instructions;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    @Lob
+    @Column(columnDefinition = "MEDIUMBLOB")
+    private String image;
+
+
     public Recipe(){}
 
     @Id

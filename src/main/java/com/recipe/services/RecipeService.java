@@ -8,8 +8,11 @@ import com.recipe.utilities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.io.IOException;
+import java.util.Base64;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.regex.Matcher;
@@ -67,9 +70,12 @@ public class RecipeService {
     public Recipe getRecipeById(long recipeId) {
         Optional<Recipe> recipe = this.recipeRepository.findById(recipeId);
         return recipe.orElse(null);
-
-
     }
+
+    public Optional<Recipe> getRecipeForImage(Long id){
+        return recipeRepository.findById(id);
+    }
+
 
     public Iterable<Recipe> findByNameContains(String keyword) {
         return recipeRepository.findAllByNameContainingIgnoreCase(keyword);
@@ -151,5 +157,11 @@ public class RecipeService {
         }
         BooleanExpression exp = builder.build();
         return recipeRepository.findAll(exp);
+    }
+
+
+    public Recipe addRecipeImage(Recipe recipe, MultipartFile file) throws IOException {
+        recipe.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
+        return recipeRepository.save(recipe);
     }
 }

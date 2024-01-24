@@ -10,7 +10,7 @@
 
     <!-- Logo container at the right corner -->
     <div class="logo-container">
-        <img src="images/Nerd_logo-removebg-preview.png" alt="Website Logo">
+        <img src="http://localhost:8080/api/recipes/image/17" alt="Website Logo">
     </div>
 
     <div class="search-container">
@@ -19,9 +19,7 @@
                 <input class="search-input" name="keyword" type="text" placeholder="Search for recipes">
             </label>
             <button class="search-button" type="submit">Search</button>
-
         </form>
-
     </div>
 
 
@@ -121,8 +119,6 @@
                     .catch(error => {
                         console.error("Error fetching data:", error)
                     })
-
-
             }
         </script>
 
