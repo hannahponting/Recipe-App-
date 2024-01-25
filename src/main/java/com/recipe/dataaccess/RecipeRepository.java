@@ -7,6 +7,8 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Repository
@@ -14,6 +16,8 @@ public interface RecipeRepository extends ListCrudRepository<Recipe,Long> , Quer
 
 
     Recipe findRecipeById(Long recipeId);
+
+    Collection<Recipe> findAllByIdIn(ArrayList<Long> ids);
 
     Collection<Recipe> findAllByNameContainingIgnoreCase(String ingredient);
 
@@ -33,6 +37,9 @@ public interface RecipeRepository extends ListCrudRepository<Recipe,Long> , Quer
 
     @Query(value = "SELECT recipe FROM Recipe recipe INNER JOIN ingredientsList WHERE element(ingredientsList) ILIKE %:ingredient%")
     Collection<Recipe> findAllByIngredientSearch(@Param("ingredient") String ingredient);
+    @Query(value = "SELECT recipe.id FROM Recipe recipe INNER JOIN ingredientsList WHERE element(ingredientsList) ILIKE %:ingredient%")
+    ArrayList<Long> findRecipeIdByIngredientSearch(@Param("ingredient") String ingredient);
+
     @Query(value = "SELECT recipe FROM Recipe recipe WHERE cookingMinutes <= :minutes AND cookingMinutes != -1")
     Iterable<Recipe> findRecipeByCookingTimeLessThanOrEqualTo(@Param("minutes") Double minutes);
 

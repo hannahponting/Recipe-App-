@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Objects;
 import java.util.Optional;
@@ -182,7 +183,32 @@ public class RecipeService {
         return recipeRepository.findAll(exp);
     }
 
+    public Iterable<Recipe> findRecipeByMultipleIngredients(String query){
+        ArrayList<String> requiredIngredients = new ArrayList<>();
+        if (query!= null){
+            Pattern pattern = Pattern.compile("(\\w+?)&");
+            Matcher matcher = pattern.matcher(query + "&");
+            while(matcher.find()){
+                requiredIngredients.add(matcher.group(1));
+            }
+            int numIngredients = requiredIngredients.size();
+            ArrayList<ArrayList<Long>> filteredResultsList = new ArrayList<>();
+            for (int i = 0; i < numIngredients; i++) {
+                filteredResultsList.add(recipeRepository.findRecipeIdByIngredientSearch(requiredIngredients.get(i)));
+            }
+            ArrayList<Long> commonLongs = findCommonLongs(filteredResultsList);
+            return recipeRepository.findAllByIdIn(commonLongs);
+        }
+        else return null;
+    }
+        public static ArrayList<Long> findCommonLongs(ArrayList<ArrayList<Long>> listOfLists) {
+            ArrayList<Long> commonLongs = new ArrayList<>(listOfLists.get(0));
 
+            for (int i = 1; i < listOfLists.size(); i++) {
+                commonLongs.retainAll(listOfLists.get(i));
+            }
+
+            return commonLongs;}
     public Recipe addRecipeImage(Recipe recipe, MultipartFile file) throws IOException {
         recipe.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
         return recipeRepository.save(recipe);
