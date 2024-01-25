@@ -8,6 +8,9 @@ import com.recipe.services.RecipeService;
 import com.recipe.utilities.*;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -60,6 +63,11 @@ public class RecipeController {
     @Operation(summary = "get all recipes")
     public Iterable<Recipe> getRecipe(){
         return recipeService.findAll();
+    }
+    @GetMapping("/page/{num}/{size}")
+    @Operation(summary = "get all recipes paginated")
+    public Page<Recipe> getRecipePage(@PathVariable int num, @PathVariable int size){
+        return recipeService.paginatedRecipes(PageRequest.of(num -1, size));
     }
     @GetMapping("/search/name/{keyword}")
     @Operation(summary = "get recipes by keyword in recipe name")
