@@ -2,6 +2,8 @@ package com.recipe.dataaccess;
 
 import com.recipe.entities.Recipe;
 import com.recipe.utilities.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.ListCrudRepository;
@@ -16,6 +18,8 @@ public interface RecipeRepository extends ListCrudRepository<Recipe,Long> , Quer
 
 
     Recipe findRecipeById(Long recipeId);
+
+    Page<Recipe> findAll(Pageable pageable);
 
     Collection<Recipe> findAllByIdIn(ArrayList<Long> ids);
 
