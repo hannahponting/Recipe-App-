@@ -81,6 +81,11 @@ public class RecipeController {
     public Iterable<Recipe> getRecipeByIngredient(@PathVariable String ingredient){
         return handleEmptyResult(recipeService.findByIngredientsContain(ingredient),"ingredient",ingredient);
     }
+    @GetMapping("/search/ingredients/{ingredients}")
+    @Operation(summary = "get recipes by keyword in ingredients")
+    public Iterable<Recipe> getRecipeByMultipleIngredients(@RequestParam(value = "query", defaultValue = "lemon&garlic") String ingredients){
+        return handleEmptyResult(recipeService.findRecipeByMultipleIngredients(ingredients), "ingredients",ingredients);
+    }
 
     @GetMapping("/{recipeId}")
     @Operation(summary = "get recipes by id ")
