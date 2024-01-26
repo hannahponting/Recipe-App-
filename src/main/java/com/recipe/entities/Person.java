@@ -14,7 +14,7 @@ public class Person {
     public Long getId() {
         return id;
     }
-    @JsonView({ReadUpdateDelete.class, IdOnly.class})
+    @JsonView(ReadUpdateDelete.class)
     @Id
     @GeneratedValue
     private Long id;
@@ -53,5 +53,4 @@ public class Person {
     public interface CreateReadUpdateDelete{};
     public interface ReadUpdateDelete{};
 
-    public interface IdOnly {};
 }

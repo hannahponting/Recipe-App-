@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Rating {
@@ -17,28 +16,26 @@ public class Rating {
     @GeneratedValue
     @JsonView(ReadUpdateDelete.class)
     Long id;
-    @ManyToOne
-    @JsonView(Recipe.IdOnly.class)
-    private Recipe recipe;
 
-    public Recipe getRecipe() {
-        return recipe;
+    public Long getRecipeId() {
+        return recipeId;
     }
 
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
+    public void setRecipeId(Long recipeId) {
+        this.recipeId = recipeId;
     }
 
-    public Person getPerson() {
-        return person;
+    private Long recipeId;
+
+    public Long getPersonId() {
+        return personId;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setPersonId(Long personId) {
+        this.personId = personId;
     }
 
-    @ManyToOne
-    private Person person;
+    private Long personId;
 
     public Integer getMyRating() {
         return myRating;
@@ -60,6 +57,6 @@ public class Rating {
 
     private Boolean favourite;
 
-    public interface RatingView extends Recipe.IdOnly, Person.IdOnly{}
+    public interface RatingView {}
     public interface ReadUpdateDelete{}
 }

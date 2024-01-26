@@ -29,4 +29,10 @@ public class RatingController {
         }
         return newRating;
     }
+
+    @GetMapping("/{recipeId}")
+    @Operation(summary = "get the average rating for a recipe")
+    public Double getRecipeRating(@PathVariable Long recipeId){
+        return ratingService.getRecipeRating(recipeId);
+    }
 }

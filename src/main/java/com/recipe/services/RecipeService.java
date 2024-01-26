@@ -100,9 +100,9 @@ public class RecipeService {
         return recipeRepository.save(finalRecipe);}
 
     public Recipe rateRecipe(Rating rating){
-        if(rating.getRecipe() ==null) throw new NullPointerException("No recipe entered");
+        if(rating.getRecipeId() ==null) throw new NullPointerException("No recipe entered");
         if(rating.getMyRating() < 1 | rating.getMyRating() > 5 ) throw new IllegalArgumentException("Rating must be an integer between 1 and 5");
-        Recipe oldRecipe= getRecipeById(rating.getRecipe().getId());
+        Recipe oldRecipe= getRecipeById(rating.getRecipeId());
         Recipe finalRecipe;
         if (oldRecipe == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recipe not found");
         finalRecipe = updateRating(rating, oldRecipe);
