@@ -68,7 +68,7 @@ public class RecipeController {
     @GetMapping("/page/{num}/{size}")
     @JsonView(Recipe.NonImage.class)
     @Operation(summary = "get all recipes paginated")
-    Page<Recipe> getRecipePage(@PathVariable int num, @PathVariable int size){
+    public Page<Recipe> getRecipePage(@PathVariable int num, @PathVariable int size){
         return recipeService.paginatedRecipes(PageRequest.of(num -1, size));
     }
     @GetMapping("/search/name/{keyword}")
