@@ -48,7 +48,7 @@ public class Recipe {
 
     @Id
     @GeneratedValue
-    @JsonView({ReadUpdateDelete.class, Rate.class})
+    @JsonView({ReadUpdateDelete.class, Rate.class, IdOnly.class})
     @Schema(description = "Unique ID of the recipe", requiredMode = Schema.RequiredMode.REQUIRED)
     private Long id;
 
@@ -273,6 +273,7 @@ public class Recipe {
     public interface ReadUpdateDelete{}
     public interface CreateReadUpdateDelete{}
     public interface Rate{}
+    public interface IdOnly{}
     public interface ImageView{}
     public interface NonImage extends ReadUpdateDelete, CreateReadUpdateDelete{}
 
