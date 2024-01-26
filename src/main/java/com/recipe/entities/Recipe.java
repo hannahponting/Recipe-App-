@@ -39,7 +39,8 @@ public class Recipe {
 
     @Lob
     @Column(columnDefinition = "MEDIUMBLOB")
-    @JsonView({ReadUpdateDelete.class, Rating.class})
+    @JsonView({ImageView.class})
+    @Schema(description = "base 64 encoded image for the recipe")
     private String image;
 
 
@@ -272,5 +273,7 @@ public class Recipe {
     public interface ReadUpdateDelete{}
     public interface CreateReadUpdateDelete{}
     public interface Rate{}
+    public interface ImageView{}
+    public interface NonImage extends ReadUpdateDelete, CreateReadUpdateDelete{}
 
 }
