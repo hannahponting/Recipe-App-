@@ -3,6 +3,7 @@ package com.recipe.dataaccess;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.recipe.entities.Person;
+import com.recipe.entities.Rating;
 import com.recipe.entities.Recipe;
 import com.recipe.services.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,15 +23,18 @@ public class Populator {
 
     RecipeRepository recipeRepository;
     PersonRepository personRepository;
+    RatingRepository ratingRepository;
 
     ObjectMapper objectMapper = new ObjectMapper();
 
     File recipeFile = new File ("src/main/resources/recipes.json");
     File personFile = new File("src/main/resources/persons.json");
+    File ratingFile = new File("src/main/resources/ratings.json");
     @Autowired
-    public Populator(RecipeRepository recipeRepository, PersonRepository personRepository) {
+    public Populator(RecipeRepository recipeRepository, PersonRepository personRepository, RatingRepository ratingRepository) {
         this.recipeRepository = recipeRepository;
         this.personRepository = personRepository;
+        this.ratingRepository = ratingRepository;
     }
 
 
@@ -44,6 +48,13 @@ public class Populator {
     public void populateUsers() throws IOException {
         ArrayList <Person> persons = objectMapper.readValue(personFile, new TypeReference<>() {});
         personRepository.saveAll(persons);
+
+    }
+
+//        @EventListener(ContextRefreshedEvent.class)
+    public void populateRatings() throws IOException {
+        ArrayList <Rating> ratings = objectMapper.readValue(ratingFile, new TypeReference<>() {});
+        ratingRepository.saveAll(ratings);
 
     }
 

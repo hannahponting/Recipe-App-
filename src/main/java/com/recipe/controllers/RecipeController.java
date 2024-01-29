@@ -4,6 +4,7 @@ package com.recipe.controllers;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.recipe.entities.Rating;
 import com.recipe.entities.Recipe;
+import com.recipe.services.RatingService;
 import com.recipe.services.RecipeService;
 import com.recipe.utilities.*;
 import io.swagger.v3.oas.annotations.Operation;
@@ -30,10 +31,12 @@ import java.util.Optional;
 @RequestMapping("/api/recipes")
 public class RecipeController {
     RecipeService recipeService;
+    RatingService ratingService;
 
     @Autowired
-    public RecipeController(RecipeService recipeService) {
+    public RecipeController(RecipeService recipeService, RatingService ratingService) {
         this.recipeService = recipeService;
+        this.ratingService = ratingService;
     }
 
     @DeleteMapping("/{id}")
@@ -131,12 +134,12 @@ public class RecipeController {
     public Iterable<Recipe> getRecipeByCookingTimeLessThanOrEqual(@PathVariable Double minutes){
         return handleEmptyResult(recipeService.getRecipeByCookingTimeLessThanOrEqual(minutes), "Cooking Time", minutes);
     }
-    @GetMapping("rating/{rating}")
-    @JsonView(Recipe.NonImage.class)
-    @Operation(summary = "get recipes with a rating greater than or equal to a number from 1 to 5")
-    public Iterable<Recipe> getRecipeByRatingGreaterThanOrEqual(@PathVariable Double rating){
-        return handleEmptyResult(recipeService.getRecipeByRatingGreaterThanOrEqual(rating), "rating", rating);
-    }
+//    @GetMapping("rating/{rating}")
+//    @JsonView(Recipe.NonImage.class)
+//    @Operation(summary = "get recipes with a rating greater than or equal to a number from 1 to 5")
+//    public Iterable<Recipe> getRecipeByRatingGreaterThanOrEqual(@PathVariable Double rating){
+//        return handleEmptyResult(recipeService.getRecipeByRatingGreaterThanOrEqual(rating), "rating", rating);
+//    }
 
     @GetMapping("cuisine/{cuisineType}")
     @JsonView(Recipe.NonImage.class)
@@ -187,11 +190,11 @@ public class RecipeController {
     public Recipe updateRecipe(@RequestBody Recipe incompleteRecipe){
         return recipeService.updateRecipe(incompleteRecipe);
     }
-    @PatchMapping("/rating")
-    @Operation(summary = "rate recipe")
-    public Recipe rateRecipe(@RequestBody @JsonView({Recipe.Rate.class}) Rating rating){
-        return recipeService.rateRecipe(rating);
-    }
+//    @PatchMapping("/rating")
+//    @Operation(summary = "rate recipe")
+//    public Recipe rateRecipe(@RequestBody @JsonView({Recipe.Rate.class}) Rating rating){
+//        return recipeService.rateRecipe(rating);
+//    }
     @GetMapping("/coffee")
     @Operation(summary = "get coffee")
     public void getCoffee(){
@@ -211,5 +214,12 @@ public class RecipeController {
         } else {
             return new ResponseEntity<>(new byte[0], HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/min/{rating}")
+    @Operation(summary = "get recipes rated at least the number provided")
+    @JsonView(Recipe.NonImage.class)
+    public Iterable<Recipe> getRecipesRatedAtLeast(@PathVariable Double rating){
+        return ratingService.getRecipeByRatingGreaterThanOrEqual(rating);
     }
 }
