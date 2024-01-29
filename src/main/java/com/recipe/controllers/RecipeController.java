@@ -220,6 +220,13 @@ public class RecipeController {
     @Operation(summary = "get recipes rated at least the number provided")
     @JsonView(Recipe.NonImage.class)
     public Iterable<Recipe> getRecipesRatedAtLeast(@PathVariable Double rating){
-        return ratingService.getRecipeByRatingGreaterThanOrEqual(rating);
+        return handleEmptyResult(ratingService.getRecipeByRatingGreaterThanOrEqual(rating), "Rating", rating);
     }
+    @GetMapping("/favourite/{person}")
+    @Operation(summary = "get recipes the user has marked as favourite")
+    @JsonView(Recipe.NonImage.class)
+    public Iterable<Recipe> getFavouriteRecipes(@PathVariable Long person){
+        return handleEmptyResult(ratingService.getFavouriteRecipesByUser(person),"favourite",person);
+    }
+
 }

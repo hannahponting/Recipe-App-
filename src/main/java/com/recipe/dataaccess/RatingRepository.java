@@ -18,4 +18,7 @@ public interface RatingRepository extends ListCrudRepository<Rating,Long> {
 
     @Query("SELECT r.recipeId FROM Rating r GROUP BY r.recipeId HAVING AVG(r.myRating) >= :rating")
     ArrayList<Long> findRecipesRatedAtLeast(@Param("rating") Double rating);
+
+    @Query("SELECT r.recipeId from Rating r WHERE r.personId = :person AND r.favourite=true")
+    ArrayList<Long> findFavouriteRecipesByUser(@Param("person") Long person);
 }
