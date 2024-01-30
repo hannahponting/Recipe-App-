@@ -1,0 +1,27 @@
+[
+  {
+    "email": "ed@nerdrecipes.com",
+    "firstName": "Ed",
+    "lastName": "W"
+  },
+  {
+    "email": "rui@nerdrecipes.com",
+    "firstName": "Rui",
+    "lastName": "J"
+  },
+  {
+    "email": "maria@nerdrecipes.com",
+    "firstName": "Maria",
+    "lastName": "S"
+  },
+  {
+    "email": "hannah@nerdrecipes.com",
+    "firstName": "Hannah",
+    "lastName": "P"
+  },
+  {
+    "email": "josh@nerdrecipes.com",
+    "firstName": "Josh",
+    "lastName": "B"
+  }
+  ]

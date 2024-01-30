@@ -1,26 +1,62 @@
 package com.recipe.entities;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
+@Entity
 public class Rating {
-    private Recipe recipe;
 
-    @JsonView(Recipe.Rate.class)
-    public Recipe getRecipe() {
-        return recipe;
+    public Long getId() {
+        return id;
     }
 
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
+    @Id
+    @GeneratedValue
+    @JsonView(ReadUpdateDelete.class)
+    Long id;
+
+    public Long getRecipeId() {
+        return recipeId;
     }
 
-    public int getMyRating() {
+    public void setRecipeId(Long recipeId) {
+        this.recipeId = recipeId;
+    }
+
+    private Long recipeId;
+
+    public Long getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(Long personId) {
+        this.personId = personId;
+    }
+
+    private Long personId;
+
+    public Integer getMyRating() {
         return myRating;
     }
 
-    public void setMyRating(int myRating) {
+    public void setMyRating(Integer myRating) {
         this.myRating = myRating;
     }
-    @JsonView(Recipe.Rate.class)
-    private int myRating;
+
+    private Integer myRating;
+
+    public Boolean isFavourite() {
+        return favourite;
+    }
+
+    public void setFavourite(Boolean favourite) {
+        this.favourite = favourite;
+    }
+
+    private Boolean favourite;
+
+    public interface RatingView {}
+    public interface ReadUpdateDelete{}
 }

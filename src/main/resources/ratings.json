@@ -1,0 +1,62 @@
+[
+  {
+    "favourite": true,
+    "myRating": 4,
+    "personId": 1,
+    "recipeId": 1
+  },
+  {
+    "favourite": false,
+    "myRating": 3,
+    "personId": 2,
+    "recipeId": 15
+  },
+  {
+    "favourite": true,
+    "myRating": 5,
+    "personId": 3,
+    "recipeId": 35
+  },
+  {
+    "favourite": false,
+    "myRating": 2,
+    "personId": 4,
+    "recipeId": 7
+  },
+  {
+    "favourite": true,
+    "myRating": 1,
+    "personId": 5,
+    "recipeId": 12
+  },
+  {
+    "favourite": false,
+    "myRating": 4,
+    "personId": 1,
+    "recipeId": 22
+  },
+  {
+    "favourite": true,
+    "myRating": 3,
+    "personId": 3,
+    "recipeId": 1
+  },
+  {
+    "favourite": false,
+    "myRating": 5,
+    "personId": 2,
+    "recipeId": 56
+  },
+  {
+    "favourite": true,
+    "myRating": 2,
+    "personId": 4,
+    "recipeId": 14
+  },
+  {
+    "favourite": false,
+    "myRating": 1,
+    "personId": 5,
+    "recipeId": 1
+  }
+]
