@@ -175,7 +175,7 @@ public class RecipeService {
 //    public Iterable<Recipe> getRecipeByRatingGreaterThanOrEqual(Double rating) {
 //        return recipeRepository.findRecipeByRatingGreaterThanOrEqualTo(rating);
 //    }
-    public Iterable<Recipe> findRecipeByCustomQuery(String query){
+    public Page<Recipe> findRecipeByCustomQuery(String query, Pageable pageable){
 
         RecipePredicatesBuilder builder = new RecipePredicatesBuilder();
 
@@ -186,8 +186,9 @@ public class RecipeService {
                 builder.with(matcher.group(1), matcher.group(2), matcher.group(3));
             }
         }
+        else {return recipeRepository.findAll(pageable);}
         BooleanExpression exp = builder.build();
-        return recipeRepository.findAll(exp);
+        return recipeRepository.findAll(exp, pageable);
     }
 
     public Iterable<Recipe> findRecipeByMultipleIngredients(String query){

@@ -8,6 +8,7 @@ import com.recipe.services.RatingService;
 import com.recipe.services.RecipeService;
 import com.recipe.utilities.*;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -80,7 +81,7 @@ public class RecipeController {
     public Iterable<Recipe> getRecipeByName(@PathVariable String keyword){
         return recipeService.findByNameContains(keyword);
     }
-    @GetMapping("search/custom")
+    @GetMapping("search/custom/page/{num}/{size}")
     @JsonView(Recipe.NonImage.class)
     @Operation(summary = "get recipes using custom query",
             description = "Search on any parameter of the recipe whose value is a string or number. \n" +
@@ -88,8 +89,14 @@ public class RecipeController {
                     "An = indicates equals or contains. Other options are <= or >=. \n" +
                     "Multiple queries are separated by an ampersand. \n" +
                     "Non-string/number fields such as ingredients list cannot be searched in this way.")
-    public Iterable<Recipe> getRecipeByCustomQuery(@RequestParam(value = "query", defaultValue = "servingNo>=2&cookingMinutes<=30&cuisineType=mexican") String query){
-        return handleEmptyResult(recipeService.findRecipeByCustomQuery(query),"custom query", query);
+    public Page<Recipe> getRecipeByCustomQuery(
+            @Parameter(description = "Custom query", example = "difficultyLevel=easy&mealType=breakfast&costType=low")
+            @RequestParam(value = "query", required = false) String query,
+            @Parameter(description = "page number", example = "1")
+            @PathVariable int num,
+            @Parameter(description = "page size", example = "10")
+            @PathVariable int size){
+        return recipeService.findRecipeByCustomQuery(query,PageRequest.of(num - 1,size));
     }
     @GetMapping("/search/ingredient/{ingredient}")
     @JsonView(Recipe.NonImage.class)
