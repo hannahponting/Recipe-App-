@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Repository
 public interface RecipeRepository extends ListCrudRepository<Recipe,Long> , QuerydslPredicateExecutor{
@@ -21,7 +22,7 @@ public interface RecipeRepository extends ListCrudRepository<Recipe,Long> , Quer
 
     Page<Recipe> findAll(Pageable pageable);
 
-    Collection<Recipe> findAllByIdIn(ArrayList<Long> ids);
+    List<Recipe> findAllByIdIn(ArrayList<Long> ids);
 
     Collection<Recipe> findAllByNameContainingIgnoreCase(String ingredient);
 

@@ -235,5 +235,11 @@ public class RecipeController {
     public Iterable<Recipe> getFavouriteRecipes(@PathVariable Long person){
         return handleEmptyResult(ratingService.getFavouriteRecipesByUser(person),"favourite",person);
     }
+    @GetMapping("/top/{size}")
+    @Operation(summary = "get the top rated recipes")
+    @JsonView(Recipe.NonImage.class)
+    public Iterable<Recipe> getTopRatedRecipes(@PathVariable int size){
+        return ratingService.getTopRecipes(size);
+    }
 
 }

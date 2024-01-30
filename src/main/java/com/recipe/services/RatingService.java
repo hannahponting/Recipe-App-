@@ -9,9 +9,7 @@ import com.recipe.entities.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Stream;
 
 @Service
@@ -48,6 +46,13 @@ public class RatingService {
 
     public Double getRecipeRating(Long recipeId) {
         return ratingRepository.findAverageMyRatingByRecipeId(recipeId);
+    }
+
+    public Iterable<Recipe> getTopRecipes(int sizeOfList){
+        ArrayList<Long> topRecipeIds = ratingRepository.findTopRatedRecipes(sizeOfList);
+        List<Recipe> topRecipes = recipeRepository.findAllByIdIn(topRecipeIds);
+        topRecipes.sort(Comparator.comparingLong(recipe -> topRecipeIds.indexOf(recipe.getId())));
+        return topRecipes;
     }
 
     public ArrayList<Long> getRecipesRatedAtLeast(Double rating){return ratingRepository.findRecipesRatedAtLeast(rating);}
