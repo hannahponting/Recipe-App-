@@ -98,12 +98,12 @@ public class RecipeController {
             @PathVariable int size){
         return recipeService.findRecipeByCustomQuery(query,PageRequest.of(num - 1,size));
     }
-    @GetMapping("/search/ingredient/{ingredient}")
-    @JsonView(Recipe.NonImage.class)
-    @Operation(summary = "get recipes by keyword in ingredients")
-    public Iterable<Recipe> getRecipeByIngredient(@PathVariable String ingredient){
-        return handleEmptyResult(recipeService.findByIngredientsContain(ingredient),"ingredient",ingredient);
-    }
+//    @GetMapping("/search/ingredient/{ingredient}")
+//    @JsonView(Recipe.NonImage.class)
+//    @Operation(summary = "get recipes by keyword in ingredients")
+//    public Iterable<Recipe> getRecipeByIngredient(@PathVariable String ingredient){
+//        return handleEmptyResult(recipeService.findByIngredientsContain(ingredient),"ingredient",ingredient);
+//    }
     @GetMapping("/search/ingredients/{ingredients}")
     @JsonView(Recipe.NonImage.class)
     @Operation(summary = "get recipes by keyword in ingredients")
@@ -122,25 +122,25 @@ public class RecipeController {
         return recipe;
     }
 
-    @GetMapping("serving/{servingNo}")
-    @JsonView(Recipe.NonImage.class)
-    @Operation(summary = "get recipes by number of servings")
-    public Iterable<Recipe> getRecipeByServingNumber(@PathVariable int servingNo){
-        return handleEmptyResult(recipeService.getRecipeByServingNumber(servingNo),"Serving Number",servingNo);
-    }
+//    @GetMapping("serving/{servingNo}")
+//    @JsonView(Recipe.NonImage.class)
+//    @Operation(summary = "get recipes by number of servings")
+//    public Iterable<Recipe> getRecipeByServingNumber(@PathVariable int servingNo){
+//        return handleEmptyResult(recipeService.getRecipeByServingNumber(servingNo),"Serving Number",servingNo);
+//    }
 
-    @GetMapping("cooking_time/{timeToCook}")
-    @JsonView(Recipe.NonImage.class)
-    @Operation(summary = "get recipes by cooking time ")
-    public Iterable<Recipe> getRecipeByCookingTime(@PathVariable String timeToCook){
-        return handleEmptyResult(recipeService.getRecipeByCookingTime(timeToCook), "Cooking Time", timeToCook);
-    }
-    @GetMapping("cooking_time_minutes/{minutes}")
-    @JsonView(Recipe.NonImage.class)
-    @Operation(summary = "get recipes with a cooking time less than or equal to a number of minutes")
-    public Iterable<Recipe> getRecipeByCookingTimeLessThanOrEqual(@PathVariable Double minutes){
-        return handleEmptyResult(recipeService.getRecipeByCookingTimeLessThanOrEqual(minutes), "Cooking Time", minutes);
-    }
+//    @GetMapping("cooking_time/{timeToCook}")
+//    @JsonView(Recipe.NonImage.class)
+//    @Operation(summary = "get recipes by cooking time ")
+//    public Iterable<Recipe> getRecipeByCookingTime(@PathVariable String timeToCook){
+//        return handleEmptyResult(recipeService.getRecipeByCookingTime(timeToCook), "Cooking Time", timeToCook);
+//    }
+//    @GetMapping("cooking_time_minutes/{minutes}")
+//    @JsonView(Recipe.NonImage.class)
+//    @Operation(summary = "get recipes with a cooking time less than or equal to a number of minutes")
+//    public Iterable<Recipe> getRecipeByCookingTimeLessThanOrEqual(@PathVariable Double minutes){
+//        return handleEmptyResult(recipeService.getRecipeByCookingTimeLessThanOrEqual(minutes), "Cooking Time", minutes);
+//    }
 //    @GetMapping("rating/{rating}")
 //    @JsonView(Recipe.NonImage.class)
 //    @Operation(summary = "get recipes with a rating greater than or equal to a number from 1 to 5")
@@ -148,42 +148,42 @@ public class RecipeController {
 //        return handleEmptyResult(recipeService.getRecipeByRatingGreaterThanOrEqual(rating), "rating", rating);
 //    }
 
-    @GetMapping("cuisine/{cuisineType}")
-    @JsonView(Recipe.NonImage.class)
-    @Operation(summary = "get recipes by cuisine type ")
-    public Iterable<Recipe> getRecipeByCuisineType(@PathVariable Cuisine cuisineType){
+//    @GetMapping("cuisine/{cuisineType}")
+//    @JsonView(Recipe.NonImage.class)
+//    @Operation(summary = "get recipes by cuisine type ")
+//    public Iterable<Recipe> getRecipeByCuisineType(@PathVariable Cuisine cuisineType){
+//
+//        return handleEmptyResult(recipeService.getRecipeByCuisineType(cuisineType), "Cuisine Type", cuisineType);
+//    }
 
-        return handleEmptyResult(recipeService.getRecipeByCuisineType(cuisineType), "Cuisine Type", cuisineType);
-    }
-
-    @GetMapping("difficulty/{difficultyLevel}")
-    @JsonView(Recipe.NonImage.class)
-    @Operation(summary = "get recipes by difficulty level ")
-    public Iterable<Recipe> getRecipeByDifficultyLevel(@PathVariable Difficulty difficultyLevel){
-
-        return handleEmptyResult(recipeService.getRecipeByDifficultyLevel(difficultyLevel), "Difficulty Level", difficultyLevel);
-    }
-
-    @GetMapping("meal_type/{mealType}")
-    @JsonView(Recipe.NonImage.class)
-    @Operation(summary = "get recipes by meal type")
-    public Iterable<Recipe> getRecipeByMealType(@PathVariable MealTime mealType){
-        return handleEmptyResult(recipeService.getRecipeByMealType(mealType), "Meal Type", mealType);
-    }
-
-    @GetMapping("cost/{costType}")
-    @JsonView(Recipe.NonImage.class)
-    @Operation(summary = "get recipes by cost type")
-    public Iterable<Recipe> getRecipeByCostType(@PathVariable Cost costType){
-        return handleEmptyResult(recipeService.getRecipeByCostType(costType), "Cost Type", costType);
-    }
-
-    @GetMapping("spice_level/{spiceType}")
-    @JsonView(Recipe.NonImage.class)
-    @Operation(summary = "get recipes by spice level")
-    public Iterable<Recipe> getRecipeBySpiceType(@PathVariable SpiceLevel spiceType){
-        return handleEmptyResult(recipeService.getRecipeBySpiceType(spiceType), "Spice Level", spiceType);
-    }
+//    @GetMapping("difficulty/{difficultyLevel}")
+//    @JsonView(Recipe.NonImage.class)
+//    @Operation(summary = "get recipes by difficulty level ")
+//    public Iterable<Recipe> getRecipeByDifficultyLevel(@PathVariable Difficulty difficultyLevel){
+//
+//        return handleEmptyResult(recipeService.getRecipeByDifficultyLevel(difficultyLevel), "Difficulty Level", difficultyLevel);
+//    }
+//
+//    @GetMapping("meal_type/{mealType}")
+//    @JsonView(Recipe.NonImage.class)
+//    @Operation(summary = "get recipes by meal type")
+//    public Iterable<Recipe> getRecipeByMealType(@PathVariable MealTime mealType){
+//        return handleEmptyResult(recipeService.getRecipeByMealType(mealType), "Meal Type", mealType);
+//    }
+//
+//    @GetMapping("cost/{costType}")
+//    @JsonView(Recipe.NonImage.class)
+//    @Operation(summary = "get recipes by cost type")
+//    public Iterable<Recipe> getRecipeByCostType(@PathVariable Cost costType){
+//        return handleEmptyResult(recipeService.getRecipeByCostType(costType), "Cost Type", costType);
+//    }
+//
+//    @GetMapping("spice_level/{spiceType}")
+//    @JsonView(Recipe.NonImage.class)
+//    @Operation(summary = "get recipes by spice level")
+//    public Iterable<Recipe> getRecipeBySpiceType(@PathVariable SpiceLevel spiceType){
+//        return handleEmptyResult(recipeService.getRecipeBySpiceType(spiceType), "Spice Level", spiceType);
+//    }
 
     private Iterable<Recipe> handleEmptyResult(Iterable<Recipe> result, String parameterName, Object parameterValue) {
         if (!result.iterator().hasNext()) {
