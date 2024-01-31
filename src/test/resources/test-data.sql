@@ -11,4 +11,9 @@ INSERT INTO ingredients (id,ingredients_list)
 VALUES (102,'1 cup quinoa; 2 cups vegetable broth');
 INSERT INTO instructions(id,instructions)
 VALUES (102,'Cook quinoa in vegetable broth according to package instructions.');
-
+INSERT INTO person(id, first_name, last_name, email)
+VALUES (101, 'Dave', 'Dykes', 'dave@dave.com');
+INSERT INTO rating(id, my_rating, favourite, person_id, recipe_id)
+VALUES (101, 4, 0, 101, 101);
+INSERT INTO rating(id, favourite, person_id, recipe_id)
+VALUES (102, 1, 101, 102);
