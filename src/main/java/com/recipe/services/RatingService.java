@@ -6,6 +6,8 @@ import com.recipe.dataaccess.RecipeRepository;
 import com.recipe.entities.Rating;
 import com.recipe.entities.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -63,9 +65,9 @@ public class RatingService {
         return recipeRepository.findAllByIdIn(matchingRecipes);
     }
 
-    public Iterable<Recipe> getFavouriteRecipesByUser(Long person){
+    public Page<Recipe> getFavouriteRecipesByUser(Long person, Pageable pageable){
         ArrayList<Long> matchingRecipes = ratingRepository.findFavouriteRecipesByUser(person);
-        return recipeRepository.findAllByIdIn(matchingRecipes);
+        return recipeRepository.findAllByIdIn(matchingRecipes, pageable);
     }
 
 

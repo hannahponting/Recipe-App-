@@ -389,15 +389,16 @@ class IntegrationTest {
     @Test
     void getFavouriteRecipes() throws Exception {
         MvcResult result =
-                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/favourite/101")))
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/favourite/101/page/1/10")))
                         .andExpect(status().isOk())
                         .andReturn();
 
         String contentAsJson = result.getResponse().getContentAsString();
         ObjectMapper mapper = new ObjectMapper();
-        Recipe[] actualRecipes = mapper.readValue(contentAsJson, Recipe[].class);
+        JsonNode rootNode = mapper.readTree(contentAsJson);
+        int id = rootNode.get("content").get(0).get("id").asInt();
 
-        assertEquals(102, actualRecipes[0].getId());
+        assertEquals(102, id);
     }
     @Test
     void setPassword() throws Exception {

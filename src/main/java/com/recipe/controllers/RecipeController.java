@@ -226,11 +226,16 @@ public class RecipeController {
     public Iterable<Recipe> getRecipesRatedAtLeast(@PathVariable Double rating){
         return handleEmptyResult(ratingService.getRecipeByRatingGreaterThanOrEqual(rating), "Rating", rating);
     }
-    @GetMapping("/favourite/{person}")
+    @GetMapping("/favourite/{person}/page/{num}/{size}")
     @Operation(summary = "get recipes the user has marked as favourite")
     @JsonView(Recipe.NonImage.class)
-    public Iterable<Recipe> getFavouriteRecipes(@PathVariable Long person){
-        return handleEmptyResult(ratingService.getFavouriteRecipesByUser(person),"favourite",person);
+    public Page<Recipe> getFavouriteRecipes(
+            @PathVariable Long person,
+    @Parameter(description = "page number", example = "1")
+    @PathVariable int num,
+    @Parameter(description = "page size", example = "10")
+    @PathVariable int size){
+        return ratingService.getFavouriteRecipesByUser(person,PageRequest.of(num - 1,size));
     }
     @GetMapping("/top/{size}")
     @Operation(summary = "get the top rated recipes")

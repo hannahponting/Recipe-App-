@@ -3,6 +3,7 @@ package com.recipe.dataaccess;
 import com.recipe.entities.Recipe;
 import com.recipe.utilities.*;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
@@ -23,6 +24,7 @@ public interface RecipeRepository extends ListCrudRepository<Recipe,Long> , Quer
     Page<Recipe> findAll(Pageable pageable);
 
     List<Recipe> findAllByIdIn(ArrayList<Long> ids);
+    Page<Recipe> findAllByIdIn(ArrayList<Long> ids, Pageable pageable);
 
     Collection<Recipe> findAllByNameContainingIgnoreCase(String ingredient);
 
