@@ -3,7 +3,6 @@ package com.recipe.dataaccess;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.recipe.entities.Recipe;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

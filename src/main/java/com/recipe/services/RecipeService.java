@@ -3,7 +3,6 @@ package com.recipe.services;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.recipe.dataaccess.RecipePredicatesBuilder;
 import com.recipe.dataaccess.RecipeRepository;
-import com.recipe.entities.Rating;
 import com.recipe.entities.Recipe;
 import com.recipe.utilities.*;
 import org.springframework.beans.factory.annotation.Autowired;

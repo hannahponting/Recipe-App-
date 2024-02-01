@@ -4,7 +4,6 @@ import com.recipe.dataaccess.CredentialRepository;
 import com.recipe.dataaccess.PersonRepository;
 import com.recipe.entities.Credential;
 import com.recipe.entities.Person;
-import com.recipe.entities.Rating;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +11,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Base64;
-import java.util.Objects;
-import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
 
 @Service
 public class CredentialService {
@@ -88,11 +84,15 @@ public class CredentialService {
     }
 
     public boolean validLogin(String email, String password) {
+        try{
         Person person = personRepository.findPersonByEmail(email);
         if (person == null) {
             throw new IllegalArgumentException("This email address is not associated with an account.");
         }
         Credential credential = credentialRepository.findCredentialByPersonId(person.getId());
+        if (credential == null) {
+            throw new IllegalArgumentException("This account has not yet been set up");
+        }
         String salt = credential.getSalt();
         boolean passwordValid;
             try {
@@ -102,4 +102,6 @@ public class CredentialService {
             }
             return  passwordValid;
         }
+        catch(IllegalArgumentException e){return false;}
+    }
 }

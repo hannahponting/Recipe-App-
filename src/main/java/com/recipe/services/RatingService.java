@@ -3,7 +3,6 @@ package com.recipe.services;
 import com.recipe.dataaccess.PersonRepository;
 import com.recipe.dataaccess.RatingRepository;
 import com.recipe.dataaccess.RecipeRepository;
-import com.recipe.entities.Person;
 import com.recipe.entities.Rating;
 import com.recipe.entities.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;

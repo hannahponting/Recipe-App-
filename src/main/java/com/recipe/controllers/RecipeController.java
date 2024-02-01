@@ -2,7 +2,6 @@ package com.recipe.controllers;
 
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.recipe.entities.Rating;
 import com.recipe.entities.Recipe;
 import com.recipe.services.RatingService;
 import com.recipe.services.RecipeService;
@@ -12,17 +11,13 @@ import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.io.IOException;
 import java.util.Optional;
 
 //import static com.recipe.entities.QRecipe.recipe;
@@ -104,10 +99,12 @@ public class RecipeController {
     public Iterable<Recipe> getRecipeByIngredient(@PathVariable String ingredient){
         return handleEmptyResult(recipeService.findByIngredientsContain(ingredient),"ingredient",ingredient);
     }
-    @GetMapping("/search/ingredients/{ingredients}")
+    @GetMapping("/search/ingredients/")
     @JsonView(Recipe.NonImage.class)
     @Operation(summary = "get recipes by keyword in ingredients")
-    public Iterable<Recipe> getRecipeByMultipleIngredients(@RequestParam(value = "query", defaultValue = "lemon&garlic") String ingredients){
+    public Iterable<Recipe> getRecipeByMultipleIngredients(
+            @Parameter(description = "list of ingredients", example = "lemon&garlic")
+            @RequestParam(value = "query") String ingredients){
         return handleEmptyResult(recipeService.findRecipeByMultipleIngredients(ingredients), "ingredients",ingredients);
     }
 

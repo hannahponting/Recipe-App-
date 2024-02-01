@@ -1,10 +1,6 @@
 package com.recipe.entities;
 
 
-
-import java.util.List;
-
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -12,11 +8,7 @@ import com.recipe.utilities.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-
-
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

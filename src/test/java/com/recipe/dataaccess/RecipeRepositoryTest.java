@@ -1,18 +1,8 @@
 package com.recipe.dataaccess;
 
-import com.recipe.entities.Recipe;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.util.Base64;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @ContextConfiguration
