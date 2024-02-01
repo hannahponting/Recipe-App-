@@ -190,7 +190,7 @@ public class RecipeService {
         return recipeRepository.findAll(exp, pageable);
     }
 
-    public Iterable<Recipe> findRecipeByMultipleIngredients(String query){
+    public Iterable<Recipe> findRecipeByMultipleIngredients(String query, Pageable pageable){
         ArrayList<String> requiredIngredients = new ArrayList<>();
         if (query!= null){
             Pattern pattern = Pattern.compile("(\\w+?)&");
@@ -204,7 +204,7 @@ public class RecipeService {
                 filteredResultsList.add(recipeRepository.findRecipeIdByIngredientSearch(requiredIngredients.get(i)));
             }
             ArrayList<Long> commonLongs = findCommonLongs(filteredResultsList);
-            return recipeRepository.findAllByIdIn(commonLongs);
+            return recipeRepository.findAllByIdIn(commonLongs, pageable);
         }
         else return null;
     }
