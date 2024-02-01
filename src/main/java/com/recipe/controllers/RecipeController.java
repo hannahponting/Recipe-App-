@@ -105,7 +105,7 @@ public class RecipeController {
     @Operation(summary = "get recipes by keyword in ingredients")
     public Iterable<Recipe> getRecipeByMultipleIngredients(
             @Parameter(description = "list of ingredients", example = "lemon&garlic")
-            @RequestParam(value = "query") String ingredients,
+            @RequestParam(value = "query", required = false) String ingredients,
             @Parameter(description = "page number", example = "1")
             @PathVariable int num,
             @Parameter(description = "page size", example = "10")

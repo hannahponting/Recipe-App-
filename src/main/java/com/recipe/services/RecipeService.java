@@ -206,7 +206,7 @@ public class RecipeService {
             ArrayList<Long> commonLongs = findCommonLongs(filteredResultsList);
             return recipeRepository.findAllByIdIn(commonLongs, pageable);
         }
-        else return null;
+        else return recipeRepository.findAll(pageable);
     }
         public static ArrayList<Long> findCommonLongs(ArrayList<ArrayList<Long>> listOfLists) {
             ArrayList<Long> commonLongs = new ArrayList<>(listOfLists.get(0));
