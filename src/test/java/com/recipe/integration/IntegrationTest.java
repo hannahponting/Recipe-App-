@@ -1,20 +1,16 @@
 package com.recipe.integration;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.recipe.entities.Person;
 import com.recipe.entities.Rating;
 import com.recipe.entities.Recipe;
-import com.recipe.utilities.Cost;
-import jakarta.transaction.Transactional;
+import jakarta.servlet.ServletException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
@@ -23,8 +19,6 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -353,6 +347,20 @@ class IntegrationTest {
         Assertions.assertEquals(5, actualRating.getMyRating());
     }
     @Test
+    void submitInvalidRating() throws Exception {
+        String rating = """
+                {
+                      "myRating": 5,
+                      "favourite": true
+                    }
+                """;
+        Assertions.assertThrows(ServletException.class, () ->
+                mockMvc.perform(MockMvcRequestBuilders.post("/api/rating")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(rating))
+                        .andReturn());
+    }
+    @Test
     void getRating() throws Exception {
         MvcResult result =
                 (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/rating/101")))
@@ -409,5 +417,124 @@ class IntegrationTest {
 
         String contentAsJson = result.getResponse().getContentAsString();
         Assertions.assertEquals("password saved",contentAsJson);
+    }
+
+    @Test
+    void loginInvalidCredentials() throws Exception{
+        String credentials = """
+                {
+                       "email": "dave@dave.com",
+                       "password": "NotDave'sPassword"
+                     }
+                """;
+        MvcResult result =
+                mockMvc.perform(MockMvcRequestBuilders.post("/api/account/login")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(credentials))
+                        .andExpect(status().isOk())
+                        .andReturn();
+
+        String contentAsJson = result.getResponse().getContentAsString();
+        Assertions.assertEquals("false",contentAsJson);
+    }
+
+    @Test
+    void searchOneIngredient() throws Exception{
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/search/ingredient/garlic")))
+                        .andExpect(status().isOk())
+                        .andReturn();
+
+        String contentAsJson = result.getResponse().getContentAsString();
+        ObjectMapper mapper = new ObjectMapper();
+        Recipe[] actualRecipes = mapper.readValue(contentAsJson, Recipe[].class);
+
+        assertEquals(101, actualRecipes[0].getId());
+
+    }
+    @Test
+    void getAllPaginated() throws Exception{
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/page/1/10")))
+                        .andExpect(status().isOk())
+                        .andReturn();
+
+        String contentAsJson = result.getResponse().getContentAsString();
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode rootNode = mapper.readTree(contentAsJson);
+        int id = rootNode.get("content").get(1).get("id").asInt();
+
+        assertEquals(102, id);
+
+    }
+    @Test
+    void searchMultipleIngredients() throws Exception{
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/search/ingredients/?query=quinoa&tomato")))
+                        .andExpect(status().isOk())
+                        .andReturn();
+
+        String contentAsJson = result.getResponse().getContentAsString();
+        ObjectMapper mapper = new ObjectMapper();
+        Recipe[] actualRecipes = mapper.readValue(contentAsJson, Recipe[].class);
+
+        assertEquals(102, actualRecipes[0].getId());
+
+    }
+    @Test
+    void searchNameKeyword() throws Exception{
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/search/name/Vegetarian")))
+                        .andExpect(status().isOk())
+                        .andReturn();
+
+        String contentAsJson = result.getResponse().getContentAsString();
+        ObjectMapper mapper = new ObjectMapper();
+        Recipe[] actualRecipes = mapper.readValue(contentAsJson, Recipe[].class);
+
+        assertEquals(102, actualRecipes[0].getId());
+
+    }
+    @Test
+    void searchCookingTimeMinutes() throws Exception{
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/cooking_time_minutes/20")))
+                        .andExpect(status().isOk())
+                        .andReturn();
+
+        String contentAsJson = result.getResponse().getContentAsString();
+        ObjectMapper mapper = new ObjectMapper();
+        Recipe[] actualRecipes = mapper.readValue(contentAsJson, Recipe[].class);
+
+        assertEquals(102, actualRecipes[0].getId());
+
+    }
+    @Test
+    void searchSpiceLevel() throws Exception{
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/spice_level/MEDIUM")))
+                        .andExpect(status().isOk())
+                        .andReturn();
+
+        String contentAsJson = result.getResponse().getContentAsString();
+        ObjectMapper mapper = new ObjectMapper();
+        Recipe[] actualRecipes = mapper.readValue(contentAsJson, Recipe[].class);
+
+        assertEquals(101, actualRecipes[0].getId());
+
+    }
+    @Test
+    void searchRating() throws Exception{
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/min/3")))
+                        .andExpect(status().isOk())
+                        .andReturn();
+
+        String contentAsJson = result.getResponse().getContentAsString();
+        ObjectMapper mapper = new ObjectMapper();
+        Recipe[] actualRecipes = mapper.readValue(contentAsJson, Recipe[].class);
+
+        assertEquals(101, actualRecipes[0].getId());
+
     }
 }

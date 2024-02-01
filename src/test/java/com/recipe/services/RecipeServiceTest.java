@@ -3,7 +3,6 @@ package com.recipe.services;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.recipe.dataaccess.RecipeRepository;
 import com.recipe.entities.Recipe;
-import com.recipe.utilities.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.reset;

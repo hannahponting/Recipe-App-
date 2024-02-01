@@ -51,7 +51,7 @@ class GetRecipesWithMockHttpsRequestIT {
 
                 assertEquals("Grilled Lemon Herb Chicken",actualRecipe[0].getName());
                 assertEquals("Vegetarian Quinoa Bowl",actualRecipe[1].getName());
-                assertEquals("[4 boneless, skinless chicken breasts]",actualRecipe[0].getIngredientsList().toString());
+                assertEquals("[4 boneless, skinless chicken breasts, lemon juice, olive oil, minced garlic, oregano, salt, pepper]",actualRecipe[0].getIngredientsList().toString());
                 assertEquals("[In a bowl, mix lemon juice, olive oil, minced garlic, oregano, salt, and pepper.]",actualRecipe[0].getInstructions().toString());
         }
 
