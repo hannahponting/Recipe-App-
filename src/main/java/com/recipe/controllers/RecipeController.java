@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -99,13 +100,17 @@ public class RecipeController {
     public Iterable<Recipe> getRecipeByIngredient(@PathVariable String ingredient){
         return handleEmptyResult(recipeService.findByIngredientsContain(ingredient),"ingredient",ingredient);
     }
-    @GetMapping("/search/ingredients/")
+    @GetMapping("/search/ingredients/page/{num}/{size}")
     @JsonView(Recipe.NonImage.class)
     @Operation(summary = "get recipes by keyword in ingredients")
     public Iterable<Recipe> getRecipeByMultipleIngredients(
             @Parameter(description = "list of ingredients", example = "lemon&garlic")
-            @RequestParam(value = "query") String ingredients){
-        return handleEmptyResult(recipeService.findRecipeByMultipleIngredients(ingredients), "ingredients",ingredients);
+            @RequestParam(value = "query") String ingredients,
+            @Parameter(description = "page number", example = "1")
+            @PathVariable int num,
+            @Parameter(description = "page size", example = "10")
+            @PathVariable int size){
+        return handleEmptyResult(recipeService.findRecipeByMultipleIngredients(ingredients, PageRequest.of(num-1, size)), "ingredients",ingredients);
     }
 
     @GetMapping("/{recipeId}")

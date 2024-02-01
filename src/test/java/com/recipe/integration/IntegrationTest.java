@@ -471,15 +471,16 @@ class IntegrationTest {
     @Test
     void searchMultipleIngredients() throws Exception{
         MvcResult result =
-                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/search/ingredients/?query=quinoa&tomato")))
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/search/ingredients/page/1/10?query=quinoa&tomato")))
                         .andExpect(status().isOk())
                         .andReturn();
 
         String contentAsJson = result.getResponse().getContentAsString();
         ObjectMapper mapper = new ObjectMapper();
-        Recipe[] actualRecipes = mapper.readValue(contentAsJson, Recipe[].class);
+        JsonNode rootNode = mapper.readTree(contentAsJson);
+        int id = rootNode.get("content").get(0).get("id").asInt();
 
-        assertEquals(102, actualRecipes[0].getId());
+        assertEquals(102, id);
 
     }
     @Test
