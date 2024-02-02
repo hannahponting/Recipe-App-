@@ -110,7 +110,7 @@ public class RecipeController {
             @PathVariable int num,
             @Parameter(description = "page size", example = "10")
             @PathVariable int size){
-        return handleEmptyResult(recipeService.findRecipeByMultipleIngredients(ingredients, PageRequest.of(num-1, size)), "ingredients",ingredients);
+        return recipeService.findRecipeByMultipleIngredients(ingredients, PageRequest.of(num-1, size));
     }
 
     @GetMapping("/{recipeId}")
