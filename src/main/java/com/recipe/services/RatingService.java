@@ -71,4 +71,7 @@ public class RatingService {
     }
 
 
+    public Boolean IsRecipeFavouriteByUserId(Long personId, Long recipeId) {
+        return ratingRepository.findFavouriteByPersonIdAndRecipeId(personId,recipeId);
+    }
 }
