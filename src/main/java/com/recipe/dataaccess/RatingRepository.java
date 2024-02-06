@@ -24,4 +24,7 @@ public interface RatingRepository extends ListCrudRepository<Rating,Long> {
 
     @Query("SELECT r.recipeId from Rating r WHERE r.personId = :person AND r.favourite=true")
     ArrayList<Long> findFavouriteRecipesByUser(@Param("person") Long person);
+
+    @Query("SELECT r.favourite FROM Rating r WHERE r.personId = :personId AND r.recipeId = :recipeId")
+    Boolean findFavouriteByPersonIdAndRecipeId(Long personId, Long recipeId);
 }
