@@ -37,7 +37,7 @@ public class RatingController {
     }
 
     @GetMapping("favourite/{personId}/{recipeId}")
-    @Operation(summary = "check weather the user like a recipe or not")
+    @Operation(summary = "check whether the user like a recipe or not")
     public Boolean IsRecipeFavourite(@PathVariable Long personId, @PathVariable Long recipeId  ){
         return ratingService.IsRecipeFavouriteByUserId(personId,recipeId);
     }
