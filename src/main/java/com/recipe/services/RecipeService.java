@@ -1,12 +1,14 @@
 package com.recipe.services;
 
 import com.querydsl.core.types.dsl.BooleanExpression;
+import com.recipe.dataaccess.RatingRepository;
 import com.recipe.dataaccess.RecipePredicatesBuilder;
 import com.recipe.dataaccess.RecipeRepository;
 import com.recipe.entities.Recipe;
 import com.recipe.utilities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -14,10 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
@@ -27,10 +26,12 @@ import java.util.stream.Stream;
 public class RecipeService {
 
     RecipeRepository recipeRepository;
+    RatingRepository ratingRepository;
       
     @Autowired
-    public RecipeService(RecipeRepository recipeRepository){
+    public RecipeService(RecipeRepository recipeRepository, RatingRepository ratingRepository){
         this.recipeRepository = recipeRepository;
+        this.ratingRepository = ratingRepository;
     }
 
     public Recipe addRecipe(Recipe recipe) {
@@ -178,16 +179,32 @@ public class RecipeService {
 
         RecipePredicatesBuilder builder = new RecipePredicatesBuilder();
 
+
         if (query != null) {
             Pattern pattern = Pattern.compile("(\\w+?)(=|<=|>=)(\\w+?)&");
             Matcher matcher = pattern.matcher(query + "&");
             while (matcher.find()) {
                 builder.with(matcher.group(1), matcher.group(2), matcher.group(3));
             }
+            BooleanExpression exp = builder.build();
+            Page<Recipe> page = recipeRepository.findAll(exp, pageable);
+            return sortPageByRating(pageable, page);
         }
-        else {return recipeRepository.findAll(pageable);}
-        BooleanExpression exp = builder.build();
-        return recipeRepository.findAll(exp, pageable);
+        else {
+            Page<Recipe> page = recipeRepository.findAll(pageable);
+            return sortPageByRating(pageable, page);
+        }
+
+    }
+
+    private PageImpl<Recipe> sortPageByRating(Pageable pageable, Page<Recipe> page) {
+        ArrayList<Long> ratingOrder = ratingRepository.findTopRatedRecipes(Integer.MAX_VALUE);
+        Map<Long, Integer> ratingOrderMap = new HashMap<>();
+        for (int i = 0; i < ratingOrder.size(); i++) {
+            ratingOrderMap.put(ratingOrder.get(i), i);}
+        List<Recipe> sortedContent = new ArrayList<>(page.getContent());
+        sortedContent.sort(Comparator.comparingLong(recipe -> ratingOrderMap.getOrDefault(recipe.getId(), Integer.MAX_VALUE)));
+        return new PageImpl<>(sortedContent, pageable, page.getTotalElements());
     }
 
     public Iterable<Recipe> findRecipeByMultipleIngredients(String query, Pageable pageable){
@@ -204,9 +221,11 @@ public class RecipeService {
                 filteredResultsList.add(recipeRepository.findRecipeIdByIngredientSearch(requiredIngredients.get(i)));
             }
             ArrayList<Long> commonLongs = findCommonLongs(filteredResultsList);
-            return recipeRepository.findAllByIdIn(commonLongs, pageable);
+            Page<Recipe> page =  recipeRepository.findAllByIdIn(commonLongs, pageable);
+            return sortPageByRating(pageable, page);
         }
-        else return recipeRepository.findAll(pageable);
+        else {Page<Recipe> page = recipeRepository.findAll(pageable);
+            return sortPageByRating(pageable, page);}
     }
         public static ArrayList<Long> findCommonLongs(ArrayList<ArrayList<Long>> listOfLists) {
             ArrayList<Long> commonLongs = new ArrayList<>(listOfLists.get(0));
