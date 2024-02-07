@@ -2,6 +2,7 @@ package com.recipe.services;
 
 import com.recipe.dataaccess.CredentialRepository;
 import com.recipe.dataaccess.PersonRepository;
+import com.recipe.entities.PasswordReset;
 import com.recipe.entities.Person;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,6 +23,8 @@ public class CredentialServiceTest {
     CredentialRepository repository;
     @MockBean
     PersonRepository personRepository;
+    @MockBean
+    PasswordResetService passwordResetService;
     @BeforeEach
     void setup(){
         reset(this.personRepository);
@@ -32,7 +35,8 @@ public class CredentialServiceTest {
         Person testPerson = new Person();
         testPerson.setEmail("test@test.com");
         Mockito.when(personRepository.findPersonByEmail(any())).thenReturn(testPerson);
-        credentialService.generateCredential("test@test.com","TestPassword!", null);
+        Mockito.when(passwordResetService.validReset(any(),any())).thenReturn(true);
+        credentialService.generateCredential("test@test.com","TestPassword!", "123456");
         boolean validLogin = credentialService.validLogin("test@test.com", "TestPassword!");
         Assertions.assertTrue(validLogin);
 
