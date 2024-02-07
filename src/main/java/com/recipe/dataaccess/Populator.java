@@ -75,7 +75,7 @@ public class Populator {
     public void addImageToExistingRecipe() throws IOException {
                 int imageCounter = 1702;
             for (int i = 1; i < 79; i++) {
-                RecipeService recipeService = new RecipeService(recipeRepository);
+                RecipeService recipeService = new RecipeService(recipeRepository, ratingRepository);
 
                 Recipe recipe = recipeService.getRecipeById(i);
 
