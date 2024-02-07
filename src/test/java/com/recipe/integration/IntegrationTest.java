@@ -5,12 +5,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.recipe.entities.Person;
 import com.recipe.entities.Rating;
 import com.recipe.entities.Recipe;
+import com.recipe.services.RatingService;
 import jakarta.servlet.ServletException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
@@ -21,6 +23,7 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -35,6 +38,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class IntegrationTest {
     @Autowired
     MockMvc mockMvc;
+
+    @MockBean
+    private RatingService ratingService;
+
 
     @Test
     void testPostingRecipe() throws Exception {
@@ -399,6 +406,16 @@ class IntegrationTest {
         int id = rootNode.get("content").get(0).get("id").asInt();
 
         assertEquals(102, id);
+    }
+
+
+    @Test
+    void isFavourite() throws Exception {
+        when(ratingService.IsRecipeFavouriteByUserId(2L, 1L)).thenReturn(true);
+
+        mockMvc.perform(get("/api/rating/favourite/2/1"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("true"));
     }
     @Test
     void setPassword() throws Exception {
