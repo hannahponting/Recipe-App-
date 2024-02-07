@@ -58,7 +58,7 @@ public class Populator {
         ArrayList<CredentialPair> credentialPairs = objectMapper.readValue(credentialFile, new TypeReference<>() {
         });
         for (CredentialPair credentialPair : credentialPairs) {
-            credentialService.generateCredential(credentialPair.getEmail(), credentialPair.getPassword());
+            credentialService.generateCredential(credentialPair.getEmail(), credentialPair.getPassword(), null);
         }
     }
 
