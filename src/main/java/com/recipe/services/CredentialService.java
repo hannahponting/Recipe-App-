@@ -18,11 +18,13 @@ import java.util.regex.Pattern;
 public class CredentialService {
     CredentialRepository credentialRepository;
     PersonRepository personRepository;
+    PasswordResetService passwordResetService;
 
     @Autowired
-    public CredentialService(CredentialRepository credentialRepository, PersonRepository personRepository) {
+    public CredentialService(CredentialRepository credentialRepository, PersonRepository personRepository, PasswordResetService passwordResetService) {
         this.credentialRepository = credentialRepository;
         this.personRepository = personRepository;
+        this.passwordResetService = passwordResetService;
     }
 
     public static boolean isValidPassword(String password) {
@@ -56,7 +58,7 @@ public class CredentialService {
     }
 
 
-    public String generateCredential(String email, String password) {
+    public String generateCredential(String email, String password, String resetCode) {
         Credential newCredential = new Credential();
         Person person = personRepository.findPersonByEmail(email);
         if (person == null) {
@@ -64,7 +66,9 @@ public class CredentialService {
         }
         Credential existingCredential = credentialRepository.findCredentialByPersonId(person.getId());
         if (existingCredential != null) {
+            if(passwordResetService.validReset(email,resetCode)){
             newCredential = existingCredential;}
+        else throw new IllegalArgumentException("You must provide the correct reset code when changing an existing password");}
         else{newCredential.setPerson(person);}
         if(!isValidPassword(password)){
             throw new IllegalArgumentException("The password must be at least 8 characters and contain an uppercase and a special character.");

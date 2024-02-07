@@ -556,4 +556,24 @@ class IntegrationTest {
         assertEquals(101, actualRecipes[0].getId());
 
     }
+
+    @Test
+    void generateResetCode() throws Exception{
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/account/reset/dave@dave.com")))
+                        .andExpect(status().isOk())
+                        .andReturn();
+
+        String content = result.getResponse().getContentAsString();
+
+        assertEquals(content, "Code generated");
+
+    }
+    @Test
+    void generateResetCodeInvalid() throws Exception {
+        Assertions.assertThrows(ServletException.class, () -> {
+            this.mockMvc.perform(get("/api/account/reset/notanemailaddress@dave.com"))
+                    .andExpect(status().is5xxServerError()).andReturn();
+        });
+    }
 }
