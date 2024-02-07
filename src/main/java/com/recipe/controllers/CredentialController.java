@@ -25,7 +25,7 @@ public class CredentialController {
     @Operation(summary = "save a new password")
     @ResponseStatus(HttpStatus.CREATED)
     public String updatePassword(@RequestBody CredentialPair credentialPair) {
-    return credentialService.generateCredential(credentialPair.getEmail(), credentialPair.getPassword());
+    return credentialService.generateCredential(credentialPair.getEmail(), credentialPair.getPassword(), credentialPair.getResetCode());
     }
 
     @PostMapping("/login")
@@ -38,10 +38,4 @@ public class CredentialController {
     public String requestReset(@PathVariable String email) {
         return passwordResetService.generateResetCode(email);
     }
-    @PostMapping("/reset")
-    @Operation(summary = "validate password reset")
-    public boolean validateReset(@RequestBody PasswordResetPair resetPair) {
-        return passwordResetService.validReset(resetPair.getEmail(),resetPair.getResetCode());
-    }
-
 }

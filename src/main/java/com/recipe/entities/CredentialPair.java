@@ -11,4 +11,10 @@ public class CredentialPair {
 
     private String email;
     private String password;
+
+    public String getResetCode() {
+        return resetCode;
+    }
+
+    private String resetCode;
 }

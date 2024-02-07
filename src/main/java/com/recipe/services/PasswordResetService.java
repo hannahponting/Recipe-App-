@@ -25,12 +25,8 @@ public class PasswordResetService {
         this.personRepository = personRepository;
         this.credentialRepository = credentialRepository;
     }
-    
-    @Autowired
     PasswordResetRepository passwordResetRepository;
-    @Autowired
     PersonRepository personRepository;
-    @Autowired
     CredentialRepository credentialRepository;
 
     private static int generateResetCode () {

@@ -32,7 +32,7 @@ public class CredentialServiceTest {
         Person testPerson = new Person();
         testPerson.setEmail("test@test.com");
         Mockito.when(personRepository.findPersonByEmail(any())).thenReturn(testPerson);
-        credentialService.generateCredential("test@test.com","TestPassword!");
+        credentialService.generateCredential("test@test.com","TestPassword!", null);
         boolean validLogin = credentialService.validLogin("test@test.com", "TestPassword!");
         Assertions.assertTrue(validLogin);
 
