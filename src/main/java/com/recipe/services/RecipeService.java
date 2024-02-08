@@ -187,24 +187,30 @@ public class RecipeService {
                 builder.with(matcher.group(1), matcher.group(2), matcher.group(3));
             }
             BooleanExpression exp = builder.build();
-            Page<Recipe> page = recipeRepository.findAll(exp, pageable);
-            return sortPageByRating(pageable, page);
+            Iterable<Recipe> iterable = recipeRepository.findAll(exp);
+            List<Recipe> list = new ArrayList<>();
+            iterable.forEach(list::add);
+            return sortPageByRating(pageable, list);
         }
         else {
-            Page<Recipe> page = recipeRepository.findAll(pageable);
-            return sortPageByRating(pageable, page);
+            List<Recipe> list = recipeRepository.findAll();
+            return sortPageByRating(pageable, list);
         }
 
     }
 
-    private PageImpl<Recipe> sortPageByRating(Pageable pageable, Page<Recipe> page) {
+    private PageImpl<Recipe> sortPageByRating(Pageable pageable, List<Recipe> list) {
         ArrayList<Long> ratingOrder = ratingRepository.findTopRatedRecipes(Integer.MAX_VALUE);
         Map<Long, Integer> ratingOrderMap = new HashMap<>();
         for (int i = 0; i < ratingOrder.size(); i++) {
             ratingOrderMap.put(ratingOrder.get(i), i);}
-        List<Recipe> sortedContent = new ArrayList<>(page.getContent());
-        sortedContent.sort(Comparator.comparingLong(recipe -> ratingOrderMap.getOrDefault(recipe.getId(), Integer.MAX_VALUE)));
-        return new PageImpl<>(sortedContent, pageable, page.getTotalElements());
+        list.sort(Comparator.comparingLong(recipe -> ratingOrderMap.getOrDefault(recipe.getId(), Integer.MAX_VALUE)));
+        int pageSize = pageable.getPageSize();
+        int pageNumber = pageable.getPageNumber();
+        int startIndex = pageNumber * pageSize;
+        int endIndex = Math.min(startIndex + pageSize, list.size());
+        List<Recipe> pageContent = list.subList(startIndex, endIndex);
+        return new PageImpl<>(pageContent, pageable, list.size());
     }
 
     public Iterable<Recipe> findRecipeByMultipleIngredients(String query, Pageable pageable){
@@ -221,11 +227,11 @@ public class RecipeService {
                 filteredResultsList.add(recipeRepository.findRecipeIdByIngredientSearch(requiredIngredients.get(i)));
             }
             ArrayList<Long> commonLongs = findCommonLongs(filteredResultsList);
-            Page<Recipe> page =  recipeRepository.findAllByIdIn(commonLongs, pageable);
-            return sortPageByRating(pageable, page);
+            List<Recipe> list =  recipeRepository.findAllByIdIn(commonLongs);
+            return sortPageByRating(pageable, list);
         }
-        else {Page<Recipe> page = recipeRepository.findAll(pageable);
-            return sortPageByRating(pageable, page);}
+        else {List<Recipe> list = recipeRepository.findAll();
+            return sortPageByRating(pageable, list);}
     }
         public static ArrayList<Long> findCommonLongs(ArrayList<ArrayList<Long>> listOfLists) {
             ArrayList<Long> commonLongs = new ArrayList<>(listOfLists.get(0));
