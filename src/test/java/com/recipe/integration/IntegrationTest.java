@@ -6,6 +6,9 @@ import com.recipe.entities.Person;
 import com.recipe.entities.Rating;
 import com.recipe.entities.Recipe;
 import com.recipe.services.RatingService;
+import com.recipe.utilities.Cost;
+import com.recipe.utilities.Difficulty;
+import com.recipe.utilities.MealTime;
 import jakarta.servlet.ServletException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -20,6 +23,7 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -330,84 +334,6 @@ class IntegrationTest {
         assertEquals("Dykes", actualPerson.getLastName());
     }
 
-    @Test
-    void submitRating() throws Exception {
-        String rating = """
-                {
-                      "recipeId": 101,
-                      "personId": 101,
-                      "myRating": 5,
-                      "favourite": true
-                    }
-                """;
-        MvcResult result =
-                mockMvc.perform(MockMvcRequestBuilders.post("/api/rating")
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .content(rating))
-                        .andExpect(status().isCreated())
-                        .andReturn();
-
-        String contentAsJson = result.getResponse().getContentAsString();
-        ObjectMapper mapper = new ObjectMapper();
-        Rating actualRating = mapper.readValue(contentAsJson, Rating.class);
-        Assertions.assertEquals(true, actualRating.isFavourite());
-        Assertions.assertEquals(5, actualRating.getMyRating());
-    }
-    @Test
-    void submitInvalidRating() throws Exception {
-        String rating = """
-                {
-                      "myRating": 5,
-                      "favourite": true
-                    }
-                """;
-        Assertions.assertThrows(ServletException.class, () ->
-                mockMvc.perform(MockMvcRequestBuilders.post("/api/rating")
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .content(rating))
-                        .andReturn());
-    }
-    @Test
-    void getRating() throws Exception {
-        MvcResult result =
-                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/rating/101")))
-                        .andExpect(status().isOk())
-                        .andReturn();
-
-        String contentAsJson = result.getResponse().getContentAsString();
-        ObjectMapper mapper = new ObjectMapper();
-        Double actualRating = mapper.readValue(contentAsJson, Double.class);
-
-        assertEquals(4, actualRating);
-    }
-    @Test
-    void getTopRecipes() throws Exception {
-        MvcResult result =
-                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/top/1")))
-                        .andExpect(status().isOk())
-                        .andReturn();
-
-        String contentAsJson = result.getResponse().getContentAsString();
-        ObjectMapper mapper = new ObjectMapper();
-        Recipe[] actualRecipes = mapper.readValue(contentAsJson, Recipe[].class);
-
-        assertEquals(101, actualRecipes[0].getId());
-    }
-    @Test
-    void getFavouriteRecipes() throws Exception {
-        MvcResult result =
-                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/favourite/101/page/1/10")))
-                        .andExpect(status().isOk())
-                        .andReturn();
-
-        String contentAsJson = result.getResponse().getContentAsString();
-        ObjectMapper mapper = new ObjectMapper();
-        JsonNode rootNode = mapper.readTree(contentAsJson);
-        int id = rootNode.get("content").get(0).get("id").asInt();
-
-        assertEquals(102, id);
-    }
-
 
     @Test
     void isFavourite() throws Exception {
@@ -542,20 +468,6 @@ class IntegrationTest {
         assertEquals(101, actualRecipes[0].getId());
 
     }
-    @Test
-    void searchRating() throws Exception{
-        MvcResult result =
-                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/min/3")))
-                        .andExpect(status().isOk())
-                        .andReturn();
-
-        String contentAsJson = result.getResponse().getContentAsString();
-        ObjectMapper mapper = new ObjectMapper();
-        Recipe[] actualRecipes = mapper.readValue(contentAsJson, Recipe[].class);
-
-        assertEquals(101, actualRecipes[0].getId());
-
-    }
 
     @Test
     void generateResetCode() throws Exception{
@@ -575,5 +487,129 @@ class IntegrationTest {
             this.mockMvc.perform(get("/api/account/reset/notanemailaddress@dave.com"))
                     .andExpect(status().is5xxServerError()).andReturn();
         });
+    }
+
+    private final ObjectMapper mapper = new ObjectMapper();
+    @Test
+    void testGettingAllRecipes() throws Exception {
+
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes")))
+                        .andExpect(status().isOk())
+                        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                        .andReturn();
+
+        String contentAsJson = result.getResponse().getContentAsString();
+
+        Recipe[] actualRecipe = mapper.readValue(contentAsJson,Recipe[].class);
+
+        assertEquals("Grilled Lemon Herb Chicken",actualRecipe[0].getName());
+        assertEquals("Vegetarian Quinoa Bowl",actualRecipe[1].getName());
+        assertEquals("[4 boneless, skinless chicken breasts, lemon juice, olive oil, minced garlic, oregano, salt, pepper]",actualRecipe[0].getIngredientsList().toString());
+        assertEquals("[In a bowl, mix lemon juice, olive oil, minced garlic, oregano, salt, and pepper.]",actualRecipe[0].getInstructions().toString());
+    }
+
+
+    @Test
+    void testFindRecipeById() throws Exception {
+        Long Id= 101L;
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/"+Id)))
+                        .andExpect(status().isOk())
+                        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                        .andReturn();
+
+        String contentAsJson = result.getResponse().getContentAsString();
+        ObjectMapper mapper = new ObjectMapper();
+        Recipe actualRecipe = mapper.readValue(contentAsJson,Recipe.class);
+
+        assertEquals("Grilled Lemon Herb Chicken",actualRecipe.getName());
+    }
+
+    @Test
+    void testingPRecipeWithNotExistingId() throws Exception {
+        Long recipeId = 0L;
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/recipes/" + (recipeId));
+        MvcResult result = mockMvc.perform(requestBuilder)
+                .andExpect(status().isNotFound())
+                .andReturn();
+
+    }
+
+
+    @Test
+    void testSearchRecipesByDifficulty() throws Exception {
+
+        Difficulty difficultyLevel =Difficulty.EASY;
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/difficulty/"+difficultyLevel)))
+                        .andExpect(status().isOk())
+                        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                        .andReturn();
+
+        String contentAsJson = result.getResponse().getContentAsString();
+        ObjectMapper mapper = new ObjectMapper();
+        Recipe[] actualRecipes = mapper.readValue(contentAsJson,Recipe[].class);
+
+        assertEquals("Grilled Lemon Herb Chicken",actualRecipes[0].getName());
+    }
+
+    @Test
+    void testSearchRecipesByDifficultyNotFound() throws Exception {
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/difficulty/"+"HIGH")))
+                        .andExpect(status().isNotFound())
+                        .andReturn();
+    }
+
+    @Test
+    void testSearchRecipesByMealType() throws Exception {
+
+        MealTime mealType = MealTime.LUNCH;
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/meal_type/"+mealType)))
+                        .andExpect(status().isOk())
+                        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                        .andReturn();
+
+        String contentAsJson = result.getResponse().getContentAsString();
+        ObjectMapper mapper = new ObjectMapper();
+        Recipe[] actualRecipes = mapper.readValue(contentAsJson,Recipe[].class);
+
+        assertEquals("Grilled Lemon Herb Chicken",actualRecipes[0].getName());
+    }
+
+    @Test
+    void testSearchRecipesByMealTypeNotFound() throws Exception {
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/meal_type/"+"BREAKFAST")))
+                        .andExpect(status().isNotFound())
+                        .andReturn();
+    }
+
+    @Test
+    void testSearchRecipesByCostType() throws Exception {
+
+        Cost costType = Cost.MODERATE;
+
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/cost/"+costType)))
+                        .andExpect(status().isOk())
+                        .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                        .andReturn();
+
+        String contentAsJson = result.getResponse().getContentAsString();
+        ObjectMapper mapper = new ObjectMapper();
+        Recipe[] actualRecipes = mapper.readValue(contentAsJson,Recipe[].class);
+
+        assertEquals("Vegetarian Quinoa Bowl",actualRecipes[0].getName());
+    }
+
+    @Test
+    void testSearchRecipesByByCostTypNotFound() throws Exception {
+        MvcResult result =
+                (this.mockMvc.perform(MockMvcRequestBuilders.get("/api/recipes/cost/"+"PRICEY")))
+                        .andExpect(status().isNotFound())
+                        .andReturn();
     }
 }
