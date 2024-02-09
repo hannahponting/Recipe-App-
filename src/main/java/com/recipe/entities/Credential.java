@@ -14,7 +14,7 @@ public class Credential {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "person_id")
     private Person person;
 
     private String salt;
