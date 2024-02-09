@@ -11,11 +11,14 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.TestPropertySource;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.reset;
 
 @SpringBootTest
+@TestPropertySource(properties = {"spring.sql.init.mode=never"})
+@TestPropertySource(locations = "classpath:test.properties")
 public class CredentialServiceTest {
     @Autowired
     CredentialService credentialService;
